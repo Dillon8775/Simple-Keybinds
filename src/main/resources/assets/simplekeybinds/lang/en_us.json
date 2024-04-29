@@ -1,0 +1,11 @@
+{
+  "simplekeybinds.keybinds": "Simple Keybinds",
+  "simplekeybinds.toggle_fog": "Toggle Fog",
+  "simplekeybinds.toggle_fog.on": "Fog: on",
+  "simplekeybinds.toggle_fog.off": "Fog: off",
+  "simplekeybinds.toggle_fullbright": "Toggle Fullbright",
+  "simplekeybinds.toggle_fullbright.on": "Fullbright: on",
+  "simplekeybinds.toggle_fullbright.off": "Fullbright: off",
+  "simplekeybinds.toggle_hitboxes": "Toggle Hitboxes",
+  "simplekeybinds.toggle_chunk_borders": "Toggle Chunk Borders"
+}

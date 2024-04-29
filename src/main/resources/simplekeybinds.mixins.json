@@ -1,11 +1,13 @@
 {
-	"required": true,
-	"package": "net.dillon.simplekeybinds.mixin",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [
-		"ExampleMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "required": true,
+  "package": "net.dillon.simplekeybinds.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "BackgroundRendererMixin",
+    "DoubleOptionMixin",
+    "MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
