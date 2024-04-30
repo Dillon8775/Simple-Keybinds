@@ -29,7 +29,7 @@ public class DoubleOptionMixin {
     @Shadow @Mutable
     protected double max;
 
-    @Inject(method = "<init>", at = @At("RETURN"))
+    @Inject(method = "<init>(Ljava/lang/String;DDFLjava/util/function/Function;Ljava/util/function/BiConsumer;Ljava/util/function/BiFunction;)V", at = @At("RETURN"))
     private void init(String key, double min, double max, float step, Function<GameOptions, Double> getter, BiConsumer<GameOptions, Double> setter, BiFunction<GameOptions, DoubleOption, Text> displayStringGetter, CallbackInfo ci) {
         if (key.equals("options.gamma")) {
             this.min = SimpleKeybinds.minBrightness;
