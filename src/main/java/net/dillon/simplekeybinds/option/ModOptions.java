@@ -27,7 +27,7 @@ public class ModOptions {
 
         if (!configFile.exists()) {
             OPTIONS = new ModOptions();
-            SimpleKeybinds.log("Creating simple keybinds options file...");
+            SimpleKeybinds.LOGGER.info("Creating simple keybinds options file...");
         } else {
             readConfig();
         }
