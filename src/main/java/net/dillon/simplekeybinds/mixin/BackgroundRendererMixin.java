@@ -26,64 +26,63 @@ public class BackgroundRendererMixin {
 	public static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, float viewDistance, boolean thickFog) {
 		FluidState fluidState = camera.getSubmergedFluidState();
 		Entity entity = camera.getFocusedEntity();
-		float s;
+		float f;
 		if (fluidState.isIn(FluidTags.WATER)) {
-			s = 1.0F;
-			s = 0.05F;
+			f = 1.0F;
+			f = 0.05F;
 			if (entity instanceof ClientPlayerEntity) {
 				ClientPlayerEntity clientPlayerEntity = (ClientPlayerEntity)entity;
-				s -= clientPlayerEntity.getUnderwaterVisibility() * clientPlayerEntity.getUnderwaterVisibility() * 0.03F;
+				f -= clientPlayerEntity.getUnderwaterVisibility() * clientPlayerEntity.getUnderwaterVisibility() * 0.03F;
 				Biome biome = clientPlayerEntity.world.getBiome(clientPlayerEntity.getBlockPos());
 				if (biome.getCategory() == Biome.Category.SWAMP) {
-					s += 0.005F;
+					f += 0.005F;
 				}
 			}
 
-			RenderSystem.fogDensity(s);
+			RenderSystem.fogDensity(f);
 			RenderSystem.fogMode(GlStateManager.FogMode.EXP2);
 		} else {
-			float v;
+			float g;
 			final int fog = 2147483647;
-			final float lavaVisionDistance = 35.0F;
 			if (fluidState.isIn(FluidTags.LAVA)) {
 				if (entity instanceof LivingEntity && ((LivingEntity)entity).hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {
-					s = 0.0F;
-					v = lavaVisionDistance;
+					f = 0.0F;
+					g = 3.0F;
 				} else {
-					s = 0.25F;
-					v = 1.0F;
+					f = 0.25F;
+					g = 1.0F;
 				}
 			} else if (entity instanceof LivingEntity && ((LivingEntity)entity).hasStatusEffect(StatusEffects.BLINDNESS)) {
-				int k = ((LivingEntity)entity).getStatusEffect(StatusEffects.BLINDNESS).getDuration();
-				float l = MathHelper.lerp(Math.min(1.0F, (float)k / 20.0F), viewDistance, 5.0F);
+				int i = ((LivingEntity)entity).getStatusEffect(StatusEffects.BLINDNESS).getDuration();
+				float h = MathHelper.lerp(Math.min(1.0F, (float)i / 20.0F), viewDistance, 5.0F);
 				if (fogType == BackgroundRenderer.FogType.FOG_SKY) {
-					s = 0.0F;
-					v = l * 0.8F;
+					f = 0.0F;
+					g = h * 0.8F;
 				} else {
-					s = l * 0.25F;
-					v = l;
+					f = h * 0.25F;
+					g = h;
 				}
 			} else if (thickFog) {
-				s = viewDistance * 0.05F;
+				f = viewDistance * 0.05F;
 				if (!SimpleKeybinds.options().fog) {
-					v = fog;
+					g = fog;
 				} else {
-					v = Math.min(viewDistance, 192.0F) * 0.5F;
+					g = Math.min(viewDistance, 192.0F) * 0.5F;
 				}
 			} else if (fogType == BackgroundRenderer.FogType.FOG_SKY) {
-				s = 0.0F;
-				v = viewDistance;
+				f = 0.0F;
+				g = viewDistance;
 			} else {
-				s = viewDistance * 0.75F;
+				f = viewDistance * 0.75F;
 				if (!SimpleKeybinds.options().fog) {
-					v = fog;
+					g = fog;
 				} else {
-					v = viewDistance;
+					g = viewDistance;
 				}
 			}
 
-			RenderSystem.fogStart(s);
-			RenderSystem.fogEnd(v);
+			RenderSystem.fogStart(f);
+			RenderSystem.fogEnd(g);
 			RenderSystem.fogMode(GlStateManager.FogMode.LINEAR);
 			RenderSystem.setupNvFogDistance();
 		}
