@@ -4,8 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "BackgroundRendererMixin",
-    "DoubleOptionMixin",
-    "MinecraftClientMixin"
+    "MinecraftClientMixin",
+    "SimpleOptionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

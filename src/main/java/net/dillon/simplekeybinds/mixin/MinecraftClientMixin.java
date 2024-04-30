@@ -7,8 +7,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,7 +35,7 @@ public class MinecraftClientMixin {
         while (ModKeybinds.fullbrightKey.wasPressed()) {
             SimpleKeybinds.options().fullBright = !SimpleKeybinds.options().fullBright;
             ModOptions.saveConfig();
-            MinecraftClient.getInstance().options.gamma = SimpleKeybinds.options().fullBright ? SimpleKeybinds.maxBrightness : 1.0D;
+            MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.options().fullBright ? SimpleKeybinds.maxBrightness : 1.0D);
             debugWarn(SimpleKeybinds.options().fullBright ? "simplekeybinds.toggle_fullbright.on" : "simplekeybinds.toggle_fullbright.off");
         }
 
@@ -54,6 +53,6 @@ public class MinecraftClientMixin {
 
     @Unique
     private void debugWarn(String key, Object... args) {
-        this.inGameHud.getChatHud().addMessage((new LiteralText("")).append((new TranslatableText("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD)).append(" ").append(new TranslatableText(key, args)));
+        this.inGameHud.getChatHud().addMessage((Text.literal("")).append((Text.translatable("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD)).append(" ").append(Text.translatable(key, args)));
     }
 }

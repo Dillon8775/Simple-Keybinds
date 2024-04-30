@@ -12,6 +12,7 @@ import net.minecraft.client.render.FogShape;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.tag.BiomeTags;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
@@ -23,7 +24,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class BackgroundRendererMixin {
 
 	@Overwrite
-	public static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, float viewDistance, boolean thickFog) {
+	public static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, float viewDistance, boolean thickFog, float tickDelta) {
 		CameraSubmersionType cameraSubmersionType = camera.getSubmersionType();
 		Entity entity = camera.getFocusedEntity();
 		FogShape fogShape = FogShape.SPHERE;
@@ -66,7 +67,7 @@ public class BackgroundRendererMixin {
 				ClientPlayerEntity clientPlayerEntity = (ClientPlayerEntity)entity;
 				g *= Math.max(0.25F, clientPlayerEntity.getUnderwaterVisibility());
 				RegistryEntry<Biome> registryEntry = clientPlayerEntity.world.getBiome(clientPlayerEntity.getBlockPos());
-				if (Biome.getCategory(registryEntry) == Biome.Category.SWAMP) {
+				if (registryEntry.isIn(BiomeTags.HAS_CLOSER_WATER_FOG)) {
 					g *= 0.85F;
 				}
 			}
