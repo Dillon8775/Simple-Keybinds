@@ -78,7 +78,7 @@ public class BackgroundRendererMixin {
 			}
 		} else if (thickFog) {
 			f = viewDistance * 0.05F;
-			if (!SimpleKeybinds.options().fog) {
+			if (!SimpleKeybinds.fog) {
 				g = fog;
 			} else {
 				g = Math.min(viewDistance, 192.0F) * 0.5F;
@@ -90,7 +90,7 @@ public class BackgroundRendererMixin {
 		} else {
 			float j = MathHelper.clamp(viewDistance / 10.0F, 4.0F, 64.0F);
 			f = viewDistance - j;
-			if (!SimpleKeybinds.options().fog) {
+			if (!SimpleKeybinds.fog) {
 				g = fog;
 			} else {
 				g = viewDistance;
