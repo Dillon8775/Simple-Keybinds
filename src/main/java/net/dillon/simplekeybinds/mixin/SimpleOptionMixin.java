@@ -32,7 +32,7 @@ public class SimpleOptionMixin {
     private Consumer<Double> changeCallback;
 
     @Inject(at = @At("RETURN"), method = "<init>*")
-    private void init(CallbackInfo info) throws Exception {
+    private void init(CallbackInfo info) {
         TextContent content = this.text.getContent();
         if (!(content instanceof TranslatableTextContent))
             return;
