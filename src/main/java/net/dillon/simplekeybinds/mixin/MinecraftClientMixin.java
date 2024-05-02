@@ -31,6 +31,22 @@ public class MinecraftClientMixin {
             }
         }
 
+        while (ModKeybinds.DECREASE_BRIGHTNESS.wasPressed()) {
+            if (MinecraftClient.getInstance().options.getGamma().getValue() > SimpleKeybinds.minBrightness) {
+                MinecraftClient.getInstance().options.getGamma().setValue(MinecraftClient.getInstance().options.getGamma().getValue() - 0.5D);
+            } else {
+                message("simplekeybinds.brightness_error");
+            }
+        }
+
+        while (ModKeybinds.INCREASE_BRIGHTNESS.wasPressed()) {
+            if (MinecraftClient.getInstance().options.getGamma().getValue() < SimpleKeybinds.maxBrightness) {
+                MinecraftClient.getInstance().options.getGamma().setValue(MinecraftClient.getInstance().options.getGamma().getValue() + 0.5D);
+            } else {
+                message("simplekeybinds.brightness_error");
+            }
+        }
+
         while (ModKeybinds.PAUSE_WITHOUT_MENU.wasPressed()) {
             MinecraftClient.getInstance().setScreen(new GameMenuScreen(false));
         }

@@ -2,6 +2,8 @@
   "simplekeybinds.keybinds": "Simple Keybinds",
 
   "simplekeybinds.clear_chat": "Clear Chat",
+  "simplekeybinds.decrease_brightness": "Decrease Brightness",
+  "simplekeybinds.increase_brightness": "Increase Brightness",
   "simplekeybinds.pause_without_menu": "Pause Without Menu",
   "simplekeybinds.reload_chunks": "Reload Chunks",
   "simplekeybinds.show_advanced_tooltips": "Show Advanced Tooltips",
@@ -10,8 +12,9 @@
   "simplekeybinds.toggle_fullbright": "Toggle Fullbright",
   "simplekeybinds.toggle_hitboxes": "Toggle Hitboxes",
 
-  "simplekeybinds.fog.on": "Fog: ON",
-  "simplekeybinds.fog.off": "Fog: OFF",
-  "simplekeybinds.fullbright.on": "Fullbright: ON",
-  "simplekeybinds.fullbright.off": "Fullbright: OFF"
+  "simplekeybinds.fog.on": "Fog: on",
+  "simplekeybinds.fog.off": "Fog: off",
+  "simplekeybinds.fullbright.on": "Fullbright: on",
+  "simplekeybinds.fullbright.off": "Fullbright: off",
+  "simplekeybinds.brightness_error": "Brightness is already at min/max value."
 }
