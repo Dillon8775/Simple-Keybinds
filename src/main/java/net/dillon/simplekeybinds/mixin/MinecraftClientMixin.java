@@ -2,11 +2,11 @@ package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.keybinds.ModKeybinds;
-import net.dillon.simplekeybinds.option.ModOptions;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -26,34 +26,69 @@ public class MinecraftClientMixin {
 
     @Inject(at = @At("TAIL"), method = "handleInputEvents")
     private void handleInputEvents(CallbackInfo info) {
-        while (ModKeybinds.fogKey.wasPressed()) {
-            SimpleKeybinds.options().fog = !SimpleKeybinds.options().fog;
-            ModOptions.saveConfig();
+        while (ModKeybinds.CLEAR_CHAT.wasPressed()) {
+            if (this.inGameHud != null) {
+                this.inGameHud.getChatHud().clear(false);
+            }
+        }
+
+        while (ModKeybinds.DECREASE_BRIGHTNESS.wasPressed()) {
+            if (MinecraftClient.getInstance().options.gamma > SimpleKeybinds.minBrightness) {
+                MinecraftClient.getInstance().options.gamma = MinecraftClient.getInstance().options.gamma - 0.5D;
+            } else {
+                message("simplekeybinds.brightness_error");
+            }
+        }
+
+        while (ModKeybinds.INCREASE_BRIGHTNESS.wasPressed()) {
+            if (MinecraftClient.getInstance().options.gamma < SimpleKeybinds.maxBrightness) {
+                MinecraftClient.getInstance().options.gamma = MinecraftClient.getInstance().options.gamma + 0.5D;
+            } else {
+                message("simplekeybinds.brightness_error");
+            }
+        }
+
+        while (ModKeybinds.PAUSE_WITHOUT_MENU.wasPressed()) {
+            MinecraftClient.getInstance().setScreen(new GameMenuScreen(false));
+        }
+
+        while (ModKeybinds.RELOAD_CHUNKS.wasPressed()) {
             MinecraftClient.getInstance().worldRenderer.reload();
-            debugWarn(SimpleKeybinds.options().fog ? "simplekeybinds.toggle_fog.on" : "simplekeybinds.toggle_fog.off");
+            message("debug.reload_chunks.message");
         }
 
-        while (ModKeybinds.fullbrightKey.wasPressed()) {
-            SimpleKeybinds.options().fullBright = !SimpleKeybinds.options().fullBright;
-            ModOptions.saveConfig();
-            MinecraftClient.getInstance().options.gamma = SimpleKeybinds.options().fullBright ? SimpleKeybinds.maxBrightness : 1.0D;
-            debugWarn(SimpleKeybinds.options().fullBright ? "simplekeybinds.toggle_fullbright.on" : "simplekeybinds.toggle_fullbright.off");
+        while (ModKeybinds.SHOW_ADVANCED_TOOLTIPS.wasPressed()) {
+            MinecraftClient.getInstance().options.advancedItemTooltips = !MinecraftClient.getInstance().options.advancedItemTooltips;
+            MinecraftClient.getInstance().options.write();
+            message(MinecraftClient.getInstance().options.advancedItemTooltips ? "debug.advanced_tooltips.on" : "debug.advanced_tooltips.off");
         }
 
-        while (ModKeybinds.hitboxesKey.wasPressed()) {
+        while (ModKeybinds.TOGGLE_CHUNK_BORDERS.wasPressed()) {
+            boolean bl = MinecraftClient.getInstance().debugRenderer.toggleShowChunkBorder();
+            message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off");
+        }
+
+        while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
+            SimpleKeybinds.fog = !SimpleKeybinds.fog;
+            MinecraftClient.getInstance().worldRenderer.reload();
+            message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
+        }
+
+        while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
+            SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
+            MinecraftClient.getInstance().options.gamma = SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D;
+            message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
+        }
+
+        while (ModKeybinds.TOGGLE_HITBOXES.wasPressed()) {
             boolean bl = !MinecraftClient.getInstance().getEntityRenderDispatcher().shouldRenderHitboxes();
             MinecraftClient.getInstance().getEntityRenderDispatcher().setRenderHitboxes(bl);
-            debugWarn(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off");
-        }
-
-        while (ModKeybinds.chunkBordersKey.wasPressed()) {
-            boolean bl = MinecraftClient.getInstance().debugRenderer.toggleShowChunkBorder();
-            debugWarn(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off");
+            message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off");
         }
     }
 
     @Unique
-    private void debugWarn(String key, Object... args) {
+    private void message(String key, Object... args) {
         this.inGameHud.getChatHud().addMessage((new LiteralText("")).append((new TranslatableText("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD)).append(" ").append(new TranslatableText(key, args)));
     }
 }
