@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplekeybinds",
-  "version": "1.0",
+  "version": "1.1",
   "name": "Simple Keybinds",
   "description": "A Minecraft mod that add simple keybinds.",
   "authors": [
@@ -9,8 +9,8 @@
   ],
   "accessWidener": "simplekeybinds.accessWidener",
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://sites.google.com/view/dillon8775",
+    "sources": "https://github.com/Dillon8775/Simple-Keybinds"
   },
   "license": "CC0-1.0",
   "icon": "assets/simplekeybinds/icon.png",
