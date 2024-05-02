@@ -62,9 +62,8 @@ public class BackgroundRendererMixin {
 		} else if (cameraSubmersionType == CameraSubmersionType.WATER) {
 			f = -8.0F;
 			g = 96.0F;
-			if (entity instanceof ClientPlayerEntity) {
-				ClientPlayerEntity clientPlayerEntity = (ClientPlayerEntity)entity;
-				g *= Math.max(0.25F, clientPlayerEntity.getUnderwaterVisibility());
+			if (entity instanceof ClientPlayerEntity clientPlayerEntity) {
+                g *= Math.max(0.25F, clientPlayerEntity.getUnderwaterVisibility());
 				RegistryEntry<Biome> registryEntry = clientPlayerEntity.world.getBiome(clientPlayerEntity.getBlockPos());
 				if (Biome.getCategory(registryEntry) == Biome.Category.SWAMP) {
 					g *= 0.85F;
@@ -77,7 +76,7 @@ public class BackgroundRendererMixin {
 			}
 		} else if (thickFog) {
 			f = viewDistance * 0.05F;
-			if (!SimpleKeybinds.options().fog) {
+			if (!SimpleKeybinds.fog) {
 				g = fog;
 			} else {
 				g = Math.min(viewDistance, 192.0F) * 0.5F;
@@ -89,7 +88,7 @@ public class BackgroundRendererMixin {
 		} else {
 			float j = MathHelper.clamp(viewDistance / 10.0F, 4.0F, 64.0F);
 			f = viewDistance - j;
-			if (!SimpleKeybinds.options().fog) {
+			if (!SimpleKeybinds.fog) {
 				g = fog;
 			} else {
 				g = viewDistance;
