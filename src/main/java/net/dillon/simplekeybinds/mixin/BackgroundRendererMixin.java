@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 @Environment(EnvType.CLIENT)
-@Mixin(BackgroundRenderer.class	)
+@Mixin(value = BackgroundRenderer.class, priority = 1001)
 public class BackgroundRendererMixin {
 
 	@Overwrite

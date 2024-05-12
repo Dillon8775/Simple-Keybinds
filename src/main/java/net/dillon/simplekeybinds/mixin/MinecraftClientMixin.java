@@ -17,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static net.dillon.simplekeybinds.SimpleKeybinds.isSpeedrunnerModLoaded;
+
 @Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
@@ -67,22 +69,24 @@ public class MinecraftClientMixin {
             message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off");
         }
 
-        while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
-            SimpleKeybinds.fog = !SimpleKeybinds.fog;
-            MinecraftClient.getInstance().worldRenderer.reload();
-            message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
-        }
-
-        while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
-            SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
-            MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D);
-            message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
-        }
-
         while (ModKeybinds.TOGGLE_HITBOXES.wasPressed()) {
             boolean bl = !MinecraftClient.getInstance().getEntityRenderDispatcher().shouldRenderHitboxes();
             MinecraftClient.getInstance().getEntityRenderDispatcher().setRenderHitboxes(bl);
             message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off");
+        }
+
+        if (!isSpeedrunnerModLoaded()) {
+            while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
+                SimpleKeybinds.fog = !SimpleKeybinds.fog;
+                MinecraftClient.getInstance().worldRenderer.reload();
+                message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
+            }
+
+            while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
+                SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
+                MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D);
+                message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
+            }
         }
     }
 
