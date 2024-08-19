@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class SimpleKeybinds implements ClientModInitializer {
 	public static boolean fog = true;
 	public static boolean fullBright = false;
-	public static double minBrightness = 0.5D;
+	public static double minBrightness = 0.0D;
 	public static double maxBrightness = 12.0D;
 	public static final Logger LOGGER = LogManager.getLogger("Simple Keybinds");
 
