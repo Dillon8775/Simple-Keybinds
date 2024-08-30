@@ -20,9 +20,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 @Environment(EnvType.CLIENT)
-@Mixin(BackgroundRenderer.class	)
+@Mixin(BackgroundRenderer.class)
 public class BackgroundRendererMixin {
 
+	/**
+	 * Removes fog from the game when using the keybind.
+	 * <p>This mixin is not applied if the {@code speedrunner mod} is loaded. See {@link ConditionalMixinPlugin} for more.</p>
+	 */
 	@Overwrite
 	public static void applyFog(Camera camera, BackgroundRenderer.FogType fogType, float viewDistance, boolean thickFog, float tickDelta) {
 		CameraSubmersionType cameraSubmersionType = camera.getSubmersionType();
