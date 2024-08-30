@@ -1,6 +1,7 @@
 {
   "required": true,
   "package": "net.dillon.simplekeybinds.mixin",
+  "plugin": "net.dillon.simplekeybinds.mixin.ConditionalMixinPlugin",
   "compatibilityLevel": "JAVA_8",
   "client": [
     "BackgroundRendererMixin",
