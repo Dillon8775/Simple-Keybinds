@@ -16,11 +16,17 @@ public class SimpleKeybinds implements ClientModInitializer {
 	public static double maxBrightness = 12.0D;
 	public static final Logger LOGGER = LogManager.getLogger("Simple Keybinds");
 
+	/**
+	 * Initializes the {@code Simple Keybindings.}
+	 */
 	@Override
 	public void onInitializeClient() {
 		ModKeybinds.init();
 	}
 
+	/**
+	 * Returns true if the {@code speedrunner mod} is loaded.
+	 */
 	public static boolean isSpeedrunnerModLoaded() {
 		return FabricLoader.getInstance().isModLoaded("speedrunnermod");
 	}
