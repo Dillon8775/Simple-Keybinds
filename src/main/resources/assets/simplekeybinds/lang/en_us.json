@@ -16,5 +16,6 @@
   "simplekeybinds.fog.off": "Fog: off",
   "simplekeybinds.fullbright.on": "Fullbright: on",
   "simplekeybinds.fullbright.off": "Fullbright: off",
-  "simplekeybinds.brightness_error": "Brightness is already at min/max value."
+  "simplekeybinds.brightness_error": "Brightness is already at min/max value.",
+  "simplekeybinds.speedrunner_mod_loaded_keybindings": "The Speedrunner Mod is loaded, use those keybindings instead."
 }

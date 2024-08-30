@@ -68,22 +68,34 @@ public class MinecraftClientMixin {
             message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off");
         }
 
-        while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
-            SimpleKeybinds.fog = !SimpleKeybinds.fog;
-            MinecraftClient.getInstance().worldRenderer.reload();
-            message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
-        }
-
-        while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
-            SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
-            MinecraftClient.getInstance().options.gamma = (SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D);
-            message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
-        }
-
         while (ModKeybinds.TOGGLE_HITBOXES.wasPressed()) {
             boolean bl = !MinecraftClient.getInstance().getEntityRenderDispatcher().shouldRenderHitboxes();
             MinecraftClient.getInstance().getEntityRenderDispatcher().setRenderHitboxes(bl);
             message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off");
+        }
+
+        // If the Speedrunner Mod is loaded, the fog keybinding won't work.
+        // You will have to use the Speedrunner Mod fog keybind.
+        while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
+            if (!SimpleKeybinds.isSpeedrunnerModLoaded()) {
+                SimpleKeybinds.fog = !SimpleKeybinds.fog;
+                MinecraftClient.getInstance().worldRenderer.reload();
+                message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
+            } else {
+                message("simplekeybinds.speedrunner_mod_loaded_keybindings");
+            }
+        }
+
+        // If the Speedrunner Mod is loaded, the fullbright keybinding won't work.
+        // You will have to use the Speedrunner Mod fullbright keybind.
+        while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
+            if (!SimpleKeybinds.isSpeedrunnerModLoaded()) {
+                SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
+                MinecraftClient.getInstance().options.gamma = SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D;
+                message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
+            } else {
+                message("simplekeybinds.speedrunner_mod_loaded_keybindings");
+            }
         }
     }
 
