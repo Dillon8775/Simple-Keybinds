@@ -1,4 +1,8 @@
 accessWidener v1 named
 
+accessible class net/minecraft/client/render/BackgroundRenderer$FogData
+accessible class net/minecraft/client/render/BackgroundRenderer$StatusEffectFogModifier
 accessible class net/minecraft/client/option/SimpleOption$Callbacks
 extendable class net/minecraft/client/option/SimpleOption$SliderCallbacks
+
+accessible method net/minecraft/client/render/BackgroundRenderer getFogModifier (Lnet/minecraft/entity/Entity;F)Lnet/minecraft/client/render/BackgroundRenderer$StatusEffectFogModifier;
