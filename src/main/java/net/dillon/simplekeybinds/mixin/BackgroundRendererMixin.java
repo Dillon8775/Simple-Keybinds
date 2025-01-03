@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.SimpleKeybinds;
+import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.enums.CameraSubmersionType;
@@ -85,7 +86,7 @@ public abstract class BackgroundRendererMixin {
 				}
 			} else if (thickenFog) {
 				fogData.fogStart = viewDistance * 0.05F;
-				if (!SimpleKeybinds.fog) {
+				if (!SimpleKeybindsCore.fog) {
 					fogData.fogEnd = fog;
 				} else {
 					fogData.fogEnd = Math.min(viewDistance, 192.0F) * 0.5F;
@@ -97,7 +98,7 @@ public abstract class BackgroundRendererMixin {
 			} else if (fogType == BackgroundRenderer.FogType.FOG_TERRAIN) {
 				float f = MathHelper.clamp(viewDistance / 10.0F, 4.0F, 64.0F);
 				fogData.fogStart = viewDistance - f;
-				if (!SimpleKeybinds.fog) {
+				if (!SimpleKeybindsCore.fog) {
 					fogData.fogEnd = fog;
 				} else {
 					fogData.fogEnd = viewDistance;
