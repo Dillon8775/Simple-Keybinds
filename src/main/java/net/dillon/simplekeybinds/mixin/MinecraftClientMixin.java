@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.SimpleKeybinds;
-import net.dillon.simplekeybinds.keybinds.ModKeybinds;
+import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
+import net.dillon.simplekeybinds.core.keybinds.ModKeybinds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -33,7 +33,7 @@ public class MinecraftClientMixin {
         }
 
         while (ModKeybinds.DECREASE_BRIGHTNESS.wasPressed()) {
-            if (MinecraftClient.getInstance().options.gamma > SimpleKeybinds.minBrightness) {
+            if (MinecraftClient.getInstance().options.gamma > SimpleKeybindsCore.minBrightness) {
                 MinecraftClient.getInstance().options.gamma = MinecraftClient.getInstance().options.gamma - 0.5D;
             } else {
                 message("simplekeybinds.brightness_error");
@@ -41,7 +41,7 @@ public class MinecraftClientMixin {
         }
 
         while (ModKeybinds.INCREASE_BRIGHTNESS.wasPressed()) {
-            if (MinecraftClient.getInstance().options.gamma < SimpleKeybinds.maxBrightness) {
+            if (MinecraftClient.getInstance().options.gamma < SimpleKeybindsCore.maxBrightness) {
                 MinecraftClient.getInstance().options.gamma = MinecraftClient.getInstance().options.gamma + 0.5D;
             } else {
                 message("simplekeybinds.brightness_error");
@@ -74,13 +74,25 @@ public class MinecraftClientMixin {
             message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off");
         }
 
+        while (ModKeybinds.TOGGLE_DEBUG_MENU.wasPressed()) {
+            boolean bl = !MinecraftClient.getInstance().options.debugEnabled;
+            MinecraftClient.getInstance().options.debugEnabled = !MinecraftClient.getInstance().options.debugEnabled;
+            message(bl ? "simplekeybinds.debug_menu.on" : "simplekeybinds.debug_menu.off");
+        }
+
+        while (ModKeybinds.TOGGLE_HUD.wasPressed()) {
+            boolean bl = MinecraftClient.getInstance().options.hudHidden;
+            MinecraftClient.getInstance().options.hudHidden = !MinecraftClient.getInstance().options.hudHidden;
+            message(bl ? "simplekeybinds.hud.on" : "simplekeybinds.hud.off");
+        }
+
         // If the Speedrunner Mod is loaded, the fog keybinding won't work.
         // You will have to use the Speedrunner Mod fog keybind.
         while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
-            if (!SimpleKeybinds.isSpeedrunnerModLoaded()) {
-                SimpleKeybinds.fog = !SimpleKeybinds.fog;
+            if (!SimpleKeybindsCore.isSpeedrunnerModLoaded()) {
+                SimpleKeybindsCore.fog = !SimpleKeybindsCore.fog;
                 MinecraftClient.getInstance().worldRenderer.reload();
-                message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
+                message(SimpleKeybindsCore.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off");
             } else {
                 message("simplekeybinds.speedrunner_mod_loaded_keybindings");
             }
@@ -89,10 +101,10 @@ public class MinecraftClientMixin {
         // If the Speedrunner Mod is loaded, the fullbright keybinding won't work.
         // You will have to use the Speedrunner Mod fullbright keybind.
         while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
-            if (!SimpleKeybinds.isSpeedrunnerModLoaded()) {
-                SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
-                MinecraftClient.getInstance().options.gamma = SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D;
-                message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
+            if (!SimpleKeybindsCore.isSpeedrunnerModLoaded()) {
+                SimpleKeybindsCore.fullBright = !SimpleKeybindsCore.fullBright;
+                MinecraftClient.getInstance().options.gamma = SimpleKeybindsCore.fullBright ? SimpleKeybindsCore.maxBrightness : 1.0D;
+                message(SimpleKeybindsCore.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off");
             } else {
                 message("simplekeybinds.speedrunner_mod_loaded_keybindings");
             }
