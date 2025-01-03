@@ -1,7 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
