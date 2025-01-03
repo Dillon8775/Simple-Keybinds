@@ -1,5 +1,6 @@
 package net.dillon.simplekeybinds;
 
+import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
