@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.SimpleKeybinds;
+import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.option.DoubleOption;
@@ -32,8 +32,8 @@ public class DoubleOptionMixin {
     @Inject(method = "<init>(Ljava/lang/String;DDFLjava/util/function/Function;Ljava/util/function/BiConsumer;Ljava/util/function/BiFunction;)V", at = @At("RETURN"))
     private void init(String key, double min, double max, float step, Function<GameOptions, Double> getter, BiConsumer<GameOptions, Double> setter, BiFunction<GameOptions, DoubleOption, Text> displayStringGetter, CallbackInfo ci) {
         if (key.equals("options.gamma")) {
-            this.min = SimpleKeybinds.minBrightness;
-            this.max = SimpleKeybinds.maxBrightness;
+            this.min = SimpleKeybindsCore.minBrightness;
+            this.max = SimpleKeybindsCore.maxBrightness;
             this.step = 0.1F;
             this.displayStringGetter = this::displayStringGetter;
         }

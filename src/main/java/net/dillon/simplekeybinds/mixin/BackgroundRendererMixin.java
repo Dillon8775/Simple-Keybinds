@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.dillon.simplekeybinds.SimpleKeybinds;
+import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -76,7 +76,7 @@ public class BackgroundRendererMixin {
 				}
 			} else if (thickFog) {
 				f = viewDistance * 0.05F;
-				if (!SimpleKeybinds.fog) {
+				if (!SimpleKeybindsCore.fog) {
 					g = fog;
 				} else {
 					g = Math.min(viewDistance, 192.0F) * 0.5F;
@@ -86,7 +86,7 @@ public class BackgroundRendererMixin {
 				g = viewDistance;
 			} else {
 				f = viewDistance * 0.75F;
-				if (!SimpleKeybinds.fog) {
+				if (!SimpleKeybindsCore.fog) {
 					g = fog;
 				} else {
 					g = viewDistance;
