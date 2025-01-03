@@ -19,6 +19,9 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	modImplementation "com.github.Dillon8775:Simple-Keybinds-Core:${project.simple_keybinds_core_version}"
+	include "com.github.Dillon8775:Simple-Keybinds-Core:${project.simple_keybinds_core_version}"
 }
 
 loom {
