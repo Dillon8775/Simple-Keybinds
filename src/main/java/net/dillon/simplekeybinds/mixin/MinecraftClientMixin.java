@@ -47,6 +47,24 @@ public class MinecraftClientMixin {
             }
         }
 
+        while (ModKeybinds.DECREASE_RENDER_DISTANCE.wasPressed()) {
+            if (!(MinecraftClient.getInstance().options.getViewDistance().getValue() == 2)) {
+                MinecraftClient.getInstance().options.getViewDistance().setValue(MinecraftClient.getInstance().options.getViewDistance().getValue() - 1);
+                message("simplekeybinds.decreased_render_distance", MinecraftClient.getInstance().options.getViewDistance().getValue());
+            } else {
+                message("simplekeybinds.decreased_render_distance.error");
+            }
+        }
+
+        while (ModKeybinds.INCREASE_RENDER_DISTANCE.wasPressed()) {
+            if (!(MinecraftClient.getInstance().options.getViewDistance().getValue() == 32)) {
+                MinecraftClient.getInstance().options.getViewDistance().setValue(MinecraftClient.getInstance().options.getViewDistance().getValue() + 1);
+                message("simplekeybinds.increased_render_distance", MinecraftClient.getInstance().options.getViewDistance().getValue());
+            } else {
+                message("simplekeybinds.increased_render_distance.error");
+            }
+        }
+
         while (ModKeybinds.PAUSE_WITHOUT_MENU.wasPressed()) {
             MinecraftClient.getInstance().setScreen(new GameMenuScreen(false));
         }
