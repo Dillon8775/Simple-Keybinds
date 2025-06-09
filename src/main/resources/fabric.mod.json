@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "id": "simplekeybinds",
-  "version": "1.1.6",
+  "version": "1.1.6+mc1.21.3x",
   "name": "Simple Keybinds",
-  "description": "A Minecraft mod that add simple keybinds.",
+  "description": "A mod that has simple(r) keybinds.",
   "authors": [
     "Dillon8775"
   ],
   "accessWidener": "simplekeybinds.accessWidener",
   "contact": {
-    "homepage": "https://sites.google.com/view/dillon8775",
+    "homepage": "https://modrinth.com/mod/simple-keybinds",
     "sources": "https://github.com/Dillon8775/Simple-Keybinds"
   },
-  "license": "CC0-1.0",
+  "license": "All rights reserved.",
   "icon": "assets/simplekeybinds/icon.png",
   "environment": "*",
   "entrypoints": {

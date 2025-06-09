@@ -1,0 +1,2 @@
+- Mod icon!
+- Changed license (All rights reserved).

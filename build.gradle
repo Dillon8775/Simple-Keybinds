@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'fabric-loom' version '1.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,10 +11,10 @@ base {
 }
 
 repositories {
-	mavenCentral()
 	maven {
 		url "https://jitpack.io"
 	}
+	mavenCentral()
 }
 
 dependencies {
@@ -22,10 +22,12 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "com.github.Dillon8775:Simple-Keybinds-Core:${project.simple_keybinds_core_version}"
-	include "com.github.Dillon8775:Simple-Keybinds-Core:${project.simple_keybinds_core_version}"
+	// The core for the mod
+	modImplementation "com.github.Dillon8775:Simple-Keybinds-Core:${project.simple_keybinds_core_build_id}"
+	include "com.github.Dillon8775:Simple-Keybinds-Core:${project.simple_keybinds_core_build_id}"
 }
 
 loom {
