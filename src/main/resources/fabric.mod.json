@@ -14,7 +14,7 @@
   },
   "license": "All rights reserved.",
   "icon": "assets/simplekeybinds/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "client": [
       "net.dillon.simplekeybinds.SimpleKeybinds"

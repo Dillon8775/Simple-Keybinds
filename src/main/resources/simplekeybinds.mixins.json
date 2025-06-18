@@ -6,6 +6,7 @@
   "client": [
     "BackgroundRendererMixin",
     "MinecraftClientMixin",
+    "MouseMixin",
     "SimpleOptionMixin"
   ],
   "injectors": {
