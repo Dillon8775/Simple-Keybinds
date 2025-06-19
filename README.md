@@ -2,7 +2,7 @@
 
 # Adds various different "Simple Keybinds" to the game.
 
-### Currently compatible with Minecraft versions above 1.21-1.21.5.
+### Currently compatible with Minecraft versions above 1.21-1.21.6.
 
 ---
 ## KEYBINDS:
