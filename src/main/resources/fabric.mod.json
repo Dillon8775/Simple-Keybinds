@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplekeybinds",
-  "version": "1.2+mc1.21.3x",
+  "version": "1.2+mc1.21.6x",
   "name": "Simple Keybinds",
   "description": "A mod that has simple(r) keybinds.",
   "authors": [
@@ -24,8 +24,8 @@
     "simplekeybinds.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.8",
-    "minecraft": ">=1.21.3 <=1.21.5",
+    "fabricloader": ">=0.16.13",
+    "minecraft": ">=1.21.6",
     "java": ">=21",
     "fabric": "*"
   }

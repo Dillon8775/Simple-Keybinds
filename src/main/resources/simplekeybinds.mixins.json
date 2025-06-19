@@ -4,7 +4,7 @@
   "plugin": "net.dillon.simplekeybinds.mixin.ConditionalMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "BackgroundRendererMixin",
+    "FogRendererMixin",
     "MinecraftClientMixin",
     "MouseMixin",
     "SimpleOptionMixin"
