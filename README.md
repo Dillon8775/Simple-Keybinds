@@ -1,4 +1,4 @@
-[![Requires Fabric API](https://cdn.modrinth.com/data/cached_images/8bd6d7ff822dc33ffb55af6cc0c7062cec53e9e3.png)](https://modrinth.com/mod/fabric-api)
+# [![Requires Fabric API](https://cdn.modrinth.com/data/cached_images/8bd6d7ff822dc33ffb55af6cc0c7062cec53e9e3.png)](https://modrinth.com/mod/fabric-api)
 
 # Adds various different "Simple Keybinds" to the game.
 
