@@ -1,6 +1,1 @@
-- New keybind to increase/decrease entity distance!
-- Increase/decrease keybinds (like changing brightness, render distance and entity distance) are now one key, and by pressing and holding the key and scrolling with your mouse wheel, you will increase/decrease the setting.
-- Mod icon!
-- Now only compatible with Minecraft version 1.21 and up.
-- Removed "Simple Keybinds Core", mod is now built in all-in one.
-- Changed license (All rights reserved).
+- Fixed bug where the player can see clearly if they have the darkness or blindness status effect and fog is disabled.
