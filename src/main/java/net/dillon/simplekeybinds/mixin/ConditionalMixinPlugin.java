@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.core.SimpleKeybindsCore;
+import net.dillon.simplekeybinds.SimpleKeybinds;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -18,7 +18,7 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
      */
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (SimpleKeybindsCore.isSpeedrunnerModLoaded()) {
+        if (SimpleKeybinds.isSpeedrunnerModLoaded()) {
             return !mixinClassName.equals("net.dillon.simplekeybinds.mixin.BackgroundRendererMixin") && !mixinClassName.equals("net.dillon.simplekeybinds.mixin.SimpleOptionMixin");
         }
         return true;
