@@ -16,8 +16,8 @@
 ---
 ## KEYBINDS:
 - #### A fog keybind, which enables/disables fog (Default Key = **O**)
-- #### A fullbright keybind, which sets the users gamma to 1,200% (basically _fullbright_) and back to 100% (Default Key = **V**)
-- #### Toggle chunk borders (Default Key = _Y_)
+- #### A fullbright keybind, which sets the users gamma to 1,200% (basically _fullbright_) and back to 100%/the previous brightness. (Default Key = **V**)
+- #### Toggle chunk borders (Default Key = _B_)
 - #### Hitboxes (Default Key = _X_)
 - #### Advanced Tooltips (_No default key assigned._)
 - #### HUD Overlay (_No default key assigned._)
@@ -29,5 +29,6 @@
 ## SCROLLING KEYS:
 ### To use these keys, hold down the assigned key and use your mousewheel to increase/decrease the setting:
 - #### A key to change render distance (Default Key = _U_)
+- #### A key to change the master volume (Default Key = *M*)
 - #### A key to change entity distance (Default Key = _H_)
 - #### A key to change brightness (Default Key = _J_)
