@@ -19,16 +19,22 @@ public class ModKeybinds {
     public static final KeyBinding CLEAR_CHAT = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.clear_chat", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
 
     /**
+     * Increases/decreases the players master volume.
+     * <p>{@code Default Key = M}</p>
+     */
+    public static final KeyBinding CHANGE_MASTER_VOLUME = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_master_volume", InputUtil.GLFW_KEY_M, MOD_KEYBINDS));
+
+    /**
      * Increases/decreases the players gamma by {@code 50%.}
      * <p>{@code Default Key = J}</p>
      */
-    public static final KeyBinding CHANGE_BRIGHTNESS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_brightness", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_J, MOD_KEYBINDS));
+    public static final KeyBinding CHANGE_BRIGHTNESS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_brightness", GLFW.GLFW_KEY_J, MOD_KEYBINDS));
 
     /**
      * Increase/decreases the players render distance by {@code 1.}
-     * <p>{@code Default Key = U}</p>
+     * <p>{@code Default Key = R}</p>
      */
-    public static final KeyBinding CHANGE_RENDER_DISTANCE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_render_distance", GLFW.GLFW_KEY_U, MOD_KEYBINDS));
+    public static final KeyBinding CHANGE_RENDER_DISTANCE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_render_distance", GLFW.GLFW_KEY_R, MOD_KEYBINDS));
 
     /**
      * Increases/decreases entity distance by {@code 25%.}
@@ -68,27 +74,27 @@ public class ModKeybinds {
 
     /**
      * Toggles chunk borders.
-     * <p>{@code Default Key = Y}</p>
+     * <p>{@code Default Key = B}</p>
      */
-    public static final KeyBinding TOGGLE_CHUNK_BORDERS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_chunk_borders", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_Y, MOD_KEYBINDS));
+    public static final KeyBinding TOGGLE_CHUNK_BORDERS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_chunk_borders", GLFW.GLFW_KEY_B, MOD_KEYBINDS));
 
     /**
      * Toggles Minecraft's fog on/off.
      * <p>{@code Default Key = O}</p>
      */
-    public static final KeyBinding TOGGLE_FOG = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_fog", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_O, MOD_KEYBINDS));
+    public static final KeyBinding TOGGLE_FOG = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_fog", GLFW.GLFW_KEY_O, MOD_KEYBINDS));
 
     /**
      * Toggles fullbright (or very high gamma).
      * <p>{@code Default Key = V}</p>
      */
-    public static final KeyBinding TOGGLE_FULLBRIGHT = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_fullbright", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_V, MOD_KEYBINDS));
+    public static final KeyBinding TOGGLE_FULLBRIGHT = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_fullbright", GLFW.GLFW_KEY_V, MOD_KEYBINDS));
 
     /**
      * Toggles all hitboxes.
      * <p>{@code Default Key = X}</p>
      */
-    public static final KeyBinding TOGGLE_HITBOXES = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_hitboxes", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_X, MOD_KEYBINDS));
+    public static final KeyBinding TOGGLE_HITBOXES = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_hitboxes", GLFW.GLFW_KEY_X, MOD_KEYBINDS));
 
     public static void init() {
         SimpleKeybinds.LOGGER.info("Simple Keybinds core has been loaded.");

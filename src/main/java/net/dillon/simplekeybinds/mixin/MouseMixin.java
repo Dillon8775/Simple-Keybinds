@@ -6,11 +6,13 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -36,15 +38,19 @@ public class MouseMixin {
                 float gamma = this.client.options.getGamma().getValue().floatValue();
                 delta = 0.5F * (vertical > 0 ? 1 : -1);
                 gamma += delta;
-                if (gamma < min) {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_brightness.low_error").formatted(Formatting.GREEN), true);
-                } else if (gamma > max) {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_brightness.high_error").formatted(Formatting.GREEN), true);
-                } else {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_brightness", (int)(gamma * 100)).append("%").formatted(Formatting.GREEN), true);
-                }
                 gamma = Math.max(min, Math.min(max, gamma));
                 this.client.options.getGamma().setValue((double)gamma);
+                this.sendMessage(Text.translatable("simplekeybinds.changed_brightness", (int)(gamma * 100)).append("%").formatted(Formatting.GREEN));
+                ci.cancel();
+            } else if (ModKeybinds.CHANGE_MASTER_VOLUME.isPressed()) {
+                min = 0;
+                max = 1;
+                double volume = this.client.options.getSoundVolumeOption(SoundCategory.MASTER).getValue();
+                delta = (vertical > 0 ? 3 : -3) / (float)100;
+                volume += delta;
+                volume = Math.max(min, Math.min((int)max, volume));
+                this.client.options.getSoundVolumeOption(SoundCategory.MASTER).setValue(volume);
+                this.sendMessage(Text.translatable("simplekeybinds.changed_master_volume", (int)(volume * 100)).append(Text.literal("%")));
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_RENDER_DISTANCE.isPressed()) {
                 min = 2;
@@ -52,15 +58,13 @@ public class MouseMixin {
                 int renderDistance = this.client.options.getViewDistance().getValue();
                 delta = (vertical > 0 ? 1 : -1);
                 renderDistance += delta;
-                if (renderDistance < min) {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_render_distance.low_error").formatted(Formatting.AQUA), true);
-                } else if (renderDistance > max) {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_render_distance.high_error").formatted(Formatting.AQUA), true);
-                } else {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_render_distance", renderDistance).formatted(Formatting.AQUA), true);
-                }
                 renderDistance = Math.max((int)min, Math.min((int)max, renderDistance));
                 this.client.options.getViewDistance().setValue(renderDistance);
+                this.sendMessage(Text.translatable("simplekeybinds.changed_render_distance", renderDistance).formatted(renderDistance < 9 ? Formatting.GREEN :
+                        renderDistance < 16 ? Formatting.AQUA :
+                                renderDistance < 24 ? Formatting.GOLD :
+                                        renderDistance > 29 ? Formatting.DARK_RED :
+                                                Formatting.RED));
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_ENTITY_DISTANCE.isPressed()) {
                 min = 0.5F;
@@ -68,17 +72,24 @@ public class MouseMixin {
                 float entityDistance = this.client.options.getEntityDistanceScaling().getValue().floatValue();
                 delta = 0.25F * (vertical > 0 ? 1 : -1);
                 entityDistance += delta;
-                if (entityDistance < min) {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_entity_distance.low_error").formatted(Formatting.GOLD), true);
-                } else if (entityDistance > max) {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_entity_distance.high_error").formatted(Formatting.GOLD), true);
-                } else {
-                    this.client.player.sendMessage(Text.translatable("simplekeybinds.changed_entity_distance", (int)(entityDistance * 100)).append("%").formatted(Formatting.GOLD), true);
-                }
                 entityDistance = Math.max(min, Math.min(max, entityDistance));
                 this.client.options.getEntityDistanceScaling().setValue((double)entityDistance);
+                this.sendMessage(Text.translatable("simplekeybinds.changed_entity_distance", (int)(entityDistance * 100)).append("%").formatted(
+                        entityDistance < 1.75F ? Formatting.GREEN :
+                                entityDistance < 2.75F ? Formatting.AQUA :
+                                        entityDistance < 4.25F ? Formatting.GOLD :
+                                                Formatting.RED));
                 ci.cancel();
             }
         }
+    }
+
+    /**
+     * Sends the message for the updated setting, and writes it to the "options.txt" file.
+     */
+    @Unique
+    private void sendMessage(Text message) {
+        MinecraftClient.getInstance().options.write();
+        this.client.player.sendMessage(message, true);
     }
 }

@@ -89,8 +89,15 @@ public class MinecraftClientMixin {
         // You will have to use the Speedrunner Mod fullbright keybind.
         while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
             if (!SimpleKeybinds.isSpeedrunnerModLoaded()) {
+                double currentBrightness = MinecraftClient.getInstance().options.getGamma().getValue();
+                if (!SimpleKeybinds.fullBright) {
+                    SimpleKeybinds.previousBrightness = currentBrightness;
+                    if (currentBrightness >= 8.0D) {
+                        SimpleKeybinds.previousBrightness = 1.0D;
+                    }
+                }
                 SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
-                MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : 1.0D);
+                MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : SimpleKeybinds.previousBrightness);
                 this.getChatHud().addMessage(message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
             } else {
                 this.getChatHud().addMessage(message("simplekeybinds.speedrunner_mod_loaded_keybindings"));
@@ -99,10 +106,11 @@ public class MinecraftClientMixin {
     }
 
     /**
-     * Sends the message for the updated setting.
+     * Sends the message for the updated setting, and writes it to the "options.txt" file.
      */
     @Unique
     private Text message(String key, Object... args) {
+        MinecraftClient.getInstance().options.write();
         return Text.literal("")
                 .append((Text.translatable("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD))
                         .append(" ")

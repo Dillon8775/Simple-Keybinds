@@ -1,1 +1,10 @@
-- Fixed bug where the player can see clearly if they have the darkness or blindness status effect and fog is disabled.
+--- Key Changes: ---
+- New keybind to change master volume (using the scroll wheel): "M".
+- The default key for Toggle Chunk borders is now "B".
+- The default key for Change Render Distance is now "R".
+
+--- A few tweaks and improvements: ---
+- Disabling fullbright now sets the brightness back to whatever it was before fullbright was toggled (unless the brightness previously was greater than or equal to 800%, as that is close enough to fullbright, the brightness will still be set to 100%. The game only remembers the previous value as long as it was toggled during the current game session).
+- Changing options, like render distance and entity distance, will now display the message in a certain color which reflects performance (ex. 32 render distance will show in red, 8 render distance will show in green).
+- Changing options now actually saves the value to the "options.txt" file.
+- Removed error messages when attempting to increase/decrease a value above or below its max/min value.
