@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplekeybinds",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "name": "Simple Keybinds",
   "description": "A Minecraft mod that add simple keybinds.",
   "authors": [
@@ -25,7 +25,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.15.6",
-    "minecraft": ">=1.16",
-    "java": ">=8"
+    "minecraft": ">=1.20",
+    "java": ">=21"
   }
 }
