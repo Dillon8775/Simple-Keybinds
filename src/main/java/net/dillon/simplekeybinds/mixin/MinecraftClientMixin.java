@@ -7,6 +7,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.gui.hud.debug.DebugHudEntries;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -46,25 +47,17 @@ public class MinecraftClientMixin {
 
         while (ModKeybinds.SHOW_ADVANCED_TOOLTIPS.wasPressed()) {
             MinecraftClient.getInstance().options.advancedItemTooltips = !MinecraftClient.getInstance().options.advancedItemTooltips;
-            MinecraftClient.getInstance().options.write();
             this.getChatHud().addMessage(message(MinecraftClient.getInstance().options.advancedItemTooltips ? "debug.advanced_tooltips.on" : "debug.advanced_tooltips.off"));
         }
 
         while (ModKeybinds.TOGGLE_CHUNK_BORDERS.wasPressed()) {
-            boolean bl = MinecraftClient.getInstance().debugRenderer.toggleShowChunkBorder();
+            boolean bl = MinecraftClient.getInstance().debugHudEntryList.toggleVisibility(DebugHudEntries.CHUNK_BORDERS);
             this.getChatHud().addMessage(message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off"));
         }
 
         while (ModKeybinds.TOGGLE_HITBOXES.wasPressed()) {
-            boolean bl = !MinecraftClient.getInstance().getEntityRenderDispatcher().shouldRenderHitboxes();
-            MinecraftClient.getInstance().getEntityRenderDispatcher().setRenderHitboxes(bl);
+            boolean bl = MinecraftClient.getInstance().debugHudEntryList.toggleVisibility(DebugHudEntries.ENTITY_HITBOXES);
             this.getChatHud().addMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
-        }
-
-        while (ModKeybinds.TOGGLE_DEBUG_MENU.wasPressed()) {
-            boolean bl = !MinecraftClient.getInstance().getDebugHud().shouldShowDebugHud();
-            MinecraftClient.getInstance().getDebugHud().toggleDebugHud();
-            this.getChatHud().addMessage(message(bl ? "simplekeybinds.debug_menu.on" : "simplekeybinds.debug_menu.off"));
         }
 
         while (ModKeybinds.TOGGLE_HUD.wasPressed()) {

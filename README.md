@@ -21,7 +21,6 @@
 - #### Hitboxes (Default Key = _X_)
 - #### Advanced Tooltips (_No default key assigned._)
 - #### HUD Overlay (_No default key assigned._)
-- #### F3/debug menu (_No default key assigned._)
 - #### Clear chat (_No default key assigned._)
 - #### Reload all chunks (_No default key assigned._)
 - #### Pause without menu (_No default key assigned._)

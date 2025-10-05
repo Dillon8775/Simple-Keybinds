@@ -1,6 +1,7 @@
 {
   "simplekeybinds.keybinds": "Simple Keybinds",
 
+  "key.category.simplekeybinds.simplekeybinds": "Simple Keybinds",
   "simplekeybinds.clear_chat": "Clear Chat",
   "simplekeybinds.change_master_volume": "Change Master Volume (scroll wheel)",
   "simplekeybinds.changed_master_volume": "Volume: %s",
@@ -13,7 +14,6 @@
   "simplekeybinds.pause_without_menu": "Pause Without Menu",
   "simplekeybinds.reload_chunks": "Reload Chunks",
   "simplekeybinds.show_advanced_tooltips": "Show Advanced Tooltips",
-  "simplekeybinds.toggle_debug_menu": "Toggle Debug Menu",
   "simplekeybinds.toggle_hud": "Toggle HUD",
   "simplekeybinds.toggle_chunk_borders": "Toggle Chunk Borders",
   "simplekeybinds.toggle_fog": "Toggle Fog",
@@ -24,8 +24,6 @@
   "simplekeybinds.fog.off": "Fog: off",
   "simplekeybinds.fullbright.on": "Fullbright: on",
   "simplekeybinds.fullbright.off": "Fullbright: off",
-  "simplekeybinds.debug_menu.on": "Debug menu: on",
-  "simplekeybinds.debug_menu.off": "Debug menu: off",
   "simplekeybinds.hud.on": "HUD: on",
   "simplekeybinds.hud.off": "HUD: off",
   "simplekeybinds.decreased_brightness.error": "Cannot lower brightness below 0%!",

@@ -6,11 +6,12 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
 public class ModKeybinds {
-    private static final String MOD_KEYBINDS = "simplekeybinds.keybinds";
+    private static final KeyBinding.Category MOD_KEYBINDS = KeyBinding.Category.create(Identifier.of("simplekeybinds", "simplekeybinds"));
 
     /**
      * Clears the players chat.
@@ -59,12 +60,6 @@ public class ModKeybinds {
      * <p>{@code No default key assigned.}</p>
      */
     public static final KeyBinding SHOW_ADVANCED_TOOLTIPS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.show_advanced_tooltips", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
-
-    /**
-     * Toggles the F3 menu.
-     * <p>{@code No default key assigned.}</p>
-     */
-    public static final KeyBinding TOGGLE_DEBUG_MENU = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_debug_menu", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
 
     /**
      * Toggles the players HUD menu, such has hotbar display and vignette.
