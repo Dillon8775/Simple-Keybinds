@@ -2,7 +2,7 @@
 
 # Adds various different "Simple Keybinds" to the game.
 
-### Currently compatible with Minecraft versions above 1.20-1.21.8 (fabric).
+### Currently compatible with Minecraft versions above ***1.20-1.21.9*** (fabric).
 
 ---
 
