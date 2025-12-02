@@ -4,6 +4,7 @@
 - Added "Change GUI Scale" keybind (default key = G, use scroll wheel in game to use)
 
 - Some scroll wheel keybinds will now reset to the lowest value when trying to go above the maximum value.
+- Changed "Change Render Distance" default keybind to "U".
 
-- Removed the "Toggle Debug Hud" keybinding.
+- Removed the "Toggle HUD" keybinding.
 - Optimizations and tweaks.

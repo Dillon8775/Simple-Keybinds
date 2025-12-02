@@ -39,15 +39,15 @@ public class ModKeybinds {
 
     /**
      * Increases/decreases the player's FOV.
-     * <p>{@code Default Key = F}</p>
+     * <p>{@code Default Key = R}</p>
      */
-    public static final KeyBinding CHANGE_FOV = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_fov", GLFW.GLFW_KEY_F, MOD_KEYBINDS));
+    public static final KeyBinding CHANGE_FOV = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_fov", GLFW.GLFW_KEY_R, MOD_KEYBINDS));
 
     /**
      * Increase/decreases the players render distance by {@code 1.}
-     * <p>{@code Default Key = R}</p>
+     * <p>{@code Default Key = U}</p>
      */
-    public static final KeyBinding CHANGE_RENDER_DISTANCE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_render_distance", GLFW.GLFW_KEY_R, MOD_KEYBINDS));
+    public static final KeyBinding CHANGE_RENDER_DISTANCE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_render_distance", GLFW.GLFW_KEY_U, MOD_KEYBINDS));
 
     /**
      * Increases/decreases entity distance by {@code 25%.}
