@@ -1,2 +1,9 @@
-- Updated to 1.21.9.
-- Removed the "Toggle Debug Hud" keybinding, since you can just press F3 to toggle it.
+- Ported and backported to Forge!
+
+- Added "Change FOV" keybind (default key = F, use scroll wheel in game to use)
+- Added "Change GUI Scale" keybind (default key = G, use scroll wheel in game to use)
+
+- Some scroll wheel keybinds will now reset to the lowest value when trying to go above the maximum value.
+
+- Removed the "Toggle Debug Hud" keybinding.
+- Optimizations and tweaks.

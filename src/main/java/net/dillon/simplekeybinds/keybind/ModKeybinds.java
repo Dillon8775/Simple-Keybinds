@@ -32,6 +32,18 @@ public class ModKeybinds {
     public static final KeyBinding CHANGE_BRIGHTNESS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_brightness", GLFW.GLFW_KEY_J, MOD_KEYBINDS));
 
     /**
+     * Increases/decrease the GUI scale.
+     * <p>{@code Default Key = G}</p>
+     */
+    public static final KeyBinding CHANGE_GUI_SCALE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_gui_scale", GLFW.GLFW_KEY_G, MOD_KEYBINDS));
+
+    /**
+     * Increases/decreases the player's FOV.
+     * <p>{@code Default Key = F}</p>
+     */
+    public static final KeyBinding CHANGE_FOV = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_fov", GLFW.GLFW_KEY_F, MOD_KEYBINDS));
+
+    /**
      * Increase/decreases the players render distance by {@code 1.}
      * <p>{@code Default Key = R}</p>
      */
@@ -60,12 +72,6 @@ public class ModKeybinds {
      * <p>{@code No default key assigned.}</p>
      */
     public static final KeyBinding SHOW_ADVANCED_TOOLTIPS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.show_advanced_tooltips", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
-
-    /**
-     * Toggles the players HUD menu, such has hotbar display and vignette.
-     * <p>{@code No default key assigned.}</p>
-     */
-    public static final KeyBinding TOGGLE_HUD = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_hud", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
 
     /**
      * Toggles chunk borders.

@@ -1,4 +1,4 @@
-[![Requires Fabric API](https://cdn.modrinth.com/data/cached_images/8bd6d7ff822dc33ffb55af6cc0c7062cec53e9e3.png)](https://modrinth.com/mod/fabric-api)
+**[![Requires Fabric API](https://cdn.modrinth.com/data/cached_images/8bd6d7ff822dc33ffb55af6cc0c7062cec53e9e3.png)](https://modrinth.com/mod/fabric-api)
 
 # Adds various different "Simple Keybinds" to the game.
 
@@ -30,4 +30,4 @@
 - #### A key to change render distance (Default Key = _U_)
 - #### A key to change the master volume (Default Key = *M*)
 - #### A key to change entity distance (Default Key = _H_)
-- #### A key to change brightness (Default Key = _J_)
+- #### A key to change brightness (Default Key = _J_)**
