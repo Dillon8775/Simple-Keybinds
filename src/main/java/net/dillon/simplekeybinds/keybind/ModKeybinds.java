@@ -3,16 +3,15 @@ package net.dillon.simplekeybinds.keybind;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
 
-@Mod.EventBusSubscriber(modid = SimpleKeybinds.MOD_ID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = SimpleKeybinds.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModKeybinds {
-    private static final KeyMapping.Category MOD_KEYBINDS = KeyMapping.Category.register(ResourceLocation.fromNamespaceAndPath("simplekeybinds", "simplekeybinds"));
+    private static final String MOD_KEYBINDS = "simplekeybinds.keybinds";
 
     public static final KeyMapping CLEAR_CHAT = new KeyMapping(
             "simplekeybinds.clear_chat",

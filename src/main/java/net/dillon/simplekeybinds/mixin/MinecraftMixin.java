@@ -6,7 +6,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.components.ChatComponent;
-import net.minecraft.client.gui.components.debug.DebugScreenEntries;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
@@ -49,12 +48,12 @@ public class MinecraftMixin {
         }
 
         while (ModKeybinds.TOGGLE_CHUNK_BORDERS.consumeClick()) {
-            boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.CHUNK_BORDERS);
+            boolean bl = Minecraft.getInstance().debugRenderer.switchRenderChunkborder();
             this.getChatHud().addMessage(message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off"));
         }
 
         while (ModKeybinds.TOGGLE_HITBOXES.consumeClick()) {
-            boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.ENTITY_HITBOXES);
+            boolean bl = Minecraft.getInstance().getEntityRenderDispatcher().shouldRenderHitBoxes();
             this.getChatHud().addMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
         }
 

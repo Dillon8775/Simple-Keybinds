@@ -1,7 +1,6 @@
 {
   "pack": {
-    "description": "${mod_id} resources",
-    "max_format": 88,
-    "min_format": 88
+    "description": "Adds simpler keybinds to Minecraft.",
+    "pack_format": 64
   }
 }
