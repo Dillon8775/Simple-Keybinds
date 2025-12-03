@@ -61,18 +61,6 @@ public class MinecraftClientMixin {
             this.getChatHud().addMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
         }
 
-        while (ModKeybinds.TOGGLE_DEBUG_MENU.wasPressed()) {
-            boolean bl = !MinecraftClient.getInstance().getDebugHud().shouldShowDebugHud();
-            MinecraftClient.getInstance().getDebugHud().toggleDebugHud();
-            this.getChatHud().addMessage(message(bl ? "simplekeybinds.debug_menu.on" : "simplekeybinds.debug_menu.off"));
-        }
-
-        while (ModKeybinds.TOGGLE_HUD.wasPressed()) {
-            boolean bl = MinecraftClient.getInstance().options.hudHidden;
-            MinecraftClient.getInstance().options.hudHidden = !MinecraftClient.getInstance().options.hudHidden;
-            this.getChatHud().addMessage(message(bl ? "simplekeybinds.hud.on" : "simplekeybinds.hud.off"));
-        }
-
         // If the Speedrunner Mod is loaded, the fog keybinding won't work.
         // You will have to use the Speedrunner Mod fog keybind.
         while (ModKeybinds.TOGGLE_FOG.wasPressed()) {

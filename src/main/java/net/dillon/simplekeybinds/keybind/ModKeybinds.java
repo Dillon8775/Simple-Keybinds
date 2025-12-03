@@ -31,10 +31,22 @@ public class ModKeybinds {
     public static final KeyBinding CHANGE_BRIGHTNESS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_brightness", GLFW.GLFW_KEY_J, MOD_KEYBINDS));
 
     /**
-     * Increase/decreases the players render distance by {@code 1.}
+     * Increases/decrease the GUI scale.
+     * <p>{@code Default Key = G}</p>
+     */
+    public static final KeyBinding CHANGE_GUI_SCALE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_gui_scale", GLFW.GLFW_KEY_G, MOD_KEYBINDS));
+
+    /**
+     * Increases/decreases the player's FOV.
      * <p>{@code Default Key = R}</p>
      */
-    public static final KeyBinding CHANGE_RENDER_DISTANCE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_render_distance", GLFW.GLFW_KEY_R, MOD_KEYBINDS));
+    public static final KeyBinding CHANGE_FOV = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_fov", GLFW.GLFW_KEY_R, MOD_KEYBINDS));
+
+    /**
+     * Increase/decreases the players render distance by {@code 1.}
+     * <p>{@code Default Key = U}</p>
+     */
+    public static final KeyBinding CHANGE_RENDER_DISTANCE = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_render_distance", GLFW.GLFW_KEY_U, MOD_KEYBINDS));
 
     /**
      * Increases/decreases entity distance by {@code 25%.}
@@ -59,18 +71,6 @@ public class ModKeybinds {
      * <p>{@code No default key assigned.}</p>
      */
     public static final KeyBinding SHOW_ADVANCED_TOOLTIPS = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.show_advanced_tooltips", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
-
-    /**
-     * Toggles the F3 menu.
-     * <p>{@code No default key assigned.}</p>
-     */
-    public static final KeyBinding TOGGLE_DEBUG_MENU = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_debug_menu", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
-
-    /**
-     * Toggles the players HUD menu, such has hotbar display and vignette.
-     * <p>{@code No default key assigned.}</p>
-     */
-    public static final KeyBinding TOGGLE_HUD = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.toggle_hud", InputUtil.UNKNOWN_KEY.getCode(), MOD_KEYBINDS));
 
     /**
      * Toggles chunk borders.

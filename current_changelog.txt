@@ -1,10 +1,10 @@
---- Key Changes: ---
-- New keybind to change master volume (using the scroll wheel): "M".
-- The default key for Toggle Chunk borders is now "B".
-- The default key for Change Render Distance is now "R".
+- Ported and backported to Forge!
 
---- A few tweaks and improvements: ---
-- Disabling fullbright now sets the brightness back to whatever it was before fullbright was toggled (unless the brightness previously was greater than or equal to 800%, as that is close enough to fullbright, the brightness will still be set to 100%. The game only remembers the previous value as long as it was toggled during the current game session).
-- Changing options, like render distance and entity distance, will now display the message in a certain color which reflects performance (ex. 32 render distance will show in red, 8 render distance will show in green).
-- Changing options now actually saves the value to the "options.txt" file.
-- Removed error messages when attempting to increase/decrease a value above or below its max/min value.
+- Added "Change FOV" keybind (default key = F, use scroll wheel in game to use)
+- Added "Change GUI Scale" keybind (default key = G, use scroll wheel in game to use)
+
+- Some scroll wheel keybinds will now reset to the lowest value when trying to go above the maximum value.
+- Changed "Change Render Distance" default keybind to "U".
+
+- Removed the "Toggle HUD" keybinding.
+- Optimizations and tweaks.

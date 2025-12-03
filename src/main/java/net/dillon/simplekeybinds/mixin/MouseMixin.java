@@ -27,7 +27,7 @@ public class MouseMixin {
     private MinecraftClient client;
 
     @Inject(method = "onMouseScroll", at = @At("HEAD"), cancellable = true)
-    private void handleIncreaseDecreaseKeybinds(long window, double horizontal, double vertical, CallbackInfo ci) {
+    private void handleScrollableKeybinds(long window, double horizontal, double vertical, CallbackInfo ci) {
         if (this.client != null && vertical != 0) {
             float min;
             float max;
@@ -41,6 +41,32 @@ public class MouseMixin {
                 gamma = Math.max(min, Math.min(max, gamma));
                 this.client.options.getGamma().setValue((double)gamma);
                 this.sendMessage(Text.translatable("simplekeybinds.changed_brightness", (int)(gamma * 100)).append("%").formatted(Formatting.GREEN));
+                ci.cancel();
+            } else if (ModKeybinds.CHANGE_GUI_SCALE.isPressed()) {
+                min = 1;
+                max = 4;
+                int scale = this.client.options.getGuiScale().getValue();
+                delta = (vertical > 0 ? 1 : -1);
+                scale += delta;
+                scale = Math.max((int)min, Math.min((int)max, scale));
+                this.client.options.getGuiScale().setValue(scale);
+                this.sendMessage(Text.translatable("simplekeybinds.changed_gui_scale", scale));
+                ci.cancel();
+            } else if (ModKeybinds.CHANGE_FOV.isPressed()) {
+                min = 30;
+                max = 110;
+                int fov = this.client.options.getFov().getValue();
+                delta = (vertical > 0 ? 2 : -2);
+                if (fov >= max && vertical > 0) {
+                    fov = (int)min;
+                } else if (fov <= min && vertical < 0) {
+                    fov = (int)max;
+                } else {
+                    fov += delta;
+                }
+                fov = Math.max((int)min, Math.min((int)max, fov));
+                this.client.options.getFov().setValue(fov);
+                this.sendMessage(Text.translatable("simplekeybinds.changed_fov", fov));
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_MASTER_VOLUME.isPressed()) {
                 min = 0;
@@ -71,14 +97,16 @@ public class MouseMixin {
                 max = 5.0F;
                 float entityDistance = this.client.options.getEntityDistanceScaling().getValue().floatValue();
                 delta = 0.25F * (vertical > 0 ? 1 : -1);
-                entityDistance += delta;
+                if (entityDistance == max && vertical > 0) {
+                    entityDistance = min;
+                } else if (entityDistance == min && vertical < 0) {
+                    entityDistance = max;
+                } else {
+                    entityDistance += delta;
+                }
                 entityDistance = Math.max(min, Math.min(max, entityDistance));
                 this.client.options.getEntityDistanceScaling().setValue((double)entityDistance);
-                this.sendMessage(Text.translatable("simplekeybinds.changed_entity_distance", (int)(entityDistance * 100)).append("%").formatted(
-                        entityDistance < 1.75F ? Formatting.GREEN :
-                                entityDistance < 2.75F ? Formatting.AQUA :
-                                        entityDistance < 4.25F ? Formatting.GOLD :
-                                                Formatting.RED));
+                this.sendMessage(Text.translatable("simplekeybinds.changed_entity_distance", (int)(entityDistance * 100)).append("%").formatted(Formatting.GOLD));
                 ci.cancel();
             }
         }
