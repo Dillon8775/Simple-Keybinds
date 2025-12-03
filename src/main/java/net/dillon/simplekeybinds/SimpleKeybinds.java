@@ -1,38 +1,33 @@
 package net.dillon.simplekeybinds;
 
-import net.dillon.simplekeybinds.keybind.ModKeybinds;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.loader.api.FabricLoader;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.mojang.logging.LogUtils;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.slf4j.Logger;
 
-/**
- * The main entrypoint for the {@code Simple Keybinds} mod.
- */
-@Environment(EnvType.CLIENT)
-public class SimpleKeybinds implements ClientModInitializer {
-	public static boolean fog = true;
-	public static boolean fullBright = false;
-	public static final double minBrightness = 0.0D;
-	public static final double maxBrightness = 12.0D;
+@Mod(SimpleKeybinds.MOD_ID)
+public final class SimpleKeybinds {
+    public static boolean fog = true;
+    public static boolean fullBright = false;
+    public static final double minBrightness = 0.0D;
+    public static final double maxBrightness = 12.0D;
     public static double previousBrightness = 1.0D;
-	public static final Logger LOGGER = LogManager.getLogger("Simple Keybinds");
+    public static final String MOD_ID = "simplekeybinds";
+    private static final Logger LOGGER = LogUtils.getLogger();
 
-	/**
-	 * Initializes all {@code Simple Keybinds.}
-	 */
-	@Override
-	public void onInitializeClient() {
-		ModKeybinds.init();
-		SimpleKeybinds.LOGGER.info("Simple Keybinds mod has successfully initialized.");
-	}
+    public SimpleKeybinds(FMLJavaModLoadingContext context) {
+    }
 
-	/**
-	 * @return {@code true} if the {@code speedrunner mod} is loaded.
-	 */
-	public static boolean isSpeedrunnerModLoaded() {
-		return FabricLoader.getInstance().isModLoaded("speedrunnermod");
-	}
+    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+    @Mod.EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
+    public static class ClientModEvents {
+
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            LOGGER.info("Simple keybinds mod has successfully initialized.");
+        }
+    }
 }
