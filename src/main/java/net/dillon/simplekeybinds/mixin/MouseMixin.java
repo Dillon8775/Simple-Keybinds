@@ -57,13 +57,7 @@ public class MouseMixin {
                 max = 110;
                 int fov = this.client.options.getFov().getValue();
                 delta = (vertical > 0 ? 2 : -2);
-                if (fov >= max && vertical > 0) {
-                    fov = (int)min;
-                } else if (fov <= min && vertical < 0) {
-                    fov = (int)max;
-                } else {
-                    fov += delta;
-                }
+                fov += delta;
                 fov = Math.max((int)min, Math.min((int)max, fov));
                 this.client.options.getFov().setValue(fov);
                 this.sendMessage(Text.translatable("simplekeybinds.changed_fov", fov));
