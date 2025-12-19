@@ -9,7 +9,7 @@
   "simplekeybinds.changed_brightness": "Brightness: %s",
   "simplekeybinds.change_gui_scale": "Change GUI Scale (scroll wheel)",
   "simplekeybinds.changed_gui_scale": "GUI Scale: %s",
-  "simplekeybinds.change_fov": "Change FOV",
+  "simplekeybinds.change_fov": "Change FOV (scroll wheel)",
   "simplekeybinds.changed_fov": "FOV: %s",
   "simplekeybinds.change_render_distance": "Change Render Distance (scroll wheel)",
   "simplekeybinds.changed_render_distance": "Render Distance: %s chunks",
