@@ -50,6 +50,7 @@ public class MouseMixin {
                 scale += delta;
                 scale = Math.max((int)min, Math.min((int)max, scale));
                 this.minecraft.options.guiScale().set(scale);
+                this.minecraft.resizeDisplay();
                 this.sendMessage(Component.translatable("simplekeybinds.changed_gui_scale", scale));
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_FOV.isDown()) {
