@@ -44,7 +44,7 @@ public class MouseMixin {
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_GUI_SCALE.isDown()) {
                 min = 1;
-                max = 4;
+                max = !this.minecraft.isRunning() ? 2147483646 : this.minecraft.getWindow().calculateScale(0, this.minecraft.isEnforceUnicode());
                 int scale = this.minecraft.options.guiScale().get();
                 delta = (vertical > 0 ? 1 : -1);
                 scale += delta;
