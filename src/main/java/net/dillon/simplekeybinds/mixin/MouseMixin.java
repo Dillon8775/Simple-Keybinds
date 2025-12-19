@@ -44,7 +44,7 @@ public class MouseMixin {
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_GUI_SCALE.isPressed()) {
                 min = 1;
-                max = 4;
+                max = !this.client.isRunning() ? 2147483646 : this.client.getWindow().calculateScaleFactor(0, this.client.forcesUnicodeFont());
                 int scale = this.client.options.getGuiScale().getValue();
                 delta = (vertical > 0 ? 1 : -1);
                 scale += delta;
