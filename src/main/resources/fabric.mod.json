@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simplekeybinds",
-  "version": "1.2.5+mc1.21.9x",
+  "version": "1.2.5+mc1.21.11",
   "name": "Simple Keybinds",
   "description": "Adds simpler keybinds to Minecraft.",
   "authors": [
