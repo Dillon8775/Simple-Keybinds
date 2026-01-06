@@ -10,7 +10,8 @@
   "accessWidener": "simplekeybinds.accessWidener",
   "contact": {
     "homepage": "https://modrinth.com/mod/simple-keybinds",
-    "sources": "https://github.com/Dillon8775/Simple-Keybinds"
+    "sources": "https://github.com/Dillon8775/Simple-Keybinds",
+    "issues": "https://github.com/Dillon8775/Simple-Keybinds/issues"
   },
   "license": "All rights reserved.",
   "icon": "assets/simplekeybinds/icon.png",

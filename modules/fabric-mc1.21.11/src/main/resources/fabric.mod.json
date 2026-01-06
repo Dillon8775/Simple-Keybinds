@@ -10,7 +10,8 @@
   "accessWidener": "simplekeybinds.accessWidener",
   "contact": {
     "homepage": "https://modrinth.com/mod/simple-keybinds",
-    "sources": "https://github.com/Dillon8775/Simple-Keybinds"
+    "sources": "https://github.com/Dillon8775/Simple-Keybinds",
+    "issues": "https://github.com/Dillon8775/Simple-Keybinds/issues"
   },
   "license": "All rights reserved.",
   "icon": "assets/simplekeybinds/icon.png",
@@ -24,8 +25,8 @@
     "simplekeybinds.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.17.2",
-    "minecraft": ">=1.21.9",
+    "fabricloader": ">=0.18.2",
+    "minecraft": "1.21.11",
     "java": ">=21",
     "fabric": "*"
   }
