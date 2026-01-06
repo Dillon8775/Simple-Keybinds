@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.dillon.simplekeybinds.mixin",
+  "plugin": "net.dillon.simplekeybinds.mixin.ConditionalMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "FogRendererMixin",
+    "MinecraftClientMixin",
+    "MouseMixin",
+    "SimpleOptionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
