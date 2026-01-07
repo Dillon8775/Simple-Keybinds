@@ -1,1 +1,3 @@
 Version 1.2.6:
+- Fixed bug where when pairing with Quality of Queso, the game crashes.
+- Tweaks and optimizations.

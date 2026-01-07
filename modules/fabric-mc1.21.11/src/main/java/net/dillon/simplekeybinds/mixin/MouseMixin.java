@@ -40,6 +40,7 @@ public class MouseMixin {
                 gamma += delta;
                 gamma = Math.max(min, Math.min(max, gamma));
                 this.client.options.getGamma().setValue((double)gamma);
+                SimpleKeybinds.cachedBrightness = this.client.options.getGamma().getValue();
                 this.sendMessage(Text.translatable("simplekeybinds.changed_brightness", (int)(gamma * 100)).append("%").formatted(Formatting.GREEN));
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_GUI_SCALE.isPressed()) {

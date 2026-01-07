@@ -4,15 +4,12 @@ import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.components.ChatComponent;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,16 +18,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @OnlyIn(Dist.CLIENT)
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
-    @Shadow
-    @Final
-    public Gui gui;
 
     @Inject(method = "handleKeybinds", at = @At("TAIL"))
     private void handleKeyPressing(CallbackInfo ci) {
         while (ModKeybinds.CLEAR_CHAT.consumeClick()) {
-            if (this.gui != null) {
-                this.getChatHud().clearMessages(false);
-            }
+            this.getChatHud().clearMessages(false);
         }
 
         while (ModKeybinds.PAUSE_WITHOUT_MENU.consumeClick()) {
@@ -98,6 +90,6 @@ public class MinecraftMixin {
      */
     @Unique
     private ChatComponent getChatHud() {
-        return this.gui.getChat();
+        return Minecraft.getInstance().gui.getChat();
     }
 }
