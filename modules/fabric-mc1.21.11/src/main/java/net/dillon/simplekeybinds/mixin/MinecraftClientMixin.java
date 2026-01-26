@@ -4,13 +4,13 @@ import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.gui.hud.debug.DebugHudEntries;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -27,6 +27,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftClientMixin {
     @Shadow @Final
     public InGameHud inGameHud;
+
+    @Shadow
+    @Final
+    public Keyboard keyboard;
 
     @Inject(at = @At("TAIL"), method = "handleInputEvents")
     private void handleInputEvents(CallbackInfo info) {
@@ -98,10 +102,7 @@ public class MinecraftClientMixin {
     @Unique
     private Text message(String key, Object... args) {
         MinecraftClient.getInstance().options.write();
-        return Text.literal("")
-                .append((Text.translatable("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD))
-                        .append(" ")
-                        .append(Text.translatable(key, args));
+        return Text.translatable(key, args);
     }
 
     /**

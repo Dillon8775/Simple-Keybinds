@@ -2,7 +2,6 @@ package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.components.ChatComponent;
@@ -88,10 +87,7 @@ public class MinecraftMixin {
     @Unique
     private Component message(String key, Object... args) {
         Minecraft.getInstance().options.save();
-        return Component.literal("")
-                .append((Component.translatable("debug.prefix")).withStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD))
-                .append(" ")
-                .append(Component.translatable(key, args));
+        return Component.translatable(key, args);
     }
 
     /**

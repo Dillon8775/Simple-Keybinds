@@ -22,13 +22,13 @@ rootProject.name = 'Simple Keybinds'
 include "modules:common"
 
 // === FABRIC ===
-include "modules:fabric-mc1.21.9x"
+// include "modules:fabric-mc1.21.9x"
 include "modules:fabric-mc1.21.11"
 
 // === FORGE ===
 include "modules:forge-mc1.20.1"
 include "modules:forge-mc1.21.1x"
-include "modules:forge-mc1.21.9x"
+// include "modules:forge-mc1.21.9x"
 include "modules:forge-mc1.21.11"
 
 // ----------
