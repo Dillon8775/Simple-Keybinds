@@ -1,3 +1,2 @@
-Version 1.2.7 (MC Fabric 1.21.11, Forge 1.20.1, 1.21.1-1.21.5, and 1.21.11):
-- Removed "[Debug]:" prefix when using keybinds.
-- Fixed crash with Quality of Queso (1.20.1).
+Version 1.2.8 (MC Fabric 1.21.11, Forge 1.20.1, 1.21.1-1.21.5, and 1.21.11):
+- Improved compatibility with the Speedrunner Mod.

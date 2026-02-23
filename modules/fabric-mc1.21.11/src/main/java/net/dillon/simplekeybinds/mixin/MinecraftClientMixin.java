@@ -4,7 +4,6 @@ import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -27,10 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftClientMixin {
     @Shadow @Final
     public InGameHud inGameHud;
-
-    @Shadow
-    @Final
-    public Keyboard keyboard;
 
     @Inject(at = @At("TAIL"), method = "handleInputEvents")
     private void handleInputEvents(CallbackInfo info) {
@@ -64,6 +59,19 @@ public class MinecraftClientMixin {
             this.getChatHud().addMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
         }
 
+        while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
+            double currentBrightness = MinecraftClient.getInstance().options.getGamma().getValue();
+            if (!SimpleKeybinds.fullBright) {
+                SimpleKeybinds.previousBrightness = currentBrightness;
+                if (currentBrightness >= 8.0D) {
+                    SimpleKeybinds.previousBrightness = 1.0D;
+                }
+            }
+            SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
+            MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : SimpleKeybinds.previousBrightness);
+            this.getChatHud().addMessage(message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
+        }
+
         // If the Speedrunner Mod is loaded, the fog keybinding won't work.
         // You will have to use the Speedrunner Mod fog keybind.
         while (ModKeybinds.TOGGLE_FOG.wasPressed()) {
@@ -71,25 +79,6 @@ public class MinecraftClientMixin {
                 SimpleKeybinds.fog = !SimpleKeybinds.fog;
                 MinecraftClient.getInstance().worldRenderer.reload();
                 this.getChatHud().addMessage(message(SimpleKeybinds.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
-            } else {
-                this.getChatHud().addMessage(message("simplekeybinds.speedrunner_mod_loaded_keybindings"));
-            }
-        }
-
-        // If the Speedrunner Mod is loaded, the fullbright keybinding won't work.
-        // You will have to use the Speedrunner Mod fullbright keybind.
-        while (ModKeybinds.TOGGLE_FULLBRIGHT.wasPressed()) {
-            if (!SimpleKeybinds.isSpeedrunnerModLoaded()) {
-                double currentBrightness = MinecraftClient.getInstance().options.getGamma().getValue();
-                if (!SimpleKeybinds.fullBright) {
-                    SimpleKeybinds.previousBrightness = currentBrightness;
-                    if (currentBrightness >= 8.0D) {
-                        SimpleKeybinds.previousBrightness = 1.0D;
-                    }
-                }
-                SimpleKeybinds.fullBright = !SimpleKeybinds.fullBright;
-                MinecraftClient.getInstance().options.getGamma().setValue(SimpleKeybinds.fullBright ? SimpleKeybinds.maxBrightness : SimpleKeybinds.previousBrightness);
-                this.getChatHud().addMessage(message(SimpleKeybinds.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
             } else {
                 this.getChatHud().addMessage(message("simplekeybinds.speedrunner_mod_loaded_keybindings"));
             }

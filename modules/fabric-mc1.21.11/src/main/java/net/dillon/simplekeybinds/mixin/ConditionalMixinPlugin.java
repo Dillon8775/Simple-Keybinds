@@ -3,6 +3,7 @@ package net.dillon.simplekeybinds.mixin;
 import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -17,14 +18,25 @@ import java.util.Set;
 public class ConditionalMixinPlugin implements IMixinConfigPlugin {
 
     /**
-     * Determines whether the {@code BackgroundRendererMixin} should be applied.
+     * Determines whether cretain mixins should be applied.
      */
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (SimpleKeybinds.isSpeedrunnerModLoaded()) {
-            return !mixinClassName.equals("net.dillon.simplekeybinds.mixin.BackgroundRendererMixin") && !mixinClassName.equals("net.dillon.simplekeybinds.mixin.SimpleOptionMixin");
+        boolean bl = this.shouldNotApply(mixinClassName);
+        if (bl) {
+            SimpleKeybinds.LOGGER.warn("Skipping mixin " + mixinClassName + " for target " + targetClassName + " because it should not be applied.");
         }
-        return true;
+        return !bl;
+    }
+
+    /**
+     * Returns client-side mixins that should not apply based on certain conditions.
+     */
+    private boolean shouldNotApply(String mixinClassName) {
+        if (FabricLoader.getInstance().isModLoaded("speedrunnermod") && mixinClassName.equals("net.dillon.simplekeybinds.mixin.FogRendererMixin")) {
+            return true;
+        }
+        return false;
     }
 
     // Other methods...
