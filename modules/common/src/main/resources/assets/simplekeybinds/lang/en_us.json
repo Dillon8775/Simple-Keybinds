@@ -31,14 +31,9 @@
   "simplekeybinds.fullbright.off": "Fullbright: off",
   "simplekeybinds.muted": "Muted the game",
   "simplekeybinds.unmuted": "Unmuted the game",
+  "simplekeybinds.cant_change_volume": "Game is muted!",
   "simplekeybinds.hud.on": "HUD: on",
   "simplekeybinds.hud.off": "HUD: off",
-  "simplekeybinds.decreased_brightness.error": "Cannot lower brightness below 0%!",
-  "simplekeybinds.increased_brightness.error": "Cannot increase brightness above 1200%!",
-  "simplekeybinds.decreased_render_distance.error": "Cannot lower render distance below 2!",
-  "simplekeybinds.increased_render_distance.error": "Cannot increase render distance above 32!",
-  "simplekeybinds.decreased_entity_distance.error": "Cannot lower entity distance below 50%!",
-  "simplekeybinds.increased_entity_distance.error": "Cannot increase entity distance above 500%!",
 
   "simplekeybinds.speedrunner_mod_loaded_keybindings": "The Speedrunner Mod is loaded, use those keybindings instead."
 }

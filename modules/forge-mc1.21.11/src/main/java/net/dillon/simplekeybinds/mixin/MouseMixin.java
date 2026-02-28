@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.SimpleKeybinds;
+import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -17,6 +18,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static net.dillon.simplekeybinds.SimpleKeybinds.muted;
+
 /**
  * Handles {@code Simple Keybind} functions for increase/decrease keybinds.
  */
@@ -28,6 +31,7 @@ public class MouseMixin {
 
     @Inject(method = "onScroll", at = @At("HEAD"), cancellable = true)
     private void handleScrollableKeybinds(long window, double horizontal, double vertical, CallbackInfo ci) {
+        MuteCallback.tickScroll();
         if (this.minecraft != null && vertical != 0) {
             float min;
             float max;
@@ -56,13 +60,17 @@ public class MouseMixin {
                 min = 30;
                 max = 110;
                 int fov = this.minecraft.options.fov().get();
-                delta = (vertical > 0 ? 2 : -2);
+                delta = (vertical > 0 ? -2 : 2);
                 fov += delta;
                 fov = Math.max((int)min, Math.min((int)max, fov));
                 this.minecraft.options.fov().set(fov);
                 this.sendMessage(Component.translatable("simplekeybinds.changed_fov", fov));
                 ci.cancel();
             } else if (ModKeybinds.CHANGE_MASTER_VOLUME.isDown()) {
+                if (muted) {
+                    this.sendMessage(Component.translatable("simplekeybinds.cant_change_volume"));
+                    return;
+                }
                 min = 0;
                 max = 1;
                 double volume = this.minecraft.options.getSoundSourceOptionInstance(SoundSource.MASTER).get();

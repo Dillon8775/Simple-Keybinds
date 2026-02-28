@@ -24,6 +24,7 @@
 ## KEYBINDS:
 - #### A key to toggle Minecraft's annoying fog (Default Key = **O**)
 - #### A fullbright keybind, which sets the users gamma to 1,200% (basically _fullbright_) and back to 100%/the previous brightness. (Default Key = **V**)
+- #### Mute game (Default Key = _M_, must press _CTRL_ to use)
 - #### Toggle chunk borders (Default Key = _B_)
 - #### Hitboxes (Default Key = _X_)
 - #### Advanced Tooltips (_No default key assigned._)

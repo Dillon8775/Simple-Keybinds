@@ -19,6 +19,11 @@ public class SimpleKeybinds implements ClientModInitializer {
 	public static final double maxBrightness = 12.0D;
     public static double previousBrightness = 1.0D;
 	public static double cachedBrightness = 1.0D;
+
+	public static boolean scrolling = false;
+	public static boolean muted;
+	public static double cachedVolume = 1.0D;
+
 	public static final Logger LOGGER = LogManager.getLogger("Simple Keybinds");
 
 	/**

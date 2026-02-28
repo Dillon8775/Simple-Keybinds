@@ -28,6 +28,13 @@ public class ModKeybinds {
             MOD_KEYBINDS
     );
 
+    public static final KeyMapping MUTE_GAME = new KeyMapping(
+            "simplekeybinds.mute",
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_M,
+            MOD_KEYBINDS
+    );
+
     public static final KeyMapping CHANGE_BRIGHTNESS = new KeyMapping(
             "simplekeybinds.change_brightness",
             InputConstants.Type.KEYSYM,
@@ -116,6 +123,7 @@ public class ModKeybinds {
     public static void registerKeys(RegisterKeyMappingsEvent event) {
         event.register(ModKeybinds.CLEAR_CHAT);
         event.register(ModKeybinds.CHANGE_MASTER_VOLUME);
+        event.register(ModKeybinds.MUTE_GAME);
         event.register(ModKeybinds.CHANGE_BRIGHTNESS);
         event.register(ModKeybinds.CHANGE_GUI_SCALE);
         event.register(ModKeybinds.CHANGE_FOV);

@@ -1,2 +1,4 @@
 Version 1.2.8 (MC Fabric 1.21.11, Forge 1.20.1, 1.21.1-1.21.5, and 1.21.11):
+- Added "Mute" keybind. You must hold "CTRL" to use it (default key = M).
+- Reverted scrolling for change FOV keybind to make sense.
 - Improved compatibility with the Speedrunner Mod.

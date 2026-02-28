@@ -18,6 +18,10 @@ public final class SimpleKeybinds {
     public static final String MOD_ID = "simplekeybinds";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static boolean scrolling = false;
+    public static boolean muted;
+    public static double cachedVolume = 1.0D;
+
     public SimpleKeybinds(FMLJavaModLoadingContext context) {
     }
 

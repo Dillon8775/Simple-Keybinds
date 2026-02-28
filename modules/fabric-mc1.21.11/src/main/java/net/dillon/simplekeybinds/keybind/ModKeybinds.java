@@ -25,6 +25,8 @@ public class ModKeybinds {
      */
     public static final KeyBinding CHANGE_MASTER_VOLUME = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.change_master_volume", InputUtil.GLFW_KEY_M, MOD_KEYBINDS));
 
+    public static final KeyBinding MUTE_GAME = KeyBindingHelper.registerKeyBinding(new KeyBinding("simplekeybinds.mute", InputUtil.GLFW_KEY_M, MOD_KEYBINDS));
+
     /**
      * Increases/decreases the players gamma by {@code 50%.}
      * <p>{@code Default Key = J}</p>

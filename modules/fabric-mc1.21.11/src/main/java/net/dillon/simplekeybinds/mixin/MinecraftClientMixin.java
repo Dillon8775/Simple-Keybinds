@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.SimpleKeybinds;
+import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -9,7 +10,12 @@ import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.gui.hud.debug.DebugHudEntries;
 import net.minecraft.client.gui.screen.GameMenuScreen;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.option.GameOptions;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,6 +23,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import static net.dillon.simplekeybinds.SimpleKeybinds.*;
 
 /**
  * Handles {@code Simple Keybind} functions.
@@ -26,6 +34,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftClientMixin {
     @Shadow @Final
     public InGameHud inGameHud;
+    @Shadow
+    @Nullable
+    public ClientPlayerEntity player;
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void tickScrolling(CallbackInfo ci) {
+        MuteCallback.unscroll();
+        MuteCallback.allowMuting();
+    }
 
     @Inject(at = @At("TAIL"), method = "handleInputEvents")
     private void handleInputEvents(CallbackInfo info) {
@@ -83,6 +100,52 @@ public class MinecraftClientMixin {
                 this.getChatHud().addMessage(message("simplekeybinds.speedrunner_mod_loaded_keybindings"));
             }
         }
+
+        if (MinecraftClient.getInstance().isCtrlPressed() && ModKeybinds.MUTE_GAME.isPressed() && MuteCallback.muteCooldown == 0) {
+            MuteCallback.resetMuteCooldown();
+            GameOptions options = MinecraftClient.getInstance().options;
+            if (!muted) {
+                this.mute(options);
+            } else {
+                this.unmute(options);
+            }
+            if (!scrolling && MinecraftClient.getInstance().player != null) {
+                this.player.sendMessage(muted
+                        ? Text.translatable("simplekeybinds.muted").formatted(Formatting.RED)
+                        : Text.translatable("simplekeybinds.unmuted").formatted(Formatting.GREEN), true);
+            }
+            MinecraftClient.getInstance().options.write();
+        }
+    }
+
+    /**
+     * Mutes the game.
+     */
+    @Unique
+    private void mute(GameOptions options) {
+        if (scrolling) {
+            return;
+        }
+
+        double currentVolume = options.getSoundVolumeOption(SoundCategory.MASTER).getValue();
+        if (currentVolume == 0.0F) {
+            this.unmute(options);
+            return;
+        }
+
+        cachedVolume = currentVolume;
+        muted = true;
+
+        options.getSoundVolumeOption(SoundCategory.MASTER).setValue(0D);
+    }
+
+    /**
+     * Unmutes the game.
+     */
+    @Unique
+    private void unmute(GameOptions options) {
+        options.getSoundVolumeOption(SoundCategory.MASTER).setValue((cachedVolume == 0.0D ? 0.5D : cachedVolume));
+        muted = false;
     }
 
     /**
