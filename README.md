@@ -2,8 +2,8 @@
 
 ###
 
-<a href="https://files.minecraftforge.net/" target="_blank">
-  <img src="https://github.com/Dillon8775/ImageGIFs/blob/universal/Forge%20Logo.png?raw=true" width="427" height="115" alt="Compatible with Forge">
+<a href="https://neoforged.net/" target="_blank">
+  <img src="https://raw.githubusercontent.com/Dillon8775/ImageGIFs/refs/heads/universal/NeoForged%20Logo.png" width="438 " height="90" alt="Compatible with Forge">
 </a>
 
 ####
