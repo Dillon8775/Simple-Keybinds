@@ -38,3 +38,7 @@
 - ### Brightness (Default Key = *J*)
 - ### FOV (Default Key = *R*)
 - ### GUI Scale (Default Key = *G*)
+
+---
+
+Created by Dillon8775.
