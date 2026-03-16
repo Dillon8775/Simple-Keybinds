@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 @Mod(SimpleKeybinds.MOD_ID)
 public final class SimpleKeybinds {
     public static final String MOD_ID = "simplekeybinds";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public SimpleKeybinds(IEventBus iEventBus) {
     }

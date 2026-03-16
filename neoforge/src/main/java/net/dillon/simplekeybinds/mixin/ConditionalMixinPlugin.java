@@ -1,9 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.SimpleKeybinds;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.loader.api.FabricLoader;
+import net.neoforged.fml.loading.FMLLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -14,7 +12,6 @@ import java.util.Set;
 /**
  * A mixin plugin that determines whether {@code certain mixins} should be applied, if the {@code speedrunner mod is loaded.}
  */
-@Environment(EnvType.CLIENT)
 public class ConditionalMixinPlugin implements IMixinConfigPlugin {
 
     /**
@@ -33,7 +30,7 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
      * Returns client-side mixins that should not apply based on certain conditions.
      */
     private boolean shouldNotApply(String mixinClassName) {
-        if ((FabricLoader.getInstance().isModLoaded("speedrunnermod") || FabricLoader.getInstance().isModLoaded("qualityofqueso")) && mixinClassName.equals("net.dillon.simplekeybinds.mixin.FogRendererMixin")) {
+        if ((FMLLoader.getCurrent().getLoadingModList().getModFileById("speedrunnermod") != null || FMLLoader.getCurrent().getLoadingModList().getModFileById("qualityofqueso") != null) && mixinClassName.equals("net.dillon.simplekeybinds.mixin.FogRendererMixin")) {
             return true;
         }
         return false;
