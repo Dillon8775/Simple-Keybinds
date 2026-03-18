@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds;
 
 import com.mojang.logging.LogUtils;
+import net.dillon.simplekeybinds.util.ModUtil;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,6 +16,7 @@ public final class SimpleKeybinds {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public SimpleKeybinds(IEventBus iEventBus) {
+        ModUtil.initializeSuccess();
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -23,7 +25,6 @@ public final class SimpleKeybinds {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            LOGGER.info("Simple keybinds mod has successfully initialized.");
         }
     }
 }

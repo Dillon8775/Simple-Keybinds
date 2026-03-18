@@ -1,6 +1,13 @@
-package net.dillon.simplekeybinds.platform.services;
+package net.dillon.simplekeybinds.platform;
 
 public interface IPlatformHelper {
+
+    /**
+     * @return the mod version.
+     */
+    default String getModVersion() {
+        return "1.2.9";
+    }
 
     /**
      * Gets the name of the current platform
@@ -16,15 +23,4 @@ public interface IPlatformHelper {
      * @return True if the mod is loaded, false otherwise.
      */
     boolean isModLoaded(String modId);
-
-    /**
-     * Check if the game is currently in a development environment.
-     *
-     * @return True if in a development environment, false otherwise.
-     */
-    boolean isDevelopmentEnvironment();
-
-    default String getEnvironmentName() {
-        return this.isDevelopmentEnvironment() ? "development" : "production";
-    }
 }

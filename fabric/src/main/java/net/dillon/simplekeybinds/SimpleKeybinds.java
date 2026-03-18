@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds;
 
 import net.dillon.simplekeybinds.event.ClientEvents;
+import net.dillon.simplekeybinds.util.ModUtil;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -14,6 +15,7 @@ public class SimpleKeybinds implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		ClientEvents.registerKeybinds();
-		LOGGER.info("Simple Keybinds mod has successfully initialized.");
+
+		ModUtil.initializeSuccess();
 	}
 }
