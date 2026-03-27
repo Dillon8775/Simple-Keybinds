@@ -1,12 +1,14 @@
 package net.dillon.simplekeybinds.platform;
 
+import java.io.File;
+
 public interface IPlatformHelper {
 
     /**
      * @return the mod version.
      */
     default String getModVersion() {
-        return "1.2.9";
+        return "1.3";
     }
 
     /**
@@ -15,6 +17,11 @@ public interface IPlatformHelper {
      * @return The name of the current platform.
      */
     String getPlatformName();
+
+    /**
+     * Gets the config directory for the supported platform.
+     */
+    File getConfigDir(String fileName);
 
     /**
      * Checks if a mod with the given id is loaded.

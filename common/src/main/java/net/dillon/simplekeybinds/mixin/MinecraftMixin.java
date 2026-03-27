@@ -2,6 +2,7 @@ package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
+import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.util.ModUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -72,9 +73,10 @@ public class MinecraftMixin {
         // If the Speedrunner Mod is loaded, the fog keybinding won't work.
         // You will have to use the Speedrunner Mod fog keybind.
         while (ModKeybinds.TOGGLE_FOG.consumeClick()) {
-            ModUtil.fog = !ModUtil.fog;
+            options().fog = !options().fog;
+            ModOptions.saveConfig();
             Minecraft.getInstance().levelRenderer.allChanged();
-            this.getChatHud().addClientSystemMessage(message(ModUtil.fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
+            this.getChatHud().addClientSystemMessage(message(options().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
         }
 
         // If the Speedrunner Mod is loaded, the fullbright keybinding won't work.

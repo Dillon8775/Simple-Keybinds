@@ -1,7 +1,9 @@
-# Version 1.2.9 (MC Fabric 26.1, NeoForge 26.1):
-- Updated to Minecraft 26.1!
-- NeoForge support!
-- Dropped Forge support.
+# Version 1.3 (MC Fabric 26.1, NeoForge 26.1):
+## Config
+- Added a configuration file for the mod.
+- Added a configuration screen.
+- Can be accessed with NeoForge, or via the Mod Menu mod with fabric.
+- Fog is now toggleable in the configuration screen, in addition to the keybind.
 
-### Technical Change
-- Using Quality of Queso with this mod now depends on fog settings from QoQ, since QoQ v1.6 adds more configurable fog settings.
+## Auto-Brightness Option
+- Automatically adjusts your brightness based on your current light level. This is OFF by default.

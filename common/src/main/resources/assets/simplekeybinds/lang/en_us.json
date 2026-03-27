@@ -1,6 +1,13 @@
 {
   "simplekeybinds.keybinds": "Simple Keybinds",
 
+  "simplekeybinds.gui.on": "ON",
+  "simplekeybinds.gui.off": "OFF",
+
+  "simplekeybinds.options.fog": "Fog",
+  "simplekeybinds.options.auto_brightness": "Auto-Brightness",
+  "simplekeybinds.options.auto_brightness.tooltip": "Automatically adjusts your brightness based on your current light level.",
+
   "key.category.simplekeybinds.simplekeybinds": "Simple Keybinds",
   "simplekeybinds.clear_chat": "Clear Chat",
   "simplekeybinds.change_master_volume": "Change Master Volume (scroll wheel)",
@@ -8,6 +15,7 @@
   "simplekeybinds.changed_master_volume": "Volume: %s",
   "simplekeybinds.change_brightness": "Change Brightness (scroll wheel)",
   "simplekeybinds.changed_brightness": "Brightness: %s",
+  "simplekeybinds.cannot_change_brightness": "Auto-Brightness is enabled! Cannot set brightness.",
   "simplekeybinds.change_gui_scale": "Change GUI Scale (scroll wheel)",
   "simplekeybinds.changed_gui_scale": "GUI Scale: %s",
   "simplekeybinds.change_fov": "Change FOV (scroll wheel)",

@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static net.dillon.simplekeybinds.util.ModUtil.muted;
+import static net.dillon.simplekeybinds.util.ModUtil.options;
 
 /**
  * Handles {@code Simple Keybind} functions for increase/decrease keybinds.
@@ -34,6 +35,10 @@ public class MouseMixin {
             float max;
             float delta;
             if (ModKeybinds.CHANGE_BRIGHTNESS.isDown()) {
+                if (options().autoBrightness) {
+                    this.sendMessage(Component.translatable("simplekeybinds.cannot_change_brightness").withStyle(ChatFormatting.RED));
+                    return;
+                }
                 min = (float) ModUtil.minBrightness;
                 max = (float) ModUtil.maxBrightness;
                 float gamma = this.minecraft.options.gamma().get().floatValue();

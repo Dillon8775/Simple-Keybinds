@@ -1,5 +1,6 @@
 package net.dillon.simplekeybinds.util;
 
+import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.platform.MultiLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.fog.FogData;
@@ -13,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 public class ModUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
-    public static boolean fog = true;
     public static boolean fullBright = false;
     public static final double minBrightness = 0.0D;
     public static final double maxBrightness = 12.0D;
@@ -31,6 +31,13 @@ public class ModUtil {
     }
 
     /**
+     * Returns the options.
+     */
+    public static ModOptions options() {
+        return ModOptions.OPTIONS;
+    }
+
+    /**
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
@@ -41,7 +48,7 @@ public class ModUtil {
         if (entity instanceof LivingEntity livingEntity &&
                 !livingEntity.hasEffect(MobEffects.BLINDNESS) &&
                 !livingEntity.hasEffect(MobEffects.DARKNESS) &&
-                !fog &&
+                !options().fog &&
                 fogtype != FogType.WATER &&
                 fogtype != FogType.LAVA &&
                 fogtype != FogType.POWDER_SNOW) {
