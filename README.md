@@ -39,6 +39,10 @@
 - ### FOV (Default Key = *R*)
 - ### GUI Scale (Default Key = *G*)
 
+## Auto-Brightness Option:
+- #### Automatically adjusts your brightness based on your current light level.
+(since: version 1.3)
+
 ---
 
 Created by Dillon8775.
