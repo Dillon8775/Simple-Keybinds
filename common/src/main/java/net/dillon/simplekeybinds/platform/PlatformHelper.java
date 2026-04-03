@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.platform;
 
-import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.api.Balm;
 
 import java.io.File;
 
@@ -17,7 +17,7 @@ public interface PlatformHelper {
      * @return if the platform is on NeoForged.
      */
     default boolean isNeoForged() {
-        return Balm.platform().name().equals("neoforge");
+        return Balm.getPlatform().equals("neoforge");
     }
 
     /**

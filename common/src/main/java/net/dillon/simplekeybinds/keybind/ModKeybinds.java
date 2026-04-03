@@ -2,11 +2,10 @@ package net.dillon.simplekeybinds.keybind;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class ModKeybinds {
-    private static final KeyMapping.Category MOD_KEYBINDS = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds"));
+    private static final String MOD_KEYBINDS = "simplekeybinds.keybinds";
 
     public static final KeyMapping CLEAR_CHAT = new KeyMapping(
             "simplekeybinds.clear_chat",

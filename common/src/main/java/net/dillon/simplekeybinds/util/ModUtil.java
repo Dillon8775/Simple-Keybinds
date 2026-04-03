@@ -1,14 +1,14 @@
 package net.dillon.simplekeybinds.util;
 
-import net.blay09.mods.balm.Balm;
+import net.blay09.mods.balm.api.Balm;
 import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.platform.MultiLoader;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.fog.FogData;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,20 +50,25 @@ public class ModUtil {
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
-        info("Simple Keybinds version " + MultiLoader.getPlatform().getModVersion() + " (for " + Balm.platform().name() + ") loaded successfully!");
+        info("Simple Keybinds version " + MultiLoader.getPlatform().getModVersion() + " (for " + Balm.getPlatform() + ") loaded successfully!");
     }
 
-    public static void handleFog(Entity entity, FogType fogtype, FogData fogData) {
-        if (entity instanceof LivingEntity livingEntity &&
-                !livingEntity.hasEffect(MobEffects.BLINDNESS) &&
-                !livingEntity.hasEffect(MobEffects.DARKNESS) &&
-                !options().fog &&
+    public static float handleFog(LocalPlayer player, FogType fogtype, FogRenderer.FogMode fogMode, float f, boolean bl) {
+        boolean nether = player.level().dimension() == Level.NETHER;
+        if (bl && !nether) {
+            return Math.min(f, 192.0F) * 0.5F;
+        }
+
+        if (!player.hasEffect(MobEffects.BLINDNESS) &&
+                !player.hasEffect(MobEffects.DARKNESS) &&
+                fogMode != FogRenderer.FogMode.FOG_SKY &&
                 fogtype != FogType.WATER &&
                 fogtype != FogType.LAVA &&
                 fogtype != FogType.POWDER_SNOW) {
-            fogData.renderDistanceEnd = Integer.MAX_VALUE;
-            fogData.environmentalEnd = Integer.MAX_VALUE;
+            return Integer.MAX_VALUE;
         }
+
+        return f;
     }
 
     public static Component toComponentString(Double gamma) {

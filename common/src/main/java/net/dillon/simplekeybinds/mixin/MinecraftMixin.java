@@ -9,8 +9,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.components.ChatComponent;
-import net.minecraft.client.gui.components.debug.DebugScreenEntries;
 import net.minecraft.client.gui.screens.PauseScreen;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
@@ -52,22 +52,23 @@ public class MinecraftMixin {
 
         while (ModKeybinds.RELOAD_CHUNKS.consumeClick()) {
             Minecraft.getInstance().levelRenderer.allChanged();
-            this.getChatHud().addClientSystemMessage(message("debug.reload_chunks.message"));
+            this.getChatHud().addMessage(message("debug.reload_chunks.message"));
         }
 
         while (ModKeybinds.SHOW_ADVANCED_TOOLTIPS.consumeClick()) {
             Minecraft.getInstance().options.advancedItemTooltips = !Minecraft.getInstance().options.advancedItemTooltips;
-            this.getChatHud().addClientSystemMessage(message(Minecraft.getInstance().options.advancedItemTooltips ? "debug.advanced_tooltips.on" : "debug.advanced_tooltips.off"));
+            this.getChatHud().addMessage(message(Minecraft.getInstance().options.advancedItemTooltips ? "debug.advanced_tooltips.on" : "debug.advanced_tooltips.off"));
         }
 
         while (ModKeybinds.TOGGLE_CHUNK_BORDERS.consumeClick()) {
-            boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.CHUNK_BORDERS);
-            this.getChatHud().addClientSystemMessage(message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off"));
+            boolean bl = Minecraft.getInstance().debugRenderer.switchRenderChunkborder();
+            this.getChatHud().addMessage(message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off"));
         }
 
         while (ModKeybinds.TOGGLE_HITBOXES.consumeClick()) {
-            boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.ENTITY_HITBOXES);
-            this.getChatHud().addClientSystemMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
+            Minecraft.getInstance().getEntityRenderDispatcher().setRenderHitBoxes(!Minecraft.getInstance().getEntityRenderDispatcher().shouldRenderHitBoxes());
+            boolean bl = Minecraft.getInstance().getEntityRenderDispatcher().shouldRenderHitBoxes();
+            this.getChatHud().addMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
         }
 
         // If the Speedrunner Mod is loaded, the fog keybinding won't work.
@@ -76,7 +77,7 @@ public class MinecraftMixin {
             options().fog = !options().fog;
             ModOptions.saveConfig();
             Minecraft.getInstance().levelRenderer.allChanged();
-            this.getChatHud().addClientSystemMessage(message(options().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
+            this.getChatHud().addMessage(message(options().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
         }
 
         // If the Speedrunner Mod is loaded, the fullbright keybinding won't work.
@@ -91,10 +92,10 @@ public class MinecraftMixin {
             }
             ModUtil.fullBright = !ModUtil.fullBright;
             Minecraft.getInstance().options.gamma().set(ModUtil.fullBright ? ModUtil.maxBrightness : ModUtil.previousBrightness);
-            this.getChatHud().addClientSystemMessage(message(ModUtil.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
+            this.getChatHud().addMessage(message(ModUtil.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
         }
 
-        if (Minecraft.getInstance().hasControlDown() && ModKeybinds.MUTE_GAME.isDown() && MuteCallback.muteCooldown == 0) {
+        if (Screen.hasControlDown() && ModKeybinds.MUTE_GAME.isDown() && MuteCallback.muteCooldown == 0) {
             MuteCallback.resetMuteCooldown();
             Options options = Minecraft.getInstance().options;
             if (!muted) {
@@ -103,9 +104,9 @@ public class MinecraftMixin {
                 this.unmute(options);
             }
             if (!scrolling && Minecraft.getInstance().player != null) {
-                this.player.sendOverlayMessage(muted
+                this.player.displayClientMessage(muted
                         ? Component.translatable("simplekeybinds.muted").withStyle(ChatFormatting.RED)
-                        : Component.translatable("simplekeybinds.unmuted").withStyle(ChatFormatting.GREEN));
+                        : Component.translatable("simplekeybinds.unmuted").withStyle(ChatFormatting.GREEN), true);
             }
             Minecraft.getInstance().options.save();
         }

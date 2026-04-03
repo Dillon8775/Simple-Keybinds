@@ -122,6 +122,6 @@ public class MouseMixin {
     @Unique
     private void sendMessage(Component message) {
         Minecraft.getInstance().options.save();
-        this.minecraft.player.sendOverlayMessage(message);
+        this.minecraft.player.displayClientMessage(message, true);
     }
 }

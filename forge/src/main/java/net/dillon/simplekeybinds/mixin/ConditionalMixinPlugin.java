@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.util.ModUtil;
-import net.neoforged.fml.loading.FMLLoader;
+import net.minecraftforge.fml.loading.FMLLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;

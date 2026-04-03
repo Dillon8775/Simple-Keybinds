@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}+${mc_version}",
+  "accessWidener": "simplekeybinds.accesswidener",
   "name": "${mod_name}",
   "description": "${description}",
   "authors": [
@@ -28,7 +29,7 @@
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
-    "minecraft": ">=26.1-pre.2",
+    "minecraft": ">=${minecraft_version}",
     "java": ">=${java_version}",
     "fabric-api": "*",
     "balm-fabric": ">=${balm_version}"

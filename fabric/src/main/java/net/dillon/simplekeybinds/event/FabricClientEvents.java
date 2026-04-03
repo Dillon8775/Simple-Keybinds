@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.event;
 
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
-import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
 public class FabricClientEvents {
 
@@ -9,20 +9,20 @@ public class FabricClientEvents {
      * Registers all keybinds
      */
     public static void registerKeybinds() {
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CLEAR_CHAT);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CHANGE_MASTER_VOLUME);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.MUTE_GAME);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CHANGE_BRIGHTNESS);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CHANGE_GUI_SCALE);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CHANGE_FOV);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CHANGE_RENDER_DISTANCE);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.CHANGE_ENTITY_DISTANCE);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.PAUSE_WITHOUT_MENU);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.RELOAD_CHUNKS);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.SHOW_ADVANCED_TOOLTIPS);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.TOGGLE_CHUNK_BORDERS);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.TOGGLE_FOG);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.TOGGLE_FULLBRIGHT);
-        KeyMappingHelper.registerKeyMapping(ModKeybinds.TOGGLE_HITBOXES);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CLEAR_CHAT);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CHANGE_MASTER_VOLUME);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.MUTE_GAME);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CHANGE_BRIGHTNESS);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CHANGE_GUI_SCALE);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CHANGE_FOV);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CHANGE_RENDER_DISTANCE);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.CHANGE_ENTITY_DISTANCE);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.PAUSE_WITHOUT_MENU);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.RELOAD_CHUNKS);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.SHOW_ADVANCED_TOOLTIPS);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_CHUNK_BORDERS);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_FOG);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_FULLBRIGHT);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_HITBOXES);
     }
 }
