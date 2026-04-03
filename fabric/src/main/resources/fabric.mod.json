@@ -4,6 +4,7 @@
   "version": "${mod_version}+${mc_version}",
   "accessWidener": "simplekeybinds.accesswidener",
   "name": "${mod_name}",
+  "accessWidener": "simplekeybinds.accesswidener",
   "description": "${description}",
   "authors": [
     "Dillon8775"
