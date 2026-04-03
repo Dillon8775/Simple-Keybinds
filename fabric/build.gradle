@@ -32,7 +32,7 @@ dependencies {
 }
 
 loom {
-    def aw = project(':fabric').file("src/main/resources/${mod_id}.accessWidener")
+    def aw = project(':fabric').file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {
         accessWidenerPath.set(aw)
     }

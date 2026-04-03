@@ -1,14 +1,14 @@
 package net.dillon.simplekeybinds.event;
 
-import net.dillon.simplekeybinds.SimpleKeybinds;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
+import net.dillon.simplekeybinds.util.ModUtil;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 
-@EventBusSubscriber(modid = SimpleKeybinds.MOD_ID, value = Dist.CLIENT)
-public class ClientEvents {
+@EventBusSubscriber(modid = ModUtil.MOD_ID, value = Dist.CLIENT)
+public class NeoForgedClientEvents {
 
     /**
      * Registers all keybinds.
