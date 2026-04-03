@@ -9,14 +9,8 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import java.util.List;
 import java.util.Set;
 
-/**
- * A mixin plugin that determines whether {@code certain mixins} should be applied, if the {@code speedrunner mod is loaded.}
- */
 public class ConditionalMixinPlugin implements IMixinConfigPlugin {
 
-    /**
-     * Determines whether cretain mixins should be applied.
-     */
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         boolean bl = this.shouldNotApply(mixinClassName);
@@ -26,9 +20,6 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
         return !bl;
     }
 
-    /**
-     * Returns client-side mixins that should not apply based on certain conditions.
-     */
     private boolean shouldNotApply(String mixinClassName) {
         if ((FMLLoader.getCurrent().getLoadingModList().getModFileById("speedrunnermod") != null || FMLLoader.getCurrent().getLoadingModList().getModFileById("qualityofqueso") != null) && mixinClassName.equals("net.dillon.simplekeybinds.mixin.FogRendererMixin")) {
             return true;

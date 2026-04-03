@@ -1,5 +1,6 @@
 package net.dillon.simplekeybinds.util;
 
+import net.blay09.mods.balm.Balm;
 import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.platform.MultiLoader;
 import net.minecraft.client.Minecraft;
@@ -13,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ModUtil {
+    public static final String MOD_ID = "simplekeybinds";
     private static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
     public static boolean fullBright = false;
     public static final double minBrightness = 0.0D;
@@ -31,6 +33,13 @@ public class ModUtil {
     }
 
     /**
+     * Sends a {@code warning} message to console.
+     */
+    public static void warn(String message) {
+        LOGGER.warn(message);
+    }
+
+    /**
      * Returns the options.
      */
     public static ModOptions options() {
@@ -41,7 +50,7 @@ public class ModUtil {
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
-        info("Simple Keybinds version " + MultiLoader.PLATFORM.getModVersion() + " (for " + MultiLoader.PLATFORM.getPlatformName() + ") loaded successfully!");
+        info("Simple Keybinds version " + MultiLoader.getPlatform().getModVersion() + " (for " + Balm.platform().name() + ") loaded successfully!");
     }
 
     public static void handleFog(Entity entity, FogType fogtype, FogData fogData) {

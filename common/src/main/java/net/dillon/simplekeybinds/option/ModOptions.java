@@ -78,7 +78,7 @@ public class ModOptions {
      */
     public static File getConfigFile() {
         if (file == null) {
-            file = MultiLoader.PLATFORM.getConfigDir(CONFIG);
+            file = MultiLoader.getPlatform().getConfigDir(CONFIG);
         }
         return file;
     }

@@ -3,7 +3,7 @@ package net.dillon.simplekeybinds.event;
 import net.dillon.simplekeybinds.keybind.ModKeybinds;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 
-public class ClientEvents {
+public class FabricClientEvents {
 
     /**
      * Registers all keybinds

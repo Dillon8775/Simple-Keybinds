@@ -1,9 +1,3 @@
-# Version 1.3 (MC Fabric 26.1, NeoForge 26.1):
-## Config
-- Added a configuration file for the mod.
-- Added a configuration screen.
-- Can be accessed with NeoForge, or via the Mod Menu mod with fabric.
-- Fog is now toggleable in the configuration screen, in addition to the keybind.
-
-## Auto-Brightness Option
-- Automatically adjusts your brightness based on your current light level. This is OFF by default.
+# Version 1.3.1 (MC Fabric 26.1, NeoForge 26.1, and 1.21.1 for Fabric/Forge/NeoForged):
+# Balm Dependency
+The mod now requires [Balm](https://modrinth.com/mod/balm) in order to run. This is to make developing on multiple mod loaders easier.
