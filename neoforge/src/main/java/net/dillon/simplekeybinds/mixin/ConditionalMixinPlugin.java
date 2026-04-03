@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.SimpleKeybinds;
+import net.dillon.simplekeybinds.util.ModUtil;
 import net.neoforged.fml.loading.FMLLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -15,7 +15,7 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         boolean bl = this.shouldNotApply(mixinClassName);
         if (bl) {
-            SimpleKeybinds.LOGGER.warn("Skipping mixin " + mixinClassName + " for target " + targetClassName + " because it should not be applied.");
+            ModUtil.warn("Skipping mixin " + mixinClassName + " for target " + targetClassName + " because it should not be applied.");
         }
         return !bl;
     }
