@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.callback.MuteCallback;
-import net.dillon.simplekeybinds.keybind.ModKeybinds;
+import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.util.ModUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static net.dillon.simplekeybinds.util.ModUtil.muted;
-import static net.dillon.simplekeybinds.util.ModUtil.options;
 
 /**
  * Handles {@code Simple Keybind} functions for increase/decrease keybinds.
@@ -34,9 +33,8 @@ public class MouseMixin {
             float min;
             float max;
             float delta;
-            if (ModKeybinds.CHANGE_BRIGHTNESS.isDown()) {
-                if (options().autoBrightness) {
-                    this.sendMessage(Component.translatable("simplekeybinds.cannot_change_brightness").withStyle(ChatFormatting.RED));
+            if (ModKeyMappings.CHANGE_BRIGHTNESS.isDown()) {
+                if (ModKeyMappings.autoBrightness()) {
                     return;
                 }
                 min = (float) ModUtil.minBrightness;
@@ -48,7 +46,7 @@ public class MouseMixin {
                 this.minecraft.options.gamma().set((double)gamma);
                 this.sendMessage(Component.translatable("simplekeybinds.changed_brightness", (int)(gamma * 100)).append("%").withStyle(ChatFormatting.GREEN));
                 ci.cancel();
-            } else if (ModKeybinds.CHANGE_GUI_SCALE.isDown()) {
+            } else if (ModKeyMappings.CHANGE_GUI_SCALE.isDown()) {
                 min = 1;
                 max = !this.minecraft.isRunning() ? 2147483646 : this.minecraft.getWindow().calculateScale(0, this.minecraft.isEnforceUnicode());
                 int scale = this.minecraft.options.guiScale().get();
@@ -58,7 +56,7 @@ public class MouseMixin {
                 this.minecraft.options.guiScale().set(scale);
                 this.sendMessage(Component.translatable("simplekeybinds.changed_gui_scale", scale));
                 ci.cancel();
-            } else if (ModKeybinds.CHANGE_FOV.isDown()) {
+            } else if (ModKeyMappings.CHANGE_FOV.isDown()) {
                 min = 30;
                 max = 110;
                 int fov = this.minecraft.options.fov().get();
@@ -68,7 +66,7 @@ public class MouseMixin {
                 this.minecraft.options.fov().set(fov);
                 this.sendMessage(Component.translatable("simplekeybinds.changed_fov", fov));
                 ci.cancel();
-            } else if (ModKeybinds.CHANGE_MASTER_VOLUME.isDown()) {
+            } else if (ModKeyMappings.CHANGE_MASTER_VOLUME.isDown()) {
                 if (muted) {
                     this.sendMessage(Component.translatable("simplekeybinds.cant_change_volume"));
                     return;
@@ -82,7 +80,7 @@ public class MouseMixin {
                 this.minecraft.options.getSoundSourceOptionInstance(SoundSource.MASTER).set(volume);
                 this.sendMessage(Component.translatable("simplekeybinds.changed_master_volume", (int)(volume * 100)).append(Component.literal("%")));
                 ci.cancel();
-            } else if (ModKeybinds.CHANGE_RENDER_DISTANCE.isDown()) {
+            } else if (ModKeyMappings.CHANGE_RENDER_DISTANCE.isDown()) {
                 min = 2;
                 max = 32;
                 int renderDistance = this.minecraft.options.renderDistance().get();
@@ -96,7 +94,7 @@ public class MouseMixin {
                                         renderDistance > 29 ? ChatFormatting.DARK_RED :
                                                 ChatFormatting.RED));
                 ci.cancel();
-            } else if (ModKeybinds.CHANGE_ENTITY_DISTANCE.isDown()) {
+            } else if (ModKeyMappings.CHANGE_ENTITY_DISTANCE.isDown()) {
                 min = 0.5F;
                 max = 5.0F;
                 float entityDistance = this.minecraft.options.entityDistanceScaling().get().floatValue();

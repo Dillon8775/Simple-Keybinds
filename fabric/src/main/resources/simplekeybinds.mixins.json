@@ -4,6 +4,7 @@
   "plugin": "net.dillon.simplekeybinds.mixin.ConditionalMixinPlugin",
   "compatibilityLevel": "JAVA_25",
   "client": [
+    "DebugScreenEntriesAccessor",
     "FogRendererMixin",
     "LevelRendererMixin",
     "MinecraftMixin",

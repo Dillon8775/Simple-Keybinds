@@ -1,9 +1,8 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.util.MixinPluginUtil;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -16,21 +15,9 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        boolean bl = this.shouldNotApply(mixinClassName);
-        if (bl) {
-            ModUtil.warn("Skipping mixin " + mixinClassName + " for target " + targetClassName + " because it should not be applied.");
-        }
-        return !bl;
+        return MixinPluginUtil.shouldApplyMixin(targetClassName, mixinClassName);
     }
 
-    private boolean shouldNotApply(String mixinClassName) {
-        if ((FabricLoader.getInstance().isModLoaded("speedrunnermod") || FabricLoader.getInstance().isModLoaded("qualityofqueso")) && mixinClassName.equals("net.dillon.simplekeybinds.mixin.FogRendererMixin")) {
-            return true;
-        }
-        return false;
-    }
-
-    // Other methods...
     @Override
     public void onLoad(String mixinPackage) {
     }

@@ -4,14 +4,18 @@ import net.blay09.mods.balm.Balm;
 import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.platform.MultiLoader;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.Options;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.material.FogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spongepowered.asm.mixin.Unique;
 
 public class ModUtil {
     public static final String MOD_ID = "simplekeybinds";
@@ -47,10 +51,55 @@ public class ModUtil {
     }
 
     /**
+     * @return an identifier with the {@code Simple Keybinds} namespace.
+     */
+    public static Identifier ofSimpleKeybinds(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    }
+
+    /**
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
         info("Simple Keybinds version " + MultiLoader.getPlatform().getModVersion() + " (for " + Balm.platform().name() + ") loaded successfully!");
+    }
+
+    /**
+     * @return if the {@code Quality of Queso mod} is loaded.
+
+     */
+    public static boolean qualityOfQuesoLoaded() {
+        return Balm.platform().isModLoaded("qualityofqueso");
+    }
+
+    /**
+     * Mutes the game.
+     */
+    public static void mute(Options options) {
+        if (scrolling) {
+            System.out.println("what??");
+            return;
+        }
+
+        double currentVolume = options.getSoundSourceOptionInstance(SoundSource.MASTER).get();
+        if (currentVolume == 0.0F) {
+            unmute(options);
+            return;
+        }
+
+        cachedVolume = currentVolume;
+        muted = true;
+
+        options.getSoundSourceOptionInstance(SoundSource.MASTER).set(0D);
+    }
+
+    /**
+     * Unmutes the game.
+     */
+    @Unique
+    public static void unmute(Options options) {
+        options.getSoundSourceOptionInstance(SoundSource.MASTER).set((cachedVolume == 0.0D ? 0.5D : cachedVolume));
+        muted = false;
     }
 
     public static void handleFog(Entity entity, FogType fogtype, FogData fogData) {

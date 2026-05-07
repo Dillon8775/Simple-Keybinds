@@ -15,7 +15,7 @@
   },
   "license": "${license}",
   "icon": "${logo}.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "client": [
       "net.dillon.simplekeybinds.SimpleKeybinds"
@@ -33,6 +33,10 @@
     "java": ">=${java_version}",
     "fabric-api": "*",
     "balm-fabric": ">=${balm_version}"
+  },
+  "suggests": {
+    "modmenu": "*",
+    "controlling": "*"
   },
   "custom": {
     "modmenu": {

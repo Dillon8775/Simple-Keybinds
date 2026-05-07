@@ -10,4 +10,9 @@ public class FabricPlatformHelper implements PlatformHelper {
     public File getConfigDir(String fileName) {
         return new File(FabricLoader.getInstance().getConfigDir().toFile(), fileName);
     }
+
+    @Override
+    public boolean isModLoaded(String modId) {
+        return FabricLoader.getInstance().isModLoaded("qualityofqueso");
+    }
 }

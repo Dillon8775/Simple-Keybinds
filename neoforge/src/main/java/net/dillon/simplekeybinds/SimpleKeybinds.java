@@ -2,6 +2,7 @@ package net.dillon.simplekeybinds;
 
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.neoforge.platform.runtime.NeoForgeLoadContext;
+import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.main.ClientMain;
 import net.dillon.simplekeybinds.screen.ModOptionsScreen;
 import net.dillon.simplekeybinds.util.ModUtil;
@@ -15,6 +16,7 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 public final class SimpleKeybinds {
 
     public SimpleKeybinds(IEventBus modEventBus, ModContainer container) {
+        ModKeyMappings.initKeybinds();
         final var context = new NeoForgeLoadContext(container, modEventBus);
         Balm.initializeMod(ModUtil.MOD_ID, context, ClientMain::cInitialize);
 
