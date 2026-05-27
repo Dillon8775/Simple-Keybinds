@@ -2,7 +2,7 @@ package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.keybind.ModKeyMappings;
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.helper.ModHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHandler;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.dillon.simplekeybinds.util.ModUtil.muted;
+import static net.dillon.simplekeybinds.helper.ModHelper.muted;
 
 /**
  * Handles {@code Simple Keybind} functions for increase/decrease keybinds.
@@ -37,8 +37,8 @@ public class MouseMixin {
                 if (ModKeyMappings.autoBrightness()) {
                     return;
                 }
-                min = (float) ModUtil.minBrightness;
-                max = (float) ModUtil.maxBrightness;
+                min = (float) ModHelper.minBrightness;
+                max = (float) ModHelper.maxBrightness;
                 float gamma = this.minecraft.options.gamma().get().floatValue();
                 delta = 0.5F * (vertical > 0 ? 1 : -1);
                 gamma += delta;

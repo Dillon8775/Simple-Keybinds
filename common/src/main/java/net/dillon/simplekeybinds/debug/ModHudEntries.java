@@ -4,7 +4,7 @@ import net.dillon.simplekeybinds.mixin.DebugScreenEntriesAccessor;
 import net.minecraft.client.gui.components.debug.DebugEntryCategory;
 import net.minecraft.network.chat.Component;
 
-import static net.dillon.simplekeybinds.util.ModUtil.ofSimpleKeybinds;
+import static net.dillon.simplekeybinds.helper.ModHelper.ofSimpleKeybinds;
 
 /**
  * All debug entries.

@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.blay09.mods.kuma.api.*;
 import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.option.ModOptions;
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.helper.ModHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -18,7 +18,7 @@ import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Unique;
 
-import static net.dillon.simplekeybinds.util.ModUtil.*;
+import static net.dillon.simplekeybinds.helper.ModHelper.*;
 
 /**
  * All Simple Keybinds.
@@ -133,15 +133,15 @@ public class ModKeyMappings {
                     return false;
                 }
                 double currentBrightness = Minecraft.getInstance().options.gamma().get();
-                if (!ModUtil.fullBright) {
-                    ModUtil.previousBrightness = currentBrightness;
+                if (!ModHelper.fullBright) {
+                    ModHelper.previousBrightness = currentBrightness;
                     if (currentBrightness >= 8.0D) {
-                        ModUtil.previousBrightness = 1.0D;
+                        ModHelper.previousBrightness = 1.0D;
                     }
                 }
-                ModUtil.fullBright = !ModUtil.fullBright;
-                Minecraft.getInstance().options.gamma().set(ModUtil.fullBright ? ModUtil.maxBrightness : ModUtil.previousBrightness);
-                getChatHud().addClientSystemMessage(message(ModUtil.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
+                ModHelper.fullBright = !ModHelper.fullBright;
+                Minecraft.getInstance().options.gamma().set(ModHelper.fullBright ? ModHelper.maxBrightness : ModHelper.previousBrightness);
+                getChatHud().addClientSystemMessage(message(ModHelper.fullBright ? "simplekeybinds.fullbright.on" : "simplekeybinds.fullbright.off"));
                 return true;
             })
             .build();

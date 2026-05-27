@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.screen;
 
 import net.dillon.simplekeybinds.option.ModOptions;
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.helper.ModHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -56,7 +56,7 @@ public abstract class AbstractModOptionsScreen extends OptionsSubScreen {
     @Override
     public void onClose() {
         ModOptions.saveConfig();
-        ModUtil.info("Saved changes.");
+        ModHelper.info("Saved changes.");
         super.onClose();
     }
 

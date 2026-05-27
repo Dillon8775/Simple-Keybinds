@@ -1,11 +1,11 @@
 package net.dillon.simplekeybinds.screen;
 
 import net.dillon.simplekeybinds.util.ModTexts;
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.helper.ModHelper;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.network.chat.Component;
 
-import static net.dillon.simplekeybinds.util.ModUtil.options;
+import static net.dillon.simplekeybinds.helper.ModHelper.options;
 
 public class ListOptions {
     public static final OptionInstance.CaptionBasedToString<Boolean> ON_OFF_TEXT = (p_231544_, p_231545_) -> p_231545_
@@ -14,7 +14,7 @@ public class ListOptions {
 
     public static OptionInstance<Boolean> fog() {
         return OptionInstance.createBoolean("simplekeybinds.options.fog",
-                ModUtil.qualityOfQuesoLoaded()
+                ModHelper.qualityOfQuesoLoaded()
                         ? OptionInstance.cachedConstantTooltip(Component.translatable("simplekeybinds.options.fog.disabled"))
                         : OptionInstance.noTooltip(),
                 ON_OFF_TEXT, options().fog, value -> options().fog = value);

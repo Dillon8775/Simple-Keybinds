@@ -4,7 +4,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-import static net.dillon.simplekeybinds.util.ModUtil.qualityOfQuesoLoaded;
+import static net.dillon.simplekeybinds.helper.ModHelper.qualityOfQuesoLoaded;
 
 public class ModOptionsScreen extends AbstractModOptionsScreen {
     private AbstractWidget fog;

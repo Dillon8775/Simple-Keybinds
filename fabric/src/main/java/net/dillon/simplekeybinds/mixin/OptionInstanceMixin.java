@@ -2,7 +2,7 @@ package net.dillon.simplekeybinds.mixin;
 
 import com.mojang.serialization.Codec;
 import net.dillon.simplekeybinds.callback.IncreasedBrightnessSliderCallback;
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.helper.ModHelper;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
@@ -35,8 +35,8 @@ public abstract class OptionInstanceMixin {
     @Inject(at = @At("RETURN"), method = "<init>*", remap = false)
     protected void init(CallbackInfo info) {
         if (this.caption.getContents() instanceof TranslatableContents translatableContents && translatableContents.getKey().equals("options.gamma")) {
-            this.onValueUpdate = ModUtil::onValueUpdate;
-            this.toString = ModUtil::toComponentString;
+            this.onValueUpdate = ModHelper::onValueUpdate;
+            this.toString = ModHelper::toComponentString;
             this.values = IncreasedBrightnessSliderCallback.INSTANCE;
             this.codec = this.values.codec();
         }

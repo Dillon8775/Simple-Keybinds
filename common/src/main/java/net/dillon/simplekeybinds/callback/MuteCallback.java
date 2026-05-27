@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.callback;
 
-import net.dillon.simplekeybinds.util.ModUtil;
+import net.dillon.simplekeybinds.helper.ModHelper;
 
 public class MuteCallback {
     private static int scrollTicksRemaining = 0;
@@ -11,7 +11,7 @@ public class MuteCallback {
      * Tells the game that the user is scrolling.
      */
     public static void tickScroll() {
-        ModUtil.scrolling = true;
+        ModHelper.scrolling = true;
         scrollTicksRemaining = DEFAULT_COOLDOWN;
     }
 
@@ -22,7 +22,7 @@ public class MuteCallback {
         if (scrollTicksRemaining > 0) {
             scrollTicksRemaining--;
         } else {
-            ModUtil.scrolling = false;
+            ModHelper.scrolling = false;
         }
     }
 

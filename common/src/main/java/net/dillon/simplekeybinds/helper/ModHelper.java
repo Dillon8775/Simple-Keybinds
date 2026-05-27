@@ -1,4 +1,4 @@
-package net.dillon.simplekeybinds.util;
+package net.dillon.simplekeybinds.helper;
 
 import net.blay09.mods.balm.Balm;
 import net.dillon.simplekeybinds.option.ModOptions;
@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Unique;
 
-public class ModUtil {
+public class ModHelper {
     public static final String MOD_ID = "simplekeybinds";
     private static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
     public static boolean fullBright = false;

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import static net.dillon.simplekeybinds.util.ModUtil.handleFog;
+import static net.dillon.simplekeybinds.helper.ModHelper.handleFog;
 
 @Mixin(FogRenderer.class)
 public class FogRendererMixin {
