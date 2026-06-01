@@ -44,6 +44,8 @@
 - No default binding.
 ## Show Advanced Tooltips
 - No default binding.
+## Quick Exit
+- No default binding.
 
 ---
 
