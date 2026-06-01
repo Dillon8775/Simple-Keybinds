@@ -32,6 +32,7 @@ public class MinecraftMixin {
     @Shadow
     public LocalPlayer player;
 
+
     @Inject(method = "tick", at = @At("HEAD"))
     private void tickScrolling(CallbackInfo ci) {
         MuteCallback.unscroll();
@@ -131,6 +132,35 @@ public class MinecraftMixin {
         muted = true;
 
         options.getSoundSourceOptionInstance(SoundSource.MASTER).set(0D);
+    }
+
+    /**
+     * Quits the game (Doesn't Work in the Keybinds Screen).
+     * Added by Wheeple.
+     */
+    @org.spongepowered.asm.mixin.injection.Inject(
+            method = "runTick",
+            at = @org.spongepowered.asm.mixin.injection.At("HEAD")
+    )
+    private void handleQuickExit(boolean renderLevel, org.spongepowered.asm.mixin.injection.callback.CallbackInfo ci) {
+        net.minecraft.client.gui.screens.Screen currentScreen = net.minecraft.client.Minecraft.getInstance().screen;
+
+        if (currentScreen instanceof net.minecraft.client.gui.screens.options.controls.KeyBindsScreen) {
+            return;
+        }
+
+        net.minecraft.client.KeyMapping quickExitMapping = net.dillon.simplekeybinds.keybind.ModKeybinds.QUICK_EXIT;
+        if (!quickExitMapping.isUnbound()) {
+            long window = net.minecraft.client.Minecraft.getInstance().getWindow().getWindow();
+            for (int i = org.lwjgl.glfw.GLFW.GLFW_KEY_SPACE; i <= org.lwjgl.glfw.GLFW.GLFW_KEY_LAST; i++) {
+                if (org.lwjgl.glfw.GLFW.glfwGetKey(window, i) == org.lwjgl.glfw.GLFW.GLFW_PRESS) {
+                    if (quickExitMapping.matches(i, 0)) {
+                        net.minecraft.client.Minecraft.getInstance().stop();
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     /**

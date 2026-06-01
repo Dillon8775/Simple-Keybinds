@@ -30,5 +30,6 @@ public class NeoForgedClientEvents {
         event.register(ModKeybinds.TOGGLE_FOG);
         event.register(ModKeybinds.TOGGLE_FULLBRIGHT);
         event.register(ModKeybinds.TOGGLE_HITBOXES);
+        event.register(ModKeybinds.QUICK_EXIT);
     }
 }

@@ -24,5 +24,6 @@ public class FabricClientEvents {
         KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_FOG);
         KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_FULLBRIGHT);
         KeyBindingHelper.registerKeyBinding(ModKeybinds.TOGGLE_HITBOXES);
+        KeyBindingHelper.registerKeyBinding(ModKeybinds.QUICK_EXIT);
     }
 }

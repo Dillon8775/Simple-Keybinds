@@ -42,6 +42,7 @@
   "simplekeybinds.cant_change_volume": "Game is muted!",
   "simplekeybinds.hud.on": "HUD: on",
   "simplekeybinds.hud.off": "HUD: off",
+  "simplekeybinds.quick_exit": "Quick Exit",
 
   "simplekeybinds.speedrunner_mod_loaded_keybindings": "The Speedrunner Mod is loaded, use those keybindings instead."
 }
