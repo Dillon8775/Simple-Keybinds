@@ -111,4 +111,14 @@ public class ModKeybinds {
             GLFW.GLFW_KEY_X,
             MOD_KEYBINDS
     );
+
+    /**
+     * Added by Wheeple.
+     */
+    public static final KeyMapping QUICK_EXIT = new KeyMapping(
+            "simplekeybinds.quick_exit",
+            InputConstants.Type.KEYSYM,
+            InputConstants.UNKNOWN.getValue(),
+            MOD_KEYBINDS
+    );
 }
