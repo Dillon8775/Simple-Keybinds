@@ -63,7 +63,7 @@ public class ModKeyMappings {
     private static final ManagedKeyMapping PAUSE_WITHOUT_MENU = Kuma.createKeyMapping(ofSimpleKeybinds("pause_without_menu"))
             .overrideCategory(DEFAULT_CATEGORY)
             .handleWorldInput(handler -> {
-                Minecraft.getInstance().setScreen(new PauseScreen(false));
+                Minecraft.getInstance().gui.setScreen(new PauseScreen(false));
                 return true;
             })
             .build();
@@ -71,7 +71,7 @@ public class ModKeyMappings {
     private static final ManagedKeyMapping RELOAD_CHUNKS = Kuma.createKeyMapping(ofSimpleKeybinds("reload_chunks"))
             .overrideCategory(DEFAULT_CATEGORY)
             .handleWorldInput(handler -> {
-                Minecraft.getInstance().levelRenderer.allChanged();
+                Minecraft.getInstance().levelExtractor.allChanged();
                 getChatHud().addClientSystemMessage(message("debug.reload_chunks.message"));
                 return true;
             })
@@ -119,7 +119,7 @@ public class ModKeyMappings {
                 }
                 options().fog = !options().fog;
                 ModOptions.saveConfig();
-                Minecraft.getInstance().levelRenderer.allChanged();
+                Minecraft.getInstance().levelExtractor.allChanged();
                 getChatHud().addClientSystemMessage(message(options().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
                 return true;
             })
@@ -228,7 +228,7 @@ public class ModKeyMappings {
      */
     @Unique
     private static ChatComponent getChatHud() {
-        return Minecraft.getInstance().gui.getChat();
+        return Minecraft.getInstance().gui.hud.getChat();
     }
 
     /**
