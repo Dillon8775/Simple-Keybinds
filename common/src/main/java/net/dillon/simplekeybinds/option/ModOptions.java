@@ -17,6 +17,7 @@ public class ModOptions {
 
     public boolean fog = false;
     public boolean autoBrightness = false;
+    public Messages messages = Messages.ACTIONBAR;
 
     /**
      * Loads the configuration file.

@@ -5,6 +5,7 @@ import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.platform.MultiLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -15,7 +16,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.material.FogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spongepowered.asm.mixin.Unique;
 
 public class ModHelper {
     public static final String MOD_ID = "simplekeybinds";
@@ -39,6 +39,7 @@ public class ModHelper {
     /**
      * Sends a {@code warning} message to console.
      */
+    @Deprecated
     public static void warn(String message) {
         LOGGER.warn(message);
     }
@@ -73,6 +74,17 @@ public class ModHelper {
     }
 
     /**
+     * Sends a client message to the player.
+     */
+    public static void sendClientMessage(LocalPlayer localPlayer, Component message) {
+        if (options().messages.actionbar()) {
+            localPlayer.sendOverlayMessage(message);
+        } else {
+            localPlayer.sendSystemMessage(message);
+        }
+    }
+
+    /**
      * Mutes the game.
      */
     public static void mute(Options options) {
@@ -96,7 +108,6 @@ public class ModHelper {
     /**
      * Unmutes the game.
      */
-    @Unique
     public static void unmute(Options options) {
         options.getSoundSourceOptionInstance(SoundSource.MASTER).set((cachedVolume == 0.0D ? 0.5D : cachedVolume));
         muted = false;

@@ -1,8 +1,8 @@
 package net.dillon.simplekeybinds.mixin;
 
 import net.dillon.simplekeybinds.callback.MuteCallback;
-import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHandler;
@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static net.dillon.simplekeybinds.helper.ModHelper.muted;
+import static net.dillon.simplekeybinds.helper.ModHelper.sendClientMessage;
 
 /**
  * Handles {@code Simple Keybind} functions for increase/decrease keybinds.
@@ -120,6 +121,6 @@ public class MouseMixin {
     @Unique
     private void sendMessage(Component message) {
         Minecraft.getInstance().options.save();
-        this.minecraft.player.sendOverlayMessage(message);
+        sendClientMessage(this.minecraft.player, message);
     }
 }

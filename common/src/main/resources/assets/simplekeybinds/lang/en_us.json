@@ -9,6 +9,10 @@
   "simplekeybinds.options.fog.disabled": "Feature disabled, use Quality of Queso fog instead.",
   "simplekeybinds.options.auto_brightness": "Auto-Brightness",
   "simplekeybinds.options.auto_brightness.tooltip": "Automatically adjusts your brightness based on your current light level.",
+  "simplekeybinds.options.messages": "Messages",
+  "simplekeybinds.options.messages.tooltip": "Send chat messages in actionbar or chat.",
+  "simplekeybinds.options.messages.actionbar": "Actionbar",
+  "simplekeybinds.options.messages.chat": "Chat",
 
   "key.category.simplekeybinds.simplekeybinds": "Simple Keybinds",
   "key.simplekeybinds.clear_chat": "Clear Chat",

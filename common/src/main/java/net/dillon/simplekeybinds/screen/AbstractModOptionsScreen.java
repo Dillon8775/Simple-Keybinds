@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.screen;
 
-import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.option.ModOptions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
