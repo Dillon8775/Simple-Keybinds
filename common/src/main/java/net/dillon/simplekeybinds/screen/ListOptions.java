@@ -1,9 +1,13 @@
 package net.dillon.simplekeybinds.screen;
 
-import net.dillon.simplekeybinds.util.ModTexts;
+import com.mojang.serialization.Codec;
 import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.option.Messages;
+import net.dillon.simplekeybinds.util.ModTexts;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.network.chat.Component;
+
+import java.util.Arrays;
 
 import static net.dillon.simplekeybinds.helper.ModHelper.options;
 
@@ -23,5 +27,15 @@ public class ListOptions {
     public static OptionInstance<Boolean> autoBrightness() {
         return OptionInstance.createBoolean("simplekeybinds.options.auto_brightness", OptionInstance.cachedConstantTooltip(Component.translatable("simplekeybinds.options.auto_brightness.tooltip")),
                 ON_OFF_TEXT, options().autoBrightness, value -> options().autoBrightness = value);
+    }
+
+    public static OptionInstance<Messages> messages() {
+        return new OptionInstance<>("simplekeybinds.options.messages",
+                OptionInstance.cachedConstantTooltip(Component.translatable("simplekeybinds.options.messages.tooltip")),
+                (optionText, value) -> value.getText(),
+                new OptionInstance.Enum<>(Arrays.asList(Messages.values()),
+                        Codec.INT.xmap(Messages::byId, Messages::getId)),
+                options().messages,
+                value -> options().messages = value);
     }
 }

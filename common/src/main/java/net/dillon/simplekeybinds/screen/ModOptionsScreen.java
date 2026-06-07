@@ -19,7 +19,9 @@ public class ModOptionsScreen extends AbstractModOptionsScreen {
 
         return new AbstractWidget[]{
                 this.fog,
-                createOption(ListOptions.autoBrightness())
+                createOption(ListOptions.autoBrightness()),
+
+                createOption(ListOptions.messages())
         };
     }
 

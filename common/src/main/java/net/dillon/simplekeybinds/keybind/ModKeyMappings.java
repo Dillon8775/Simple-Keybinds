@@ -3,8 +3,8 @@ package net.dillon.simplekeybinds.keybind;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.blay09.mods.kuma.api.*;
 import net.dillon.simplekeybinds.callback.MuteCallback;
-import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.option.ModOptions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -42,7 +42,7 @@ public class ModKeyMappings {
 
                 LocalPlayer player = Minecraft.getInstance().player;
                 if (!scrolling && player != null) {
-                    player.sendOverlayMessage(muted
+                    sendClientMessage(player, muted
                             ? Component.translatable("simplekeybinds.muted").withStyle(ChatFormatting.RED)
                             : Component.translatable("simplekeybinds.unmuted").withStyle(ChatFormatting.GREEN));
                 }

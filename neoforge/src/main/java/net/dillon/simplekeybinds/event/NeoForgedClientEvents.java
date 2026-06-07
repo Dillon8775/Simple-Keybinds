@@ -1,7 +1,7 @@
 package net.dillon.simplekeybinds.event;
 
-import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
