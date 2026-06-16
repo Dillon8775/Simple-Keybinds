@@ -6,7 +6,6 @@
   "client": [
     "DebugScreenEntriesAccessor",
     "FogRendererMixin",
-    "LevelRendererMixin",
     "MinecraftMixin",
     "MouseMixin",
     "OptionInstanceMixin"

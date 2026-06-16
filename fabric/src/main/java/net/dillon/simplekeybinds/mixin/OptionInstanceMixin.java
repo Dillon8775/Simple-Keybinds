@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 @Mixin(OptionInstance.class)
@@ -27,10 +26,8 @@ public abstract class OptionInstanceMixin {
     private OptionInstance.ValueSet<Double> values;
     @Shadow @Final @Mutable
     private Codec<Double> codec;
-    @Shadow
-    @Final
-    @Mutable
-    private Consumer<Double> onValueUpdate;
+    @Shadow @Final @Mutable
+    private OptionInstance.ValueUpdateListener<? super Double> onValueUpdate;
 
     @Inject(at = @At("RETURN"), method = "<init>*", remap = false)
     protected void init(CallbackInfo info) {
