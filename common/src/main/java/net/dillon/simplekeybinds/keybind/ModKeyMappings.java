@@ -27,6 +27,7 @@ public class ModKeyMappings {
     public static final KeyMapping.Category DEFAULT_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds"));
     private static final KeyMapping.Category SCROLLING_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds.scrolling"));
 
+
     private static final ManagedKeyMapping MUTE_GAME = Kuma.createKeyMapping(ofSimpleKeybinds("mute"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_M, KeyModifiers.of(KeyModifier.CONTROL)))
@@ -152,6 +153,21 @@ public class ModKeyMappings {
             .handleWorldInput(handler -> {
                 boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.ENTITY_HITBOXES);
                 getChatHud().addClientSystemMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
+                return true;
+            })
+            .build();
+
+    /**
+     * Added By Wheeple.
+     */
+    private static final ManagedKeyMapping QUICK_EXIT = Kuma.createKeyMapping(ofSimpleKeybinds("quick_exit"))
+            .overrideCategory(DEFAULT_CATEGORY)
+            .handleWorldInput(handler -> {
+                Minecraft.getInstance().stop();
+                return true;
+            })
+            .handleScreenInput(handler -> {
+                Minecraft.getInstance().stop();
                 return true;
             })
             .build();

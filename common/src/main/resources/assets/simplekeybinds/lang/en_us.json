@@ -26,6 +26,7 @@
   "key.simplekeybinds.toggle_fullbright": "Toggle Fullbright",
   "key.simplekeybinds.toggle_hitboxes": "Toggle Hitboxes",
   "key.simplekeybinds.mute": "Mute",
+  "key.simplekeybinds.quick_exit": "Quick Exit",
   "key.category.simplekeybinds.simplekeybinds.scrolling": "Simple Scrolling Keybinds",
   "simplekeybinds.change_master_volume": "Change Master Volume",
   "simplekeybinds.changed_master_volume": "Volume: %s",
