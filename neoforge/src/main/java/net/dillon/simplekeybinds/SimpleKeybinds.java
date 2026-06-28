@@ -17,6 +17,7 @@ public final class SimpleKeybinds {
 
     public SimpleKeybinds(IEventBus modEventBus, ModContainer container) {
         ModKeyMappings.initKeybinds();
+
         final var context = new NeoForgeLoadContext(container, modEventBus);
         Balm.initializeMod(ModHelper.MOD_ID, context, ClientMain::cInitialize);
 

@@ -15,7 +15,6 @@ import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Unique;
 
 import static net.dillon.simplekeybinds.helper.ModHelper.*;
@@ -156,53 +155,35 @@ public class ModKeyMappings {
             })
             .build();
 
-    public static final KeyMapping CHANGE_MASTER_VOLUME = new KeyMapping(
-            "simplekeybinds.change_master_volume",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_M,
-            SCROLLING_CATEGORY,
-            1
-    );
+    public static final ManagedKeyMapping CHANGE_MASTER_VOLUME = Kuma.createKeyMapping(ofSimpleKeybinds("change_master_volume"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_M))
+            .build();
 
-    public static final KeyMapping CHANGE_RENDER_DISTANCE = new KeyMapping(
-            "simplekeybinds.change_render_distance",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_U,
-            SCROLLING_CATEGORY,
-            2
-    );
+    public static final ManagedKeyMapping CHANGE_RENDER_DISTANCE = Kuma.createKeyMapping(ofSimpleKeybinds("change_render_distance"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_U))
+            .build();
 
-    public static final KeyMapping CHANGE_ENTITY_DISTANCE = new KeyMapping(
-            "simplekeybinds.change_entity_distance",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_H,
-            SCROLLING_CATEGORY,
-            3
-    );
+    public static final ManagedKeyMapping CHANGE_ENTITY_DISTANCE = Kuma.createKeyMapping(ofSimpleKeybinds("change_entity_distance"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_H))
+            .build();
 
-    public static final KeyMapping CHANGE_BRIGHTNESS = new KeyMapping(
-            "simplekeybinds.change_brightness",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_J,
-            SCROLLING_CATEGORY,
-            4
-    );
+    public static final ManagedKeyMapping CHANGE_BRIGHTNESS = Kuma.createKeyMapping(ofSimpleKeybinds("change_brightness"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_J))
+            .build();
 
-    public static final KeyMapping CHANGE_FOV = new KeyMapping(
-            "simplekeybinds.change_fov",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_R,
-            SCROLLING_CATEGORY,
-            5
-    );
+    public static final ManagedKeyMapping CHANGE_FOV = Kuma.createKeyMapping(ofSimpleKeybinds("change_fov"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_R))
+            .build();
 
-    public static final KeyMapping CHANGE_GUI_SCALE = new KeyMapping(
-            "simplekeybinds.change_gui_scale",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_G,
-            SCROLLING_CATEGORY,
-            6
-    );
+    public static final ManagedKeyMapping CHANGE_GUI_SCALE = Kuma.createKeyMapping(ofSimpleKeybinds("change_gui_scale"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_G))
+            .build();
 
     /**
      * @return if auto brightness is enabled, and sends a message to the player.
