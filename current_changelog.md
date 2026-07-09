@@ -1,4 +1,4 @@
-# Version 1.4.2 | 2026-06-28
+# Version 1.4.3 | 2026-07-10
 
-## Changes
-- Scrolling keybinds now support key modifiers.
+## Bugs Fixed
+- Player null when using keybinds when not in a world.

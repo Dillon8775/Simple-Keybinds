@@ -20,7 +20,7 @@ public class MixinPluginUtil {
             String qoq = "qualityofqueso";
             String speedrunnerMod = "speedrunnermod";
             if (MultiLoader.getPlatform().isModLoaded(qoq) || MultiLoader.getPlatform().isModLoaded(speedrunnerMod)) {
-                LOGGER.error("Mod Quality of Queso or Speedrunner Mod is loaded, not applying Simple Keybind's fog functionality.");
+                LOGGER.warn("Mod Quality of Queso or Speedrunner Mod is loaded, not applying Simple Keybind's fog functionality.");
                 REASON = "Quality of Queso or Speedrunner Mod is loaded, and those mods already change fog functionality.";
                 return false;
             }

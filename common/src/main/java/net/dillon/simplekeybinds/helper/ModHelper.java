@@ -76,11 +76,15 @@ public class ModHelper {
     /**
      * Sends a client message to the player.
      */
-    public static void sendClientMessage(LocalPlayer localPlayer, Component message) {
+    public static void sendClientMessage(LocalPlayer player, Component message) {
+        if (player == null) {
+            return;
+        }
+
         if (options().messages.actionbar()) {
-            localPlayer.sendOverlayMessage(message);
+            player.sendOverlayMessage(message);
         } else {
-            localPlayer.sendSystemMessage(message);
+            player.sendSystemMessage(message);
         }
     }
 
