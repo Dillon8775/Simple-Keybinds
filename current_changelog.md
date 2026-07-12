@@ -1,4 +1,4 @@
-# Version 1.4.3 | 2026-07-09
+# Version 1.4.4 | 2026-07-12
 
-## Bugs Fixed
-- Player null when using keybinds when not in a world.
+## Changes
+- Backend optimizations.
