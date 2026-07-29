@@ -1,7 +1,6 @@
 package net.dillon.simplekeybinds.screen;
 
 import net.dillon.simplekeybinds.helper.ModHelper;
-import net.dillon.simplekeybinds.option.ModOptions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -20,13 +19,6 @@ public abstract class AbstractModOptionsScreen extends OptionsSubScreen {
 
     public AbstractModOptionsScreen(Screen lastScreen, Component title) {
         super(lastScreen, Minecraft.getInstance().options, title);
-    }
-
-    /**
-     * @return an {@link AbstractWidget} from an {@link OptionInstance}.
-     */
-    protected static AbstractWidget createOption(OptionInstance<?> instance) {
-        return instance.createButton(Minecraft.getInstance().options);
     }
 
     /**
@@ -55,8 +47,7 @@ public abstract class AbstractModOptionsScreen extends OptionsSubScreen {
 
     @Override
     public void onClose() {
-        ModOptions.saveConfig();
-        ModHelper.info("Saved changes.");
+        ModHelper.LOGGER.info("Saved changes.");
         super.onClose();
     }
 

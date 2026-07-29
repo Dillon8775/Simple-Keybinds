@@ -5,6 +5,7 @@ import net.blay09.mods.kuma.api.*;
 import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.helper.ModHelper;
 import net.dillon.simplekeybinds.option.ModOptions;
+import net.dillon.simplekeybinds.platform.ModReferences;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -112,14 +113,13 @@ public class ModKeyMappings {
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_O))
             .handleWorldInput(handler -> {
-                if (qualityOfQuesoLoaded()) {
+                if (ModReferences.isModLoaded(ModReferences.QUALITY_OF_QUESO)) {
                     getChatHud().addClientSystemMessage(message("simplekeybinds.options.fog.disabled"));
                     return false;
                 }
-                options().fog = !options().fog;
-                ModOptions.saveConfig();
+                ModOptions.INSTANCE.update(options -> options.fog = !options.fog);
                 Minecraft.getInstance().levelExtractor.allChanged();
-                getChatHud().addClientSystemMessage(message(options().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
+                getChatHud().addClientSystemMessage(message(optionsInstance().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
                 return true;
             })
             .build();
@@ -189,7 +189,7 @@ public class ModKeyMappings {
      * @return if auto brightness is enabled, and sends a message to the player.
      */
     public static boolean autoBrightness() {
-        if (options().autoBrightness) {
+        if (optionsInstance().autoBrightness) {
             getChatHud().addClientSystemMessage(Component.translatable("simplekeybinds.cannot_change_brightness").withStyle(ChatFormatting.RED));
             return true;
         }

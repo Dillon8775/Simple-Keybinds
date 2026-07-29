@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.util.MixinPluginUtil;
+import net.dillon.simplekeybinds.util.SimpleKeybindsMixinPlugin;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import org.objectweb.asm.tree.ClassNode;
@@ -15,7 +15,8 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return !MixinPluginUtil.shouldNotApply(targetClassName, mixinClassName);
+        SimpleKeybindsMixinPlugin simpleKeybindsMixinPlugin = new SimpleKeybindsMixinPlugin();
+        return !simpleKeybindsMixinPlugin.shouldNotApply(targetClassName, mixinClassName);
     }
 
     @Override

@@ -1,86 +1,27 @@
 package net.dillon.simplekeybinds.option;
 
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import net.dillon.simplekeybinds.platform.MultiLoader;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import net.dillon.dillonlib.util.BaseOptions;
 
 public class ModOptions {
-    private static final Gson GSON = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).setPrettyPrinting().create();
-    public static final String CONFIG = "simplekeybinds-config.json";
-    private static File file;
-    public static ModOptions OPTIONS = getConfig();
-
+    public static ModOptionsHandler INSTANCE = new ModOptionsHandler();
     public boolean fog = false;
     public boolean autoBrightness = false;
     public Messages messages = Messages.ACTIONBAR;
 
-    /**
-     * Loads the configuration file.
-     */
-    public static void loadConfig() {
-        File configFile = getConfigFile();
+    public static class ModOptionsHandler extends BaseOptions<ModOptions> {
 
-        if (!configFile.exists()) {
-            OPTIONS = new ModOptions();
-        } else {
-            readConfig();
+        public ModOptionsHandler() {
+            super("simplekeybinds.json");
         }
-        saveConfig();
-    }
 
-    /**
-     * Reads the configuration file.
-     */
-    public static void readConfig() {
-        OPTIONS = getConfig();
-    }
-
-    /**
-     * Saves the configuration file.
-     */
-    public static void saveConfig() {
-        File file = getConfigFile();
-        try (FileWriter writer = new FileWriter(file)) {
-            writer.write(GSON.toJson(OPTIONS));
-        } catch (Exception e) {
-            e.printStackTrace();
+        @Override
+        protected ModOptions createDefault() {
+            return new ModOptions();
         }
-    }
 
-    /**
-     * Sets the {@code OPTIONS} variable to the config.
-     */
-    public static void setConfig(ModOptions config) {
-        OPTIONS = config;
-        saveConfig();
-    }
-
-    /**
-     * Gets all the Simple Keybinds configuration options and returns them.
-     */
-    public static ModOptions getConfig() {
-        File file = getConfigFile();
-        try (FileReader reader = new FileReader(file)) {
-            return GSON.fromJson(reader, ModOptions.class);
-        } catch (Exception e) {
-            ModOptions newconfig = new ModOptions();
-            setConfig(newconfig);
-            return newconfig;
+        @Override
+        protected Class<ModOptions> getConfigClass() {
+            return ModOptions.class;
         }
-    }
-
-    /**
-     * Returns the Simple Keybinds configuration file.
-     */
-    public static File getConfigFile() {
-        if (file == null) {
-            file = MultiLoader.getPlatform().getConfigDir(CONFIG);
-        }
-        return file;
     }
 }

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.dillon.simplekeybinds.helper.ModHelper.options;
+import static net.dillon.simplekeybinds.helper.ModHelper.optionsInstance;
 
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
@@ -22,7 +22,7 @@ public class MinecraftMixin {
         MuteCallback.unscroll();
         MuteCallback.allowMuting();
 
-        if (!options().autoBrightness || Minecraft.getInstance().level == null) {
+        if (!optionsInstance().autoBrightness || Minecraft.getInstance().level == null) {
             return;
         }
 

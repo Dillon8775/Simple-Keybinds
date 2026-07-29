@@ -1,6 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
-import net.dillon.simplekeybinds.util.MixinPluginUtil;
+import net.dillon.simplekeybinds.util.SimpleKeybindsMixinPlugin;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -12,7 +12,8 @@ public class ConditionalMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return !MixinPluginUtil.shouldNotApply(targetClassName, mixinClassName);
+        SimpleKeybindsMixinPlugin simpleKeybindsMixinPlugin = new SimpleKeybindsMixinPlugin();
+        return !simpleKeybindsMixinPlugin.shouldNotApply(targetClassName, mixinClassName);
     }
 
     @Override

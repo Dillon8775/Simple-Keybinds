@@ -1,4 +1,3 @@
-# Version 1.4.4 | 2026-07-12
+# Version 1.4.5
 
-## Changes
-- Backend optimizations.
+## Now requires [DillonLib](https://modrinth.com/mod/dillon-lib) in order to run.

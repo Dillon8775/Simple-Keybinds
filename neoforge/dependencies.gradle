@@ -1,0 +1,7 @@
+dependencies {
+    implementation("net.blay09.mods:balm-neoforge:${balm_version}") {
+        changing = balm_version.contains('SNAPSHOT')
+    }
+
+    implementation "maven.modrinth:dillon-lib:${project.dillonlib_neoforge_dependency}"
+}

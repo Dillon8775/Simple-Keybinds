@@ -2,7 +2,7 @@ package net.dillon.simplekeybinds.helper;
 
 import net.blay09.mods.balm.Balm;
 import net.dillon.simplekeybinds.option.ModOptions;
-import net.dillon.simplekeybinds.platform.MultiLoader;
+import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatformGetter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.player.LocalPlayer;
@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 
 public class ModHelper {
     public static final String MOD_ID = "simplekeybinds";
-    private static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
+    public static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
     public static boolean fullBright = false;
     public static final double minBrightness = 0.0D;
     public static final double maxBrightness = 12.0D;
@@ -30,25 +30,10 @@ public class ModHelper {
     public static double cachedVolume = 1.0D;
 
     /**
-     * Sends a message to console.
-     */
-    public static void info(String message) {
-        LOGGER.info(message);
-    }
-
-    /**
-     * Sends a {@code warning} message to console.
-     */
-    @Deprecated
-    public static void warn(String message) {
-        LOGGER.warn(message);
-    }
-
-    /**
      * Returns the options.
      */
-    public static ModOptions options() {
-        return ModOptions.OPTIONS;
+    public static ModOptions optionsInstance() {
+        return ModOptions.INSTANCE.getInstance();
     }
 
     /**
@@ -62,15 +47,7 @@ public class ModHelper {
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
-        info("Simple Keybinds version " + MultiLoader.getPlatform().getModVersion() + " (for " + Balm.platform().name() + ") loaded successfully!");
-    }
-
-    /**
-     * @return if the {@code Quality of Queso mod} is loaded.
-
-     */
-    public static boolean qualityOfQuesoLoaded() {
-        return Balm.platform().isModLoaded("qualityofqueso");
+        LOGGER.info("Simple Keybinds version {} (for {}) loaded successfully!", SimpleKeybindsPlatformGetter.get().modVersion(), Balm.platform().name());
     }
 
     /**
@@ -81,7 +58,7 @@ public class ModHelper {
             return;
         }
 
-        if (options().messages.actionbar()) {
+        if (optionsInstance().messages.actionbar()) {
             player.sendOverlayMessage(message);
         } else {
             player.sendSystemMessage(message);
@@ -93,7 +70,6 @@ public class ModHelper {
      */
     public static void mute(Options options) {
         if (scrolling) {
-            System.out.println("what??");
             return;
         }
 
@@ -121,7 +97,7 @@ public class ModHelper {
         if (entity instanceof LivingEntity livingEntity &&
                 !livingEntity.hasEffect(MobEffects.BLINDNESS) &&
                 !livingEntity.hasEffect(MobEffects.DARKNESS) &&
-                !options().fog &&
+                !optionsInstance().fog &&
                 fogtype != FogType.WATER &&
                 fogtype != FogType.LAVA &&
                 fogtype != FogType.POWDER_SNOW) {

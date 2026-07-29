@@ -1,32 +1,36 @@
 package net.dillon.simplekeybinds.screen;
 
 import com.mojang.serialization.Codec;
-import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.dillonlib.client.ModernWidgetOptions;
 import net.dillon.simplekeybinds.option.Messages;
-import net.dillon.simplekeybinds.util.ModTexts;
+import net.dillon.simplekeybinds.option.ModOptions;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.network.chat.Component;
 
 import java.util.Arrays;
 
-import static net.dillon.simplekeybinds.helper.ModHelper.options;
+import static net.dillon.simplekeybinds.helper.ModHelper.optionsInstance;
 
 public class ListOptions {
-    public static final OptionInstance.CaptionBasedToString<Boolean> ON_OFF_TEXT = (p_231544_, p_231545_) -> p_231545_
-            ? ModTexts.ON
-            : ModTexts.OFF;
 
     public static OptionInstance<Boolean> fog() {
-        return OptionInstance.createBoolean("simplekeybinds.options.fog",
-                ModHelper.qualityOfQuesoLoaded()
-                        ? OptionInstance.cachedConstantTooltip(Component.translatable("simplekeybinds.options.fog.disabled"))
-                        : OptionInstance.noTooltip(),
-                ON_OFF_TEXT, options().fog, value -> options().fog = value);
+        return ModernWidgetOptions.createSimpleBooleanOption(
+                "simplekeybinds.options.fog",
+                true,
+                optionsInstance().fog,
+                ModOptions.INSTANCE,
+                (options, newValue) -> options.fog = newValue
+        );
     }
 
     public static OptionInstance<Boolean> autoBrightness() {
-        return OptionInstance.createBoolean("simplekeybinds.options.auto_brightness", OptionInstance.cachedConstantTooltip(Component.translatable("simplekeybinds.options.auto_brightness.tooltip")),
-                ON_OFF_TEXT, options().autoBrightness, value -> options().autoBrightness = value);
+        return ModernWidgetOptions.createSimpleBooleanOption(
+                "simplekeybinds.options.auto_brightness",
+                true,
+                optionsInstance().autoBrightness,
+                ModOptions.INSTANCE,
+                (options, aBoolean) -> options.autoBrightness = aBoolean
+        );
     }
 
     public static OptionInstance<Messages> messages() {
@@ -35,7 +39,7 @@ public class ListOptions {
                 (optionText, value) -> value.getText(),
                 new OptionInstance.Enum<>(Arrays.asList(Messages.values()),
                         Codec.INT.xmap(Messages::byId, Messages::getId)),
-                options().messages,
-                value -> options().messages = value);
+                optionsInstance().messages,
+                value -> optionsInstance().messages = value);
     }
 }

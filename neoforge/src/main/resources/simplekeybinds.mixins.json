@@ -7,8 +7,7 @@
     "DebugScreenEntriesAccessor",
     "FogRendererMixin",
     "MinecraftMixin",
-    "MouseMixin",
-    "OptionInstanceMixin"
+    "MouseMixin"
   ],
   "injectors": {
     "defaultRequire": 1
