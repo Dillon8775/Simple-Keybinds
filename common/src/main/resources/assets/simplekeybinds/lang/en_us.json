@@ -6,7 +6,7 @@
   "simplekeybinds.gui.off": "OFF",
 
   "simplekeybinds.options.fog": "Fog",
-  "simplekeybinds.options.fog.disabled": "Feature disabled, use Quality of Queso fog instead.",
+  "simplekeybinds.options.fog.tooltip": "Toggle fog.",
   "simplekeybinds.options.auto_brightness": "Auto-Brightness",
   "simplekeybinds.options.auto_brightness.tooltip": "Automatically adjusts your brightness based on your current light level.",
   "simplekeybinds.options.messages": "Messages",
