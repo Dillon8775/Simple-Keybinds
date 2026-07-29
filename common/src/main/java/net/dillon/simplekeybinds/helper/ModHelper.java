@@ -2,7 +2,7 @@ package net.dillon.simplekeybinds.helper;
 
 import net.blay09.mods.balm.Balm;
 import net.dillon.simplekeybinds.option.ModOptions;
-import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatformGetter;
+import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.player.LocalPlayer;
@@ -47,7 +47,7 @@ public class ModHelper {
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
-        LOGGER.info("Simple Keybinds version {} (for {}) loaded successfully!", SimpleKeybindsPlatformGetter.get().modVersion(), Balm.platform().name());
+        LOGGER.info("Simple Keybinds version {} (for {}) loaded successfully!", SimpleKeybindsPlatforms.getPlatform().modVersion(), Balm.platform().name());
     }
 
     /**

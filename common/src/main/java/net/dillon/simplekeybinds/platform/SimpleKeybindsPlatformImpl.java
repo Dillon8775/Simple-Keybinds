@@ -2,7 +2,7 @@ package net.dillon.simplekeybinds.platform;
 
 import net.blay09.mods.balm.Balm;
 import net.dillon.dillonlib.platform.ModPlatform;
-import net.dillon.dillonlib.platform.common.CommonPlatformGetter;
+import net.dillon.dillonlib.platform.Platforms;
 import net.dillon.dillonlib.platform.info.LogoWidth;
 import net.dillon.dillonlib.platform.info.PlatformName;
 import net.dillon.dillonlib.platform.info.PlatformRelease;
@@ -24,7 +24,7 @@ public class SimpleKeybindsPlatformImpl extends ModPlatform {
 
     @Override
     public String modVersion() {
-        return CommonPlatformGetter.get().commonModVersion(ModHelper.MOD_ID);
+        return Platforms.getCommonPlatform().commonModVersion(ModHelper.MOD_ID);
     }
 
     @Override
