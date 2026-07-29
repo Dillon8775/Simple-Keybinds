@@ -1,5 +1,6 @@
 package net.dillon.simplekeybinds.platform;
 
+import net.dillon.dillonlib.platform.Platforms;
 import net.dillon.dillonlib.platform.info.ModReference;
 
 public class ModReferences {
@@ -7,6 +8,6 @@ public class ModReferences {
     public static final ModReference SPEEDRUNNER_MOD = new ModReference("speedrunnermod");
 
     public static boolean isModLoaded(ModReference reference) {
-        return SimpleKeybindsPlatforms.getMixinPlatform().isModLoaded(reference);
+        return Platforms.getDillonLibMixinPlatform().isModLoaded(reference);
     }
 }

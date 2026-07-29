@@ -1,1 +1,1 @@
-net.dillon.simplekeybinds.platform.mixinsafe.FabricMixinSimpleKeybindsPlatformImpl
+net.dillon.simplekeybinds.platform.mixinsafe.MixinSimpleKeybindsPlatform

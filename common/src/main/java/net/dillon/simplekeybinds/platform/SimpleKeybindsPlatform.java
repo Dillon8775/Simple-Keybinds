@@ -10,7 +10,7 @@ import net.dillon.simplekeybinds.helper.ModHelper;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
-public class SimpleKeybindsPlatformImpl extends ModPlatform {
+public class SimpleKeybindsPlatform extends ModPlatform {
 
     @Override
     public String modId() {
