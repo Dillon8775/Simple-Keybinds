@@ -55,7 +55,10 @@
 ### Auto-Brightness Option
 - Automatically adjusts your brightness based on your current light level.
 - `Exclusive to version 1.3 and above.`
-- 
+---
+
+## Requires [DillonLib](https://modrinth.com/mod/dillon-lib/versions)!
+
 ---
 
 Created and regularly maintained by: [Dillon8775](https://www.youtube.com/@dillon8775)
