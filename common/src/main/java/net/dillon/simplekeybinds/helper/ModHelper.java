@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds.helper;
 
 import net.blay09.mods.balm.Balm;
+import net.dillon.dillonlib.util.UpdateChecker;
 import net.dillon.simplekeybinds.option.ModOptions;
 import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.minecraft.client.Minecraft;
@@ -20,6 +21,10 @@ import org.slf4j.LoggerFactory;
 public class ModHelper {
     public static final String MOD_ID = "simplekeybinds";
     public static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
+    public static final boolean HAS_UPDATE = UpdateChecker.hasUpdate(UpdateChecker.checkForUpdate(
+            "simple-keybinds",
+            SimpleKeybindsPlatforms.getPlatform().modVersion()
+    ));
     public static boolean fullBright = false;
     public static final double minBrightness = 0.0D;
     public static final double maxBrightness = 12.0D;
