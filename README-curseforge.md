@@ -57,7 +57,7 @@
 - `Exclusive to version 1.3 and above.`
 ---
 
-## Requires [DillonLib](https://modrinth.com/mod/dillon-lib/versions)!
+## Requires [DillonLib](https://modrinth.com/mod/dillon-lib/versions) and [Balm](https://modrinth.com/mod/balm)!
 
 ---
 
