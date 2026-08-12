@@ -2,26 +2,26 @@ package net.dillon.simplekeybinds.option;
 
 import net.dillon.dillonlib.util.BaseOptions;
 
-public class ModOptions {
+public class ModClientOptions {
     public static ModOptionsHandler INSTANCE = new ModOptionsHandler();
     public boolean fog = false;
     public boolean autoBrightness = false;
     public Messages messages = Messages.ACTIONBAR;
 
-    public static class ModOptionsHandler extends BaseOptions<ModOptions> {
+    public static class ModOptionsHandler extends BaseOptions<ModClientOptions> {
 
         public ModOptionsHandler() {
             super("simplekeybinds.json");
         }
 
         @Override
-        protected ModOptions createDefault() {
-            return new ModOptions();
+        protected ModClientOptions createDefault() {
+            return new ModClientOptions();
         }
 
         @Override
-        protected Class<ModOptions> getConfigClass() {
-            return ModOptions.class;
+        protected Class<ModClientOptions> getConfigClass() {
+            return ModClientOptions.class;
         }
     }
 }

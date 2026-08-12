@@ -1,3 +1,6 @@
-# Version 1.4.5
+# Version 1.4.6
 
-## Now requires [DillonLib](https://modrinth.com/mod/dillon-lib) in order to run.
+## Changes
+- Now requires [DillonLib](https://modrinth.com/mod/dillon-lib) version 1.1 or higher.
+- The mod logo now appears in the configuration screen.
+- Small backend optimizations.

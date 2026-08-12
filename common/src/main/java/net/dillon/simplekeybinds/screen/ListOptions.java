@@ -3,13 +3,13 @@ package net.dillon.simplekeybinds.screen;
 import com.mojang.serialization.Codec;
 import net.dillon.dillonlib.client.ModernWidgetOptions;
 import net.dillon.simplekeybinds.option.Messages;
-import net.dillon.simplekeybinds.option.ModOptions;
+import net.dillon.simplekeybinds.option.ModClientOptions;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.network.chat.Component;
 
 import java.util.Arrays;
 
-import static net.dillon.simplekeybinds.helper.ModHelper.optionsInstance;
+import static net.dillon.simplekeybinds.option.OptionInstances.client;
 
 public class ListOptions {
 
@@ -17,8 +17,8 @@ public class ListOptions {
         return ModernWidgetOptions.createSimpleBooleanOption(
                 "simplekeybinds.options.fog",
                 true,
-                optionsInstance().fog,
-                ModOptions.INSTANCE,
+                client().fog,
+                ModClientOptions.INSTANCE,
                 (options, newValue) -> options.fog = newValue
         );
     }
@@ -27,8 +27,8 @@ public class ListOptions {
         return ModernWidgetOptions.createSimpleBooleanOption(
                 "simplekeybinds.options.auto_brightness",
                 true,
-                optionsInstance().autoBrightness,
-                ModOptions.INSTANCE,
+                client().autoBrightness,
+                ModClientOptions.INSTANCE,
                 (options, aBoolean) -> options.autoBrightness = aBoolean
         );
     }
@@ -39,7 +39,7 @@ public class ListOptions {
                 (optionText, value) -> value.getText(),
                 new OptionInstance.Enum<>(Arrays.asList(Messages.values()),
                         Codec.INT.xmap(Messages::byId, Messages::getId)),
-                optionsInstance().messages,
-                value -> optionsInstance().messages = value);
+                client().messages,
+                value -> client().messages = value);
     }
 }

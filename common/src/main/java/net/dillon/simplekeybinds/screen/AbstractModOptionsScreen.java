@@ -1,6 +1,9 @@
 package net.dillon.simplekeybinds.screen;
 
+import net.dillon.dillonlib.task.ClientTasks;
+import net.dillon.simplekeybinds.helper.ModConstants;
 import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -11,8 +14,12 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 
 import java.util.List;
+
+import static net.dillon.simplekeybinds.helper.ModConstants.HAS_UPDATE;
+import static net.dillon.simplekeybinds.helper.ModConstants.VERSION;
 
 public abstract class AbstractModOptionsScreen extends OptionsSubScreen {
     private final HeaderAndFooterLayout layout = new HeaderAndFooterLayout(this, 61, 33);
@@ -43,11 +50,20 @@ public abstract class AbstractModOptionsScreen extends OptionsSubScreen {
     public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float deltaTicks) {
         this.activateButtons();
         super.extractRenderState(graphics, mouseX, mouseY, deltaTicks);
+
+        ClientTasks.drawModInfo(
+                graphics,
+                this,
+                VERSION,
+                SimpleKeybindsPlatforms.getPlatform().logoWidth().getWidthModifier(),
+                Identifier.fromNamespaceAndPath("simplekeybinds", "textures/gui/sprites/simplekeybinds.png"),
+                HAS_UPDATE
+        );
     }
 
     @Override
     public void onClose() {
-        ModHelper.LOGGER.info("Saved changes.");
+        ModConstants.LOGGER.info("Saved changes.");
         super.onClose();
     }
 

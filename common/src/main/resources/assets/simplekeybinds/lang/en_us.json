@@ -13,6 +13,8 @@
   "simplekeybinds.options.messages.tooltip": "Send chat messages in actionbar or chat.",
   "simplekeybinds.options.messages.actionbar": "Actionbar",
   "simplekeybinds.options.messages.chat": "Chat",
+  "simplekeybinds.options.menu_button": "Menu Button",
+  "simplekeybinds.options.menu_button.tooltip": "Determines where the Simple Keybinds menu button should display.\n\nEverywhere → §7in the default position on the pause screen and title screen§r§f\n\nTitle Only → §7only on the title screen§r§f\n\nOFF → §7do not display the menu button at all. You should only disable this if you have another way of accessing the menu, via Mod Menu or (Neo)Forge's mod list.",
 
   "key.category.simplekeybinds.simplekeybinds": "Simple Keybinds",
   "key.simplekeybinds.clear_chat": "Clear Chat",

@@ -2,7 +2,7 @@ package net.dillon.simplekeybinds.platform.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.dillon.dillonlib.platform.client.ClientModPlatform;
-import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.helper.ModConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.player.LocalPlayer;
 
@@ -10,7 +10,7 @@ public class ClientSimpleKeybindsPlatform extends ClientModPlatform {
 
     @Override
     public String modId() {
-        return ModHelper.MOD_ID;
+        return ModConstants.MOD_ID;
     }
 
     // Unused
