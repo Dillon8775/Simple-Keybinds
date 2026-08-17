@@ -3,6 +3,7 @@ package net.dillon.simplekeybinds.screen;
 import net.dillon.dillonlib.task.ClientTasks;
 import net.dillon.dillonlib.util.KeybindScrollHelper;
 import net.dillon.simplekeybinds.config.ConfigurationScreen;
+import net.dillon.simplekeybinds.helper.ModConstants;
 import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.minecraft.client.Minecraft;
@@ -13,7 +14,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.client.gui.screens.options.controls.KeyBindsScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ public class MainMenuScreen extends OptionsSubScreen {
                 this,
                 VERSION,
                 SimpleKeybindsPlatforms.getPlatform().logoWidth().getWidthModifier(),
-                Identifier.fromNamespaceAndPath("simplekeybinds", "textures/gui/sprites/simplekeybinds.png"),
+                ModConstants.LOGO,
                 HAS_UPDATE
         );
     }
