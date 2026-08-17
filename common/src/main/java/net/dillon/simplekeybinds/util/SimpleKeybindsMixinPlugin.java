@@ -1,8 +1,8 @@
 package net.dillon.simplekeybinds.util;
 
+import net.dillon.dillonlib.core.DillonLibModReferences;
 import net.dillon.dillonlib.mixinplugin.MixinPluginUtil;
 import net.dillon.dillonlib.mixinplugin.PredicateEntry;
-import net.dillon.simplekeybinds.platform.ModReferences;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +25,7 @@ public class SimpleKeybindsMixinPlugin extends MixinPluginUtil {
         return List.of(
                 new PredicateEntry(
                         new String[]{"FogRendererMixin"},
-                        ModReferences.isModLoaded(ModReferences.QUALITY_OF_QUESO) || ModReferences.isModLoaded(ModReferences.SPEEDRUNNER_MOD),
+                        DillonLibModReferences.isModLoaded(DillonLibModReferences.QUALITY_OF_QUESO) || DillonLibModReferences.isModLoaded(DillonLibModReferences.SPEEDRUNNER_MOD),
                         "Quality of Queso mod or Speedrunner Mod is loaded, and those mods already change fog functionality."
                 )
         );

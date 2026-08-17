@@ -20,5 +20,5 @@ public class ModConstants {
             "simple-keybinds",
             SimpleKeybindsPlatforms.getPlatform().modVersion()
     ));
-    public static final Identifier LOGO = ofSimpleKeybinds("textures/gui/sprites/simplekeybinds.png");
+    public static final Identifier LOGO = ofSimpleKeybinds("simplekeybinds");
 }

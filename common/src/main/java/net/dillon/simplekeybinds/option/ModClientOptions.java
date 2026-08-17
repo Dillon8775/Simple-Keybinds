@@ -3,14 +3,15 @@ package net.dillon.simplekeybinds.option;
 import net.dillon.dillonlib.util.BaseOptions;
 
 public class ModClientOptions {
-    public static ModOptionsHandler INSTANCE = new ModOptionsHandler();
+    public static ModClientOptionsHandler INSTANCE = new ModClientOptionsHandler();
     public boolean fog = false;
     public boolean autoBrightness = false;
-    public Messages messages = Messages.ACTIONBAR;
+    public Messages messages = Messages.OVERLAY;
+    public MenuButton menuButton = MenuButton.TITLE_ONLY;
 
-    public static class ModOptionsHandler extends BaseOptions<ModClientOptions> {
+    public static class ModClientOptionsHandler extends BaseOptions<ModClientOptions> {
 
-        public ModOptionsHandler() {
+        public ModClientOptionsHandler() {
             super("simplekeybinds.json");
         }
 

@@ -4,7 +4,6 @@ import net.dillon.dillonlib.platform.ModPlatform;
 import net.dillon.dillonlib.platform.PlatformLoader;
 import net.dillon.dillonlib.platform.mixinsafe.MixinModPlatform;
 import net.dillon.simplekeybinds.helper.ModConstants;
-import net.dillon.simplekeybinds.helper.ModHelper;
 
 public class SimpleKeybindsPlatforms {
     private static final ModPlatform PLATFORM = PlatformLoader.load(ModPlatform.class, ModConstants.MOD_ID);

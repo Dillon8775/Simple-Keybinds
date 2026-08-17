@@ -1,9 +1,13 @@
 package net.dillon.simplekeybinds.helper;
 
 import net.blay09.mods.balm.Balm;
+import net.dillon.dillonlib.platform.info.UpdatableSpriteButton;
+import net.dillon.dillonlib.task.ClientTasks;
 import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
+import net.dillon.simplekeybinds.screen.MainMenuScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.network.chat.Component;
@@ -14,6 +18,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.material.FogType;
 
+import java.util.Map;
+
+import static net.dillon.dillonlib.task.ClientTasks.openScreen;
 import static net.dillon.simplekeybinds.helper.ModConstants.MOD_ID;
 import static net.dillon.simplekeybinds.option.OptionInstances.client;
 
@@ -35,6 +42,22 @@ public class ModHelper {
     }
 
     /**
+     * @return the menu button for Simple Keybinds.
+     */
+    public static UpdatableSpriteButton menuButton(Screen parent) {
+        return ClientTasks.createMenuButton(
+                "Simple Keybinds Main Menu",
+                ModConstants.LOGO,
+                (button) -> openScreen(new MainMenuScreen(parent)),
+                Map.of(
+                        ModConstants.HAS_UPDATE,
+                        Component.translatable("simplekeybinds.gui.update_available")
+                ),
+                Component.translatable("simplekeybinds.title.menu"),
+                true);
+    }
+
+    /**
      * Sends the successfully initialized message.
      */
     public static void initializeSuccess() {
@@ -49,7 +72,7 @@ public class ModHelper {
             return;
         }
 
-        if (client().messages.actionbar()) {
+        if (client().messages.overlay()) {
             player.sendOverlayMessage(message);
         } else {
             player.sendSystemMessage(message);

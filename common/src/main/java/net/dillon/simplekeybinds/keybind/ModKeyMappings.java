@@ -2,10 +2,10 @@ package net.dillon.simplekeybinds.keybind;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.blay09.mods.kuma.api.*;
+import net.dillon.dillonlib.core.DillonLibModReferences;
 import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.helper.ModHelper;
 import net.dillon.simplekeybinds.option.ModClientOptions;
-import net.dillon.simplekeybinds.platform.ModReferences;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -114,7 +114,7 @@ public class ModKeyMappings {
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_O))
             .handleWorldInput(handler -> {
-                if (ModReferences.isModLoaded(ModReferences.QUALITY_OF_QUESO)) {
+                if (DillonLibModReferences.isModLoaded(DillonLibModReferences.QUALITY_OF_QUESO)) {
                     getChatHud().addClientSystemMessage(message("simplekeybinds.options.fog.disabled"));
                     return false;
                 }

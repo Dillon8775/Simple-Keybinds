@@ -5,7 +5,6 @@ import net.blay09.mods.balm.neoforge.platform.runtime.NeoForgeLoadContext;
 import net.dillon.simplekeybinds.helper.ModHelper;
 import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.main.ClientMain;
-import net.dillon.simplekeybinds.screen.ModOptionsScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
