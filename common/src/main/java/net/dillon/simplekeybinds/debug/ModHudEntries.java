@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 import static net.dillon.simplekeybinds.helper.ModHelper.ofSimpleKeybinds;
 
 /**
- * All debug entries.
+ * All Simple Keybinds debug entries.
  */
 public class ModHudEntries {
     public static final DebugEntryCategory SIMPLE_KEYBINDS = new DebugEntryCategory(Component.translatable("simplekeybinds.title"), 4.0F);

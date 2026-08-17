@@ -28,7 +28,7 @@ public class BrightnessHudEntry implements DebugScreenEntry {
     }
 
     /**
-     * @return Always add the Quality of Queso debug entry to the mod's category.
+     * @return always add the Simple Keybinds debug entry to the mod's category.
      */
     @Override
     public DebugEntryCategory category() {
