@@ -7,7 +7,7 @@ import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static net.dillon.simplekeybinds.helper.ModHelper.ofSimpleKeybinds;
+import static net.dillon.simplekeybinds.helper.ModHelper.simpleKeybindsIdentifier;
 
 /**
  * Constant values for Simple Keybinds.
@@ -20,5 +20,5 @@ public class ModConstants {
             "simple-keybinds",
             SimpleKeybindsPlatforms.getPlatform().modVersion()
     ));
-    public static final Identifier LOGO = ofSimpleKeybinds("simplekeybinds");
+    public static final Identifier LOGO = simpleKeybindsIdentifier("simplekeybinds");
 }

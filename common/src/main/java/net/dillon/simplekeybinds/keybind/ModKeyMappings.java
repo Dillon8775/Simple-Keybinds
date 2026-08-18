@@ -28,7 +28,7 @@ public class ModKeyMappings {
     public static final KeyMapping.Category DEFAULT_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds"));
     private static final KeyMapping.Category SCROLLING_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds.scrolling"));
 
-    private static final ManagedKeyMapping MUTE_GAME = Kuma.createKeyMapping(ofSimpleKeybinds("mute"))
+    private static final ManagedKeyMapping MUTE_GAME = Kuma.createKeyMapping(simpleKeybindsIdentifier("mute"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_M, KeyModifiers.of(KeyModifier.CONTROL)))
             .handleWorldInput(handler -> {
@@ -53,7 +53,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping CLEAR_CHAT = Kuma.createKeyMapping(ofSimpleKeybinds("clear_chat"))
+    private static final ManagedKeyMapping CLEAR_CHAT = Kuma.createKeyMapping(simpleKeybindsIdentifier("clear_chat"))
             .overrideCategory(DEFAULT_CATEGORY)
             .handleWorldInput(handler -> {
                 getChatHud().clearMessages(false);
@@ -61,7 +61,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping PAUSE_WITHOUT_MENU = Kuma.createKeyMapping(ofSimpleKeybinds("pause_without_menu"))
+    private static final ManagedKeyMapping PAUSE_WITHOUT_MENU = Kuma.createKeyMapping(simpleKeybindsIdentifier("pause_without_menu"))
             .overrideCategory(DEFAULT_CATEGORY)
             .handleWorldInput(handler -> {
                 Minecraft.getInstance().gui.setScreen(new PauseScreen(false));
@@ -69,7 +69,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping RELOAD_CHUNKS = Kuma.createKeyMapping(ofSimpleKeybinds("reload_chunks"))
+    private static final ManagedKeyMapping RELOAD_CHUNKS = Kuma.createKeyMapping(simpleKeybindsIdentifier("reload_chunks"))
             .overrideCategory(DEFAULT_CATEGORY)
             .handleWorldInput(handler -> {
                 Minecraft.getInstance().levelExtractor.allChanged();
@@ -78,7 +78,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping RESET_BRIGHTNESS = Kuma.createKeyMapping(ofSimpleKeybinds("reset_brightness"))
+    private static final ManagedKeyMapping RESET_BRIGHTNESS = Kuma.createKeyMapping(simpleKeybindsIdentifier("reset_brightness"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_V, KeyModifiers.of(KeyModifier.ALT)))
             .handleWorldInput(handler -> {
@@ -91,7 +91,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping SHOW_ADVANCED_TOOLTIPS = Kuma.createKeyMapping(ofSimpleKeybinds("show_advanced_tooltips"))
+    private static final ManagedKeyMapping SHOW_ADVANCED_TOOLTIPS = Kuma.createKeyMapping(simpleKeybindsIdentifier("show_advanced_tooltips"))
             .overrideCategory(DEFAULT_CATEGORY)
             .handleWorldInput(handler -> {
                 Minecraft.getInstance().options.advancedItemTooltips = !Minecraft.getInstance().options.advancedItemTooltips;
@@ -100,7 +100,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping TOGGLE_CHUNK_BORDERS = Kuma.createKeyMapping(ofSimpleKeybinds("toggle_chunk_borders"))
+    private static final ManagedKeyMapping TOGGLE_CHUNK_BORDERS = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_chunk_borders"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_B))
             .handleWorldInput(handler -> {
@@ -110,7 +110,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping TOGGLE_FOG = Kuma.createKeyMapping(ofSimpleKeybinds("toggle_fog"))
+    private static final ManagedKeyMapping TOGGLE_FOG = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_fog"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_O))
             .handleWorldInput(handler -> {
@@ -125,7 +125,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping TOGGLE_FULLBRIGHT = Kuma.createKeyMapping(ofSimpleKeybinds("toggle_fullbright"))
+    private static final ManagedKeyMapping TOGGLE_FULLBRIGHT = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_fullbright"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_V))
             .handleWorldInput(handler -> {
@@ -146,7 +146,7 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping TOGGLE_HITBOXES = Kuma.createKeyMapping(ofSimpleKeybinds("toggle_hitboxes"))
+    private static final ManagedKeyMapping TOGGLE_HITBOXES = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_hitboxes"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_X))
             .handleWorldInput(handler -> {
@@ -156,32 +156,32 @@ public class ModKeyMappings {
             })
             .build();
 
-    public static final ManagedKeyMapping CHANGE_MASTER_VOLUME = Kuma.createKeyMapping(ofSimpleKeybinds("change_master_volume"))
+    public static final ManagedKeyMapping CHANGE_MASTER_VOLUME = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_master_volume"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_M))
             .build();
 
-    public static final ManagedKeyMapping CHANGE_RENDER_DISTANCE = Kuma.createKeyMapping(ofSimpleKeybinds("change_render_distance"))
+    public static final ManagedKeyMapping CHANGE_RENDER_DISTANCE = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_render_distance"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_U))
             .build();
 
-    public static final ManagedKeyMapping CHANGE_ENTITY_DISTANCE = Kuma.createKeyMapping(ofSimpleKeybinds("change_entity_distance"))
+    public static final ManagedKeyMapping CHANGE_ENTITY_DISTANCE = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_entity_distance"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_H))
             .build();
 
-    public static final ManagedKeyMapping CHANGE_BRIGHTNESS = Kuma.createKeyMapping(ofSimpleKeybinds("change_brightness"))
+    public static final ManagedKeyMapping CHANGE_BRIGHTNESS = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_brightness"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_J))
             .build();
 
-    public static final ManagedKeyMapping CHANGE_FOV = Kuma.createKeyMapping(ofSimpleKeybinds("change_fov"))
+    public static final ManagedKeyMapping CHANGE_FOV = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_fov"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_R))
             .build();
 
-    public static final ManagedKeyMapping CHANGE_GUI_SCALE = Kuma.createKeyMapping(ofSimpleKeybinds("change_gui_scale"))
+    public static final ManagedKeyMapping CHANGE_GUI_SCALE = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_gui_scale"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_G))
             .build();

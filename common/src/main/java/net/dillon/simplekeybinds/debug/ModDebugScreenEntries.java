@@ -4,7 +4,7 @@ import net.dillon.dillonlib.mixin.accessor.DebugScreenEntriesInvoker;
 import net.minecraft.client.gui.components.debug.DebugEntryCategory;
 import net.minecraft.network.chat.Component;
 
-import static net.dillon.simplekeybinds.helper.ModHelper.ofSimpleKeybinds;
+import static net.dillon.simplekeybinds.helper.ModHelper.simpleKeybindsIdentifier;
 
 /**
  * All mod debug entries.
@@ -16,6 +16,6 @@ public class ModDebugScreenEntries {
      * Registers all Simple Keybinds debug entries.
      */
     public static void registerDebugEntries() {
-        DebugScreenEntriesInvoker.invokeRegister(ofSimpleKeybinds("brightness"), new BrightnessHudEntry());
+        DebugScreenEntriesInvoker.invokeRegister(simpleKeybindsIdentifier("brightness"), new ModDebugEntryBrightness());
     }
 }

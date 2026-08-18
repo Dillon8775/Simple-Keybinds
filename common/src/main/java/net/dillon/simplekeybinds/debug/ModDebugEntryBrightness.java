@@ -9,7 +9,7 @@ import org.jspecify.annotations.Nullable;
 /**
  * Displays the player's brightness.
  */
-public class BrightnessHudEntry extends ModDebugEntry {
+public class ModDebugEntryBrightness extends ModDebugEntry {
 
     @Override
     public void display(DebugScreenDisplayer lines, @Nullable Level serverOrClientLevel, @Nullable LevelChunk clientChunk, @Nullable LevelChunk serverChunk) {

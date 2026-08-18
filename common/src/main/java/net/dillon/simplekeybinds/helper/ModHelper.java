@@ -37,7 +37,7 @@ public class ModHelper {
     /**
      * @return an identifier with the {@code Simple Keybinds} namespace.
      */
-    public static Identifier ofSimpleKeybinds(String path) {
+    public static Identifier simpleKeybindsIdentifier(String path) {
         return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 
