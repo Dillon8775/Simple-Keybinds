@@ -18,6 +18,7 @@ import net.minecraft.network.chat.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.dillon.dillonlib.task.ClientTasks.openDebugEntriesScreen;
 import static net.dillon.dillonlib.task.ClientTasks.openScreen;
 import static net.dillon.simplekeybinds.helper.ModConstants.HAS_UPDATE;
 import static net.dillon.simplekeybinds.helper.ModConstants.VERSION;
@@ -41,7 +42,9 @@ public class MainMenuScreen extends OptionsSubScreen {
                 Button.builder(Component.translatable("simplekeybinds.gui.keybinds"), button -> {
                     KeybindScrollHelper.request(ModKeyMappings.DEFAULT_CATEGORY);
                     openScreen(new KeyBindsScreen(this, Minecraft.getInstance().options));
-                }).build()
+                }).build(),
+
+                Button.builder(Component.translatable("simplekeybinds.gui.debug_entries"), button -> openDebugEntriesScreen("simplekeybinds")).build()
         ));
 
         this.list.addSmall(options);

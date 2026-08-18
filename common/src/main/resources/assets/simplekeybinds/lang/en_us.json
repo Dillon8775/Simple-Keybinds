@@ -6,6 +6,7 @@
   "simplekeybinds.gui.on": "ON",
   "simplekeybinds.gui.off": "OFF",
   "simplekeybinds.gui.configure": "Configure...",
+  "simplekeybinds.gui.debug_entries": "Debug Entries...",
   "simplekeybinds.gui.keybinds": "Keybinds...",
   "simplekeybinds.gui.update_available": "A newer version of Simple Keybinds is available",
 
