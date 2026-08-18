@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.Unique;
 
 import static net.dillon.simplekeybinds.helper.ModHelper.*;
 import static net.dillon.simplekeybinds.option.OptionInstances.client;
+import static net.dillon.simplekeybinds.option.OptionInstances.updateClient;
 
 /**
  * All Simple Keybinds.
@@ -118,7 +119,7 @@ public class ModKeyMappings {
                     getChatHud().addClientSystemMessage(message("simplekeybinds.options.fog.disabled"));
                     return false;
                 }
-                ModClientOptions.INSTANCE.update(options -> options.fog = !options.fog);
+                updateClient(client -> client.fog = !client.fog);
                 Minecraft.getInstance().levelExtractor.allChanged();
                 getChatHud().addClientSystemMessage(message(client().fog ? "simplekeybinds.fog.on" : "simplekeybinds.fog.off"));
                 return true;
