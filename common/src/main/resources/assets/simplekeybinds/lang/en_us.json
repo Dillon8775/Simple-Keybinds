@@ -1,17 +1,17 @@
 {
   "simplekeybinds.title": "Simple Keybinds",
-  "simplekeybinds.title.menu": "Simple Keybinds Main Menu",
-  "simplekeybinds.title.tooltip": "Configure all Simple Keybind mod settings.",
-
-  "simplekeybinds.gui.on": "ON",
-  "simplekeybinds.gui.off": "OFF",
-  "simplekeybinds.gui.configure": "Configure...",
-  "simplekeybinds.gui.debug_entries": "Debug Entries...",
-  "simplekeybinds.gui.keybinds": "Keybinds...",
   "simplekeybinds.gui.update_available": "A newer version of Simple Keybinds is available",
 
-  "simplekeybinds.options.general": "General",
-  "simplekeybinds.options.general.description": "General Simple Keybind mod options.",
+  "simplekeybinds.menu.title": "Simple Keybinds Main Menu",
+  "simplekeybinds.menu.options": "§l§nOptions",
+
+  "simplekeybinds.menu.keybinds": "§nConfigure Simple Keybinds...",
+  "simplekeybinds.menu.keybinds.tooltip": "View and setup all simple keybinds...",
+
+  "simplekeybinds.menu.settings": "Settings...",
+  "simplekeybinds.menu.debug_huds": "Debug HUDs...",
+
+  "simplekeybinds.options.title": "Simple Keybinds Settings",
   "simplekeybinds.options.fog": "Fog",
   "simplekeybinds.options.fog.description": "Toggle fog.",
   "simplekeybinds.options.auto_brightness": "Auto-Brightness",
@@ -35,7 +35,8 @@
   "key.simplekeybinds.toggle_fullbright": "Toggle Fullbright",
   "key.simplekeybinds.toggle_hitboxes": "Toggle Hitboxes",
   "key.simplekeybinds.mute": "Mute",
-  "key.category.simplekeybinds.simplekeybinds.scrolling": "Simple Scrolling Keybinds",
+
+  "key.category.simplekeybinds.simplekeybinds.scroll": "Simple Scroll Keybinds",
   "key.simplekeybinds.change_master_volume": "Change Master Volume",
   "simplekeybinds.changed_master_volume": "Volume: %s",
   "key.simplekeybinds.change_brightness": "Change Brightness",

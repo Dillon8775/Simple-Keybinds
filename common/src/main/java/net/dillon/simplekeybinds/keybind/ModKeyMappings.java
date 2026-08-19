@@ -5,7 +5,6 @@ import net.blay09.mods.kuma.api.*;
 import net.dillon.dillonlib.core.DillonLibModReferences;
 import net.dillon.simplekeybinds.callback.MuteCallback;
 import net.dillon.simplekeybinds.helper.ModHelper;
-import net.dillon.simplekeybinds.option.ModClientOptions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -27,7 +26,7 @@ import static net.dillon.simplekeybinds.option.OptionInstances.updateClient;
  */
 public class ModKeyMappings {
     public static final KeyMapping.Category DEFAULT_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds"));
-    private static final KeyMapping.Category SCROLLING_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds.scrolling"));
+    private static final KeyMapping.Category SCROLLING_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("simplekeybinds", "simplekeybinds.scroll"));
 
     private static final ManagedKeyMapping MUTE_GAME = Kuma.createKeyMapping(simpleKeybindsIdentifier("mute"))
             .overrideCategory(DEFAULT_CATEGORY)

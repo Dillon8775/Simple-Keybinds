@@ -5,5 +5,8 @@
 - Now requires [DillonLib](https://modrinth.com/mod/dillon-lib) version 1.1 or higher.
 - Now requires [YetAnotherConfigLib (YACL)](https://modrinth.com/mod/yacl) to configure specific settings.
 - The mod logo now appears in the configuration screen.
+- Revamped main menu screen.
 - Renamed "Messages = Actionbar" to "Messages = Overlay".
+- Renamed "Simple Scrolling Keybinds" category to "Simple Scroll Keybinds".
 - Small backend optimizations.
+  - Optimized translations.
