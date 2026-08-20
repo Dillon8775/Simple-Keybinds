@@ -11,3 +11,6 @@
 - Small backend optimizations.
   - Optimized translations.
 - Closing the debug options screen when opening it from the Simple Keybinds main menu now properly sets the screen back to the main menu.
+
+## Bugs Fixed
+- Closing configuration screen does not save.
