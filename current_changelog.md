@@ -2,6 +2,7 @@
 
 ## Changes
 - Update to 26.3.
+- Now requires [Fabric Loader version 0.19.5](https://fabricmc.net/use/installer/) or greater.
 - Now requires [DillonLib](https://modrinth.com/mod/dillon-lib) version 1.1 or higher.
 - Now requires [YetAnotherConfigLib (YACL)](https://modrinth.com/mod/yacl) to configure specific settings.
 - The mod logo now appears in the configuration screen.
