@@ -23,11 +23,11 @@ public class ClientSimpleKeybindsPlatform extends ClientModPlatform {
     @Override
     public List<PlatformMenuButton> menuButtons() {
         return List.of(
-                new PlatformMenuButton(
+                PlatformMenuButton.ofEmpty(
                         client().menuButton.enabled(),
                         client().menuButton.everywhere(),
-                        ModHelper.menuButton(getScreen()),
-                        spriteIconButton -> {})
+                        ModHelper.menuButton(getScreen())
+                )
         );
     }
 

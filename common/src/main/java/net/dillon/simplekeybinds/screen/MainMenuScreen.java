@@ -5,7 +5,6 @@ import net.dillon.dillonlib.util.KeybindScrollHelper;
 import net.dillon.simplekeybinds.config.ConfigurationScreen;
 import net.dillon.simplekeybinds.helper.ModConstants;
 import net.dillon.simplekeybinds.keybind.ModKeyMappings;
-import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -63,7 +62,6 @@ public class MainMenuScreen extends OptionsSubScreen {
                 graphics,
                 this,
                 VERSION,
-                SimpleKeybindsPlatforms.getPlatform().logoWidth().getWidthModifier(),
                 ModConstants.LOGO,
                 HAS_UPDATE
         );

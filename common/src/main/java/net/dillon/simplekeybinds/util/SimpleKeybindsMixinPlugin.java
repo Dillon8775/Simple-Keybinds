@@ -23,8 +23,8 @@ public class SimpleKeybindsMixinPlugin extends MixinPluginUtil {
     @Override
     public List<PredicateEntry> entries() {
         return List.of(
-                new PredicateEntry(
-                        new String[]{"FogRendererMixin"},
+                PredicateEntry.ofWarn(
+                        PredicateEntry.single("FogRendererMixin"),
                         DillonLibModReferences.isModLoaded(DillonLibModReferences.QUALITY_OF_QUESO) || DillonLibModReferences.isModLoaded(DillonLibModReferences.SPEEDRUNNER_MOD),
                         "Quality of Queso mod or Speedrunner Mod is loaded, and those mods already change fog functionality."
                 )

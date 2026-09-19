@@ -1,5 +1,6 @@
 package net.dillon.simplekeybinds.mixin;
 
+import net.dillon.dillonlib.mixinplugin.Predicated;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -15,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import static net.dillon.simplekeybinds.helper.ModHelper.handleFog;
 
+@Predicated
 @Mixin(FogRenderer.class)
 public class FogRendererMixin {
 
