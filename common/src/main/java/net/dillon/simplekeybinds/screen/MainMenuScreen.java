@@ -39,7 +39,7 @@ public class MainMenuScreen extends DillonLibScreen {
     @Override
     protected void widgets() {
         this.createHeaderWithBig(
-                Component.translatable("simplekeybinds.menu.options"),
+                Component.translatable("simplekeybinds.header.options"),
                 Button.builder(Component.translatable("simplekeybinds.menu.keybinds"), button -> {
                     KeybindScrollHelper.request(ModKeyMappings.DEFAULT_CATEGORY);
                     openScreen(new KeyBindsScreen(this, Minecraft.getInstance().options));
