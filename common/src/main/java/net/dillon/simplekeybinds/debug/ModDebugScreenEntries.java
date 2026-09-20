@@ -10,7 +10,7 @@ import static net.dillon.simplekeybinds.helper.ModHelper.simpleKeybindsIdentifie
  * All mod debug entries.
  */
 public class ModDebugScreenEntries {
-    public static final DebugEntryCategory SIMPLE_KEYBINDS = new DebugEntryCategory(Component.translatable("simplekeybinds.title"), 4.0F);
+    public static final DebugEntryCategory SIMPLE_KEYBINDS = new DebugEntryCategory(Component.translatable("simplekeybinds"), 4.0F);
 
     /**
      * Registers all Simple Keybinds debug entries.

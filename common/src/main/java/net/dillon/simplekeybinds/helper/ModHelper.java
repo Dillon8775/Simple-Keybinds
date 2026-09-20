@@ -53,7 +53,7 @@ public class ModHelper {
                         ModConstants.HAS_UPDATE,
                         Component.translatable("simplekeybinds.gui.update_available")
                 ),
-                Component.translatable("simplekeybinds.menu.title"),
+                Component.translatable("simplekeybinds.title"),
                 true);
     }
 

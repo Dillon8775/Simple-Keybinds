@@ -15,7 +15,7 @@ public class ClientEvents {
     public static void onPlayerJoin(Connection connection, LocalPlayer player) {
         if (ModConstants.HAS_UPDATE) {
             CommonTasks.sendUpdateMessage(player,
-                    Component.translatable("simplekeybinds.title"),
+                    Component.translatable("simplekeybinds"),
                     "https://modrinth.com/mod/simple-keybinds/versions",
                     TextColor.WHITE.getValue());
         }

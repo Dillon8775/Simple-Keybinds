@@ -1,10 +1,11 @@
 {
-  "simplekeybinds.title": "Simple Keybinds",
+  "simplekeybinds": "Simple Keybinds",
   "simplekeybinds.gui.update_available": "A newer version of Simple Keybinds is available",
 
-  "simplekeybinds.menu.title": "Simple Keybinds Main Menu",
+  "simplekeybinds.title": "Simple Keybinds Main Menu",
 
   "simplekeybinds.header.options": "§l§nOptions",
+
   "simplekeybinds.menu.keybinds": "§nConfigure Simple Keybinds...",
   "simplekeybinds.menu.keybinds.tooltip": "View and setup all simple keybinds...",
   "simplekeybinds.menu.settings": "Settings...",

@@ -22,7 +22,7 @@ import static net.dillon.simplekeybinds.helper.ModConstants.VERSION;
 public class MainMenuScreen extends DillonLibScreen {
 
     public MainMenuScreen(Screen lastScreen) {
-        super(lastScreen, Component.translatable("simplekeybinds.menu.title"));
+        super(lastScreen, Component.translatable("simplekeybinds.title"));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class MainMenuScreen extends DillonLibScreen {
 
                 Button.builder(Component.translatable("simplekeybinds.menu.settings"), button -> ClientTasks.tryOpenYaclScreen(
                         () -> ConfigurationScreen.configScreen().generateScreen(this),
-                        Component.translatable("simplekeybinds.title")
+                        Component.translatable("simplekeybinds")
                 )).build(),
 
                 Button.builder(Component.translatable("simplekeybinds.menu.debug_huds"), button -> openDebugEntriesScreen(this, "simplekeybinds")).build()

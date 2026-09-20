@@ -22,7 +22,7 @@ public class ConfigurationScreen {
 
     public static YetAnotherConfigLib configScreen() {
         return YetAnotherConfigLib.createBuilder()
-                .title(Component.translatable("simplekeybinds.title"))
+                .title(Component.translatable("simplekeybinds"))
                 .category(
                         ConfigCategory.createBuilder()
                                 .name(Component.translatable("simplekeybinds.options.title"))
