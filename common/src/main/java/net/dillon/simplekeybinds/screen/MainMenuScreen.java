@@ -1,6 +1,7 @@
 package net.dillon.simplekeybinds.screen;
 
-import net.dillon.dillonlib.screen.DillonLibScreen;
+import net.dillon.dillonlib.screen.DillonLibMenuScreen;
+import net.dillon.dillonlib.screen.ScreenBuilder;
 import net.dillon.dillonlib.task.ClientTasks;
 import net.dillon.dillonlib.util.KeybindScrollHelper;
 import net.dillon.simplekeybinds.config.ConfigurationScreen;
@@ -19,10 +20,10 @@ import static net.dillon.dillonlib.task.ClientTasks.openScreen;
 import static net.dillon.simplekeybinds.helper.ModConstants.HAS_UPDATE;
 import static net.dillon.simplekeybinds.helper.ModConstants.VERSION;
 
-public class MainMenuScreen extends DillonLibScreen {
+public class MainMenuScreen extends DillonLibMenuScreen {
 
     public MainMenuScreen(Screen lastScreen) {
-        super(lastScreen, Component.translatable("simplekeybinds.title"));
+        super(lastScreen, Component.translatable("simplekeybinds.title"), ScreenBuilder::ofBottomCentered);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class MainMenuScreen extends DillonLibScreen {
     }
 
     @Override
-    protected void widgets() {
+    public void widgets() {
         this.createHeaderWithBig(
                 Component.translatable("simplekeybinds.header.options"),
                 Button.builder(Component.translatable("simplekeybinds.menu.keybinds"), button -> {
