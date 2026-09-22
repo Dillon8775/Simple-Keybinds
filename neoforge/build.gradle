@@ -97,6 +97,7 @@ modrinth {
         required.project "balm"
         required.project "dillon-lib"
     }
+    environment = "client_only"
 }
 
 // Implement mcgradleconventions loader attribute
