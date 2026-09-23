@@ -44,7 +44,7 @@ public class ModHelper {
     /**
      * @return the menu button for Simple Keybinds.
      */
-    public static UpdatableSpriteButton menuButton(Screen parent) {
+    public static UpdatableSpriteButton createMenuButton(Screen parent) {
         return ClientTasks.createMenuButton(
                 "Simple Keybinds Main Menu",
                 ModConstants.LOGO,

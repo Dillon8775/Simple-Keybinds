@@ -2,27 +2,28 @@ package net.dillon.simplekeybinds;
 
 import net.blay09.mods.balm.Balm;
 import net.blay09.mods.balm.neoforge.platform.runtime.NeoForgeLoadContext;
-import net.dillon.simplekeybinds.helper.ModHelper;
+import net.dillon.simplekeybinds.helper.ModConstants;
 import net.dillon.simplekeybinds.keybind.ModKeyMappings;
 import net.dillon.simplekeybinds.main.ClientMain;
+import net.dillon.simplekeybinds.screen.MainMenuScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
-@Mod(value = ModHelper.MOD_ID, dist = Dist.CLIENT)
+@Mod(value = ModConstants.MOD_ID, dist = Dist.CLIENT)
 public final class SimpleKeybinds {
 
     public SimpleKeybinds(IEventBus modEventBus, ModContainer container) {
         ModKeyMappings.initKeybinds();
 
         final var context = new NeoForgeLoadContext(container, modEventBus);
-        Balm.initializeMod(ModHelper.MOD_ID, context, ClientMain::cInitialize);
+        Balm.initializeMod(ModConstants.MOD_ID, context, ClientMain::cInitialize);
 
         container.registerExtensionPoint(
                 IConfigScreenFactory.class,
-                (mc, parent) -> new ModOptionsScreen(parent)
+                (mc, parent) -> new MainMenuScreen(parent)
         );
     }
 }

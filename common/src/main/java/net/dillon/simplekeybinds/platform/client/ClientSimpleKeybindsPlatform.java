@@ -26,7 +26,7 @@ public class ClientSimpleKeybindsPlatform extends ClientModPlatform {
                 PlatformMenuButton.ofEmpty(
                         client().menuButton.enabled(),
                         client().menuButton.everywhere(),
-                        ModHelper.menuButton(getScreen())
+                        ModHelper.createMenuButton(getScreen())
                 )
         );
     }
