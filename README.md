@@ -87,6 +87,6 @@
 
 ---
 
-Created and regularly maintained by: [Dillon8775](https://www.youtube.com/@dillon8775)
+Created by Dillon8775.
 
 #### All rights reserved unless explicitly stated.
