@@ -30,47 +30,64 @@
 ---
 
 # KEYBINDS
-## Toggle Fog
-- Default Binding = **O**
-## Toggle  Fullbright
+## Toggle Fullbright
 - Default Binding = **V**
-## Reset Brightness
+
+- ## Reset Brightness
 - Default Binding = **ALT + V**
 - `Exclusive to version 1.4 and above.`
+
+## Toggle Fog
+- Default Binding = **ALT + F**
+
 ## Mute Game
 - Default Binding = **CTRL + M**
 - `Exclusive to version 1.2.8 and above.`
+
 ## Toggle Hitboxes
 - Default Binding = **X**
+
 ## Toggle Chunk Borders
-- Default Binding = **B**
+- Default Binding = **ALT + B**
+
 ## Reload Chunks
 - No default binding.
+
 ## Pause Without Menu
 - No default binding.
+
 ## Clear Chat
 - No default binding.
+
 ## Show Advanced Tooltips
 - No default binding.
 
 ---
 
-# SCROLLING KEYBINDS
-### To use these keybinds, use your scroll wheel, and the bounded key.
-## Change Render Distance
-- Default Binding = **U**
-## Change Entity Distance
-- Default Binding = **H**
-- `Exclusive to version 1.2 and above.`
+# SCROLL N' HOLD KEYBINDS
+### To use these keybinds, hold down the bounded key and scroll.
 ## Change Master Volume
-- Default Binding = **M**
+- Default Binding = **ALT + M**
 - `Exclusive to version 1.2.4 and above.`
-## Change FOV
+
+## Render Distance
 - Default Binding = **R**
-- `Exclusive to version 1.2.5 and above.`
-## Change GUI Scale
+
+## GUI Scale
 - Default Binding = **G**
 - `Exclusive to version 1.2.5 and above.`
+
+## FOV
+- No default bounding.
+- `Exclusive to version 1.2.5 and above.`
+
+## Entity Distance
+- No default bounding.
+- `Exclusive to version 1.2 and above.`
+
+## Debug GUI Scale
+- No debug bounding.
+- `Exclusive to version 1.4.9 and above.`
 
 ---
 
@@ -78,12 +95,6 @@
 ### Auto-Brightness Option
 - Automatically adjusts your brightness based on your current light level.
 - `Exclusive to version 1.3 and above.`
-
----
-
-<a href="https://modrinth.com/mod/fabric-api" target="_blank">
-        <img alt = "Requires Fabric API" width=175 src="https://img.shields.io/badge/Requires-Fabric_API-DBD0B4?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMTITAUd0AAAAuGVYSWZJSSoACAAAAAUAGgEFAAEAAABKAAAAGwEFAAEAAABSAAAAKAEDAAEAAAACAAAAMQECABEAAABaAAAAaYcEAAEAAABsAAAAAAAAAEkZAQDoAwAASRkBAOgDAABQYWludC5ORVQgNS4xLjEyAAADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlgAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAAFDY2yLlIM2wAADZBJREFUeF7tmntsHMd9xz%2Bze2%2Fe8Y4USYm0SDF6OBJjOa5Fy3TsxEKbxHDTIiks2E2LuG5atHWLAEWKBHWABmgBB03jog80gQE3aWMbiFsYTfyq86jdtIntg32S5UqipNjUyxQlijweeeS99nZ3%2Bsc%2Bbm9vKZ5ESnSRfoEf7nZ2ZnbmO7%2Ffb36%2F2RW8RzA2OvI48Blf8YPZ3PijvrI1heIv%2BHnD%2FxPgL1gvTE%2FP6BcvzuCVCxcu1v311hrCX3AtMDY6cgPwAcAAmDp%2Fofa7D9z3J4l4%2FE6JBEAgmJ0rPPb4k08%2FNzQ0GLWbKsBPsrnx897%2BVoP1IuCrwBed6%2BnpGb7xt3%2FOyK5tGIYBQEgN8eKP%2FpuHv%2Fp1Bgb6vc0%2Flc2NP%2BMtWA3WywR0f4EpTUzDxHDENJCWMvhh%2BgtWg%2FUioE1IdMPANKVXgmm5QrynCZAS9Hrd0g6PrCXWywc8DHzJuZ6bK%2FAXX%2F48128fdn0ACAxdxzB1d5iKIvjRy68d%2F%2FaTT%2Bd7e3sU%2B4YEPpvNjR93%2BrscvCc0QCgCvW6gaTqaZqBpBrVanWQyQf%2BmPjZt7KF%2FYw%2F9m3oJh0M7QdwO3AaM2b8pf5%2Ft4j1BANJaSyEEQuCKlBLTNDFNE8O0nOMynjGwsB2sCwGzs3N6Pj9HPj%2FHbH6OExNTCASqqqAqtqgqQnEIEa7ohsHEmWmc9vn8HNPTM5r%2FGe3iqvuAsdGRQeAGJ%2Bg5efJU9bd%2F674HOxKJX3cWzjRNtgwNkkmnkPYKm6akf1MP6XQSaVpliiJ44%2BARTp56l1BIdZ9xdvL85376yhtHM5l02C4ygFeyufGqW2kZXAsC%2Fgj4B%2Bd6cvIcj%2Fzll7ht703ouuXwVFXhmedf5gsP%2FRW7dr0PgIsXp%2Fmzhz7Pzuu3uo5RShjo30AiEWuyhEf%2F8Smef%2FFl0ulOp0gD3p%2FNjZ9u1ArGtTABx603IK1Vb4gEAZv6u4nFYsRiMTo7Myge1Xf8gymdeMBE2u0DHEC9Xb9w1QmQUjaJKZ1o3wfpH7JFyqXgre5%2FjmNKK%2BGqE1CtVo1qtYojU9PFwMGZ0uTs1BylUplSqczFmYtg231DFAQCgbNTWFphGAb5fN5tWyqVKS4utZVJrsDx5WFsdGQM%2BIqtguTzeeP%2B39w%2FvPsD799lmlYEZxgmm6%2Fro6%2B3y1J9rInMFRYolcoI4QQ9CuPHJzg6%2Fg6hcMhua%2FBL%2B26jr3cDTn8Aul73kCowTMN44jvPvnrw0JFyIh4X9jzrwO9nc%2BOTbkOg4UrXAJsHevcADwHbgG2VSnXHrbf8Qu8Hd%2B8k2ZGgM5WkszNFR0eccMialIOORJxMppN0Okk6naK7K8PbE2f48sPfYGlxnolTZzj01hFuH7uFRDyGptWp13XqdZ3%2BTb30bMiQ7kySyaRIdiSUV147uGXqwsXt4XB4mz2eHcBjk1Mzs97nrrUJtATq0l51ww1mjGATsO%2B52aDt%2BYcGukgmk6SSSbq7uuzYoFmsts3S%2BgQ0v5dhrQkoVypGpVLFkUIh36SqlwvTNDk3VaBSqVKuVFhcWrJ8QAAJTRDL2nZLGr5MvZUxNjqSAHocVk%2BdPl37xX0f%2FkQ0EvmWQ3S1pvGRO%2FZyy827MQ2LCIkkHo8Si0aaFsQ%2FEVVV%2BcmrB3jh%2Bz8mEY8BoBsGH913O7093U3EDg1uIhaLWJolBHpd55G%2F%2FyfePHSUuN3W1oC7gBOAa3%2BrIeAe4CmgCjAzk5e%2F88C9oXs%2B%2BbG4d29WhOW9HQghKJWrlMs1d8JSSjpTCWKxcFOAYxjWPu%2BsqKIofPe5l3jm%2Bf8glUoipUQIwR989tN0d6XtVFmg6zrfevxpTrxzkmgk0ugQSraZuvNejQmEbSaTtqSEIB4OhwmHw0RsCYXUQHUN3rOb1yOkKkQiVj9Ov6ZpMjl5jkJhnrm5eQqFeQzTsM4K7ADJNK1YI2B1O%2BzM0RlzcjUEtDgUZOvEAvxd25ABRAkgEomiqiqhkIqqqvZUrelaJPt7Wh5XTMDp02dqk5NTTE6eY3LyHBNnptF0PYj1VkgrrveT5M%2F8gsQwrWzQ0oAChcI8ip09WmL9N02Taq2GpmmuNDStgbbGOzY6Mgw86GxzFy5M6w98Zv%2FukZ3bP%2Bkc0ZmmSU93hq3vGwx8kBf1uk7dToRcSMtBXgqKEIwfn%2BD8hRkUpRHC1OveQMjKF85OTqNpdVsbBFJKJiZOUio3gi3rThsYGx3ZB%2Fyncz09fZHP%2FeED7P%2FUxz1HWNaKGra3Xwn%2BQSwUS5Qr2orqq%2Bt6I4K0zeSJ73yPZ1%2F4dzZ092KaJh0dHXzi7o8Ti0VdYqSUZF8%2FwOzsrG02Fto1gYCMTqLrRpO0O3n8to21fbVjAqYp7YDJQLd%2FQ6EQAwOb6erK0N3d5e4QlkNsSJDbaouAWk0zazUNRxYWFljb02kRNLZVwdEkh7jl0ELA2OiIOjY60uPIQF8qNbxlc%2FeO7cM4cpsdjweN2neGv6I%2FsCARirXPe7M%2F%2FJrSTlc26rqOruvU61bOoOsGSArADDDrSAs1Y6Mj24H%2FAqKALBTm5f5fuzvyG%2Ff%2BStq1J0BVFMJ2lobNeE3TKRbLLvtSQjwWIZmMr0iEf4JCCArzRRYXm51WUD%2F%2F%2Bm8vkn3jIIl43C2LxWIoQniXSDNN885SqXQsFAo5R2etGmBniBuBDXao2yuESMdiURyJx6JEIm4fDbgnPZ5Tm4ABB0EIb97f0ABHixxpF%2BVKmaVSiZJHKpXKbO7QzxayufFZR4IIIMjpNavipQbjU6oWHbs8XMJ8LwlFKLZJNUlL%2Bt9CQD4%2FWykWi7K4WKS4WOTc5JR7eLky%2FCRZWtGOd28X3qAnZP%2B22TwStBxibHTkT50LTdOMrVuHN%2B4e2fnHCKFi77vDQ%2F3ceceeS6y6BcMwqVa1pscIrO3t0i0hGgmjqs1JU35ugWKx5BIkhODdyfPMLxQRQrH6lXDof8a%2FfeDNw5OJRLxlhW0IOxX%2Bu2xufKbpxtjoiDs2TdO4fsd27tv%2Fq24GJ01JMhljy2Cft92y8K6mEFAu11jwOMYgSAnpdIK4J3AJIkBRFJ578WUe%2B%2BaTXHfdgNu%2Brtd3nzwzc8QtuAy0mAD22ZsbbJjGZR1qtJiATYRf5ZvF0pR2EAqF2LJliK6ujCt9vb1u0n%2B5CCQAW22tf83X1xLtkrIaLEMAAf7Cf33tIGyTuBqL0OQD6vU6w1sG%2BeW79tk%2BwFLlWDRGT0%2B35cjsNLYzlaCvN7OiYzRNiWGaDfqEYHGx1BLghFRrq3J6U1WFtw4f58CbR4mE7ZhDQHFx6Yu5g2%2B9lEmnnQ%2BnAA5nc%2BNLnuu20USArusMbh7gro%2FeYQ3Gnlw4HCGdzriNDFPS051iaHPfigRg%2BwBnZkIRFAqLzBUW3WCHgAjPOhPM8fVHv8nGTdZHUsKqd%2FfhY2e%2B31R5FWgyAXcInm3H%2BfWK886uXUhp9S3t%2FzQe4cL%2FDCEEqqLQ3d1DRyJBRyJBIpGgo6MjIAS9cgT6AOcgsyH%2BwVkDbn152T4pfij2hJ1nqoqynNsJHPOVQt080PshYAKYME3znc5Ucrq7O7O5UqmKcqVKuVzBMEzi8TiGoVtbo24QCilEoxE0rY5W19E0HcM0m97bB0EIQbWqUa1qLmFCCBaKi8wVFlgqlVhaKrFUKnNheubY0WM%2Fy8VjsVP2GM8Cz05OzTS93loNWjje88EdW0Ecs0NHarUaN%2B7exb4P77VrWPt7NBYjlUq7Om2akq5MkuGhjS327IUQgvn5RQrziy4Bqqrw0o%2Bz%2FPOTT9GzoddTW%2F7eoSMnH%2FMUrDla1CkcDofC4RANCbsmYMFeNYJMoKmry4KiCJIdKaLRiEeil1anNUALAS1aIVqLlke79YLh9yer8SntYjkCWjytd1BBu4DlGB3xTyT4vpv7C2U58q66BrQ8dWx0pMP%2B9k7BOg%2FUtmy57uZMuvOvnTqGbjA0OMD1O7Yi7S83pYREIs6G7i63Lykl4ZBKONyYh6ooHH%2F7FLmDR9wTJYFgobj4tZ%2B%2B%2BvoLXV0ZJ8BRgSPZ3Pi7buOrgBYCgnDTDdtuFUJknetyucxH7riVvaM3ehIlSSQSo7Mz7TnakkQiIeLRhkKpqsobBw7zla%2F9DYObh9xyKfn00RNnn3ILrhGCTKAFsVg04nVO8XgMRVV8tur8bxxsCqFYMYXPJFRVYdPGAZLJpCupVLLF7K4F2iIgqJ6wPXdDnIDJsnGLEDtgsuN8R4QQK74FulZomdgyWABeB7LAa8ArumG8XSgUKdh7emF%2BgcWlMrpep17X0HUNXdcplcrMzMwxO2vJzOwcxcUlwk6Cs85oywcE4dY9u%2B4F%2FsW5rlar7Ln5Rj609yb3pYmiKJw5O8V3n%2F0BiYR1ZC3tsNfSkibcn82NP%2BEvvNpoVwOC0DQDIezjC%2F%2B8hJUBulufsxe%2BR3DFBHidmrjEpATWEXVTfX%2BldcQVE%2BD9zsaFECiK%2FY5eUVDdQ462HF5rf9cAV7wYY6Mju4B7nC%2BvqtVafWTXjhsH%2Bvvud5IhRVGYnZ3j8NEThJq%2FC%2FwB8EMn4bIn%2F71sbvyKTnZXgysmIAi7dw1%2FTCjih26BxE2ofPhCNjf%2BiL9wPbAaE2hBR0cilojHcSURD5o8npVfd6wpAf8X8XNPwP8CSd6CBhITyK0AAAAASUVORK5CYII%3D&logoColor=FFFFFF">
-    </a>
 
 ---
 

@@ -30,7 +30,8 @@ public class ModKeyMappings {
 
     private static final ManagedKeyMapping MUTE_GAME = Kuma.createKeyMapping(simpleKeybindsIdentifier("mute"))
             .overrideCategory(DEFAULT_CATEGORY)
-            .withDefault(InputBinding.key(InputConstants.KEY_M, KeyModifiers.of(KeyModifier.CONTROL)))
+            .withDefault(InputBinding.key(InputConstants.KEY_M, KeyModifiers.of(KeyModifier.ALT)))
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 MuteCallback.resetMuteCooldown();
                 Options options = Minecraft.getInstance().options;
@@ -55,6 +56,7 @@ public class ModKeyMappings {
 
     private static final ManagedKeyMapping CLEAR_CHAT = Kuma.createKeyMapping(simpleKeybindsIdentifier("clear_chat"))
             .overrideCategory(DEFAULT_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 getChatHud().clearMessages(false);
                 return true;
@@ -63,6 +65,7 @@ public class ModKeyMappings {
 
     private static final ManagedKeyMapping PAUSE_WITHOUT_MENU = Kuma.createKeyMapping(simpleKeybindsIdentifier("pause_without_menu"))
             .overrideCategory(DEFAULT_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 Minecraft.getInstance().gui.setScreen(new PauseScreen(false));
                 return true;
@@ -71,6 +74,7 @@ public class ModKeyMappings {
 
     private static final ManagedKeyMapping RELOAD_CHUNKS = Kuma.createKeyMapping(simpleKeybindsIdentifier("reload_chunks"))
             .overrideCategory(DEFAULT_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 Minecraft.getInstance().levelExtractor.allChanged();
                 getChatHud().addClientSystemMessage(message("debug.reload_chunks.message"));
@@ -81,6 +85,7 @@ public class ModKeyMappings {
     private static final ManagedKeyMapping RESET_BRIGHTNESS = Kuma.createKeyMapping(simpleKeybindsIdentifier("reset_brightness"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_V, KeyModifiers.of(KeyModifier.ALT)))
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 if (autoBrightness()) {
                     return false;
@@ -93,6 +98,7 @@ public class ModKeyMappings {
 
     private static final ManagedKeyMapping SHOW_ADVANCED_TOOLTIPS = Kuma.createKeyMapping(simpleKeybindsIdentifier("show_advanced_tooltips"))
             .overrideCategory(DEFAULT_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 Minecraft.getInstance().options.advancedItemTooltips = !Minecraft.getInstance().options.advancedItemTooltips;
                 getChatHud().addClientSystemMessage(message(Minecraft.getInstance().options.advancedItemTooltips ? "debug.advanced_tooltips.on" : "debug.advanced_tooltips.off"));
@@ -100,9 +106,10 @@ public class ModKeyMappings {
             })
             .build();
 
-    private static final ManagedKeyMapping TOGGLE_CHUNK_BORDERS = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_chunk_borders"))
+    private static final ManagedKeyMapping TOGGLE_CHUNK_BOUNDARIES = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_chunk_boundaries"))
             .overrideCategory(DEFAULT_CATEGORY)
-            .withDefault(InputBinding.key(InputConstants.KEY_B))
+            .withDefault(InputBinding.key(InputConstants.KEY_B, KeyModifiers.of(KeyModifier.ALT)))
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.CHUNK_BORDERS);
                 getChatHud().addClientSystemMessage(message(bl ? "debug.chunk_boundaries.on" : "debug.chunk_boundaries.off"));
@@ -112,10 +119,11 @@ public class ModKeyMappings {
 
     private static final ManagedKeyMapping TOGGLE_FOG = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_fog"))
             .overrideCategory(DEFAULT_CATEGORY)
-            .withDefault(InputBinding.key(InputConstants.KEY_O))
+            .withDefault(InputBinding.key(InputConstants.KEY_F, KeyModifiers.of(KeyModifier.ALT)))
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 if (DillonLibModReferences.isModLoaded(DillonLibModReferences.QUALITY_OF_QUESO)) {
-                    getChatHud().addClientSystemMessage(message("simplekeybinds.options.fog.disabled"));
+                    getChatHud().addClientSystemMessage(message("simplekeybinds.fog.disabled"));
                     return false;
                 }
                 updateClient(client -> client.fog = !client.fog);
@@ -128,6 +136,7 @@ public class ModKeyMappings {
     private static final ManagedKeyMapping TOGGLE_FULLBRIGHT = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_fullbright"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_V))
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 if (autoBrightness() || RESET_BRIGHTNESS.areModifiersActive()) {
                     return false;
@@ -149,6 +158,7 @@ public class ModKeyMappings {
     private static final ManagedKeyMapping TOGGLE_HITBOXES = Kuma.createKeyMapping(simpleKeybindsIdentifier("toggle_hitboxes"))
             .overrideCategory(DEFAULT_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_X))
+            .withContext(KeyConflictContext.WORLD)
             .handleWorldInput(handler -> {
                 boolean bl = Minecraft.getInstance().debugEntries.toggleStatus(DebugScreenEntries.ENTITY_HITBOXES);
                 getChatHud().addClientSystemMessage(message(bl ? "debug.show_hitboxes.on" : "debug.show_hitboxes.off"));
@@ -156,34 +166,43 @@ public class ModKeyMappings {
             })
             .build();
 
-    public static final ManagedKeyMapping CHANGE_MASTER_VOLUME = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_master_volume"))
+    public static final ManagedKeyMapping CHANGE_MASTER_VOLUME = Kuma.createKeyMapping(simpleKeybindsIdentifier("master_volume"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_M))
+            .withContext(KeyConflictContext.WORLD)
             .build();
 
-    public static final ManagedKeyMapping CHANGE_RENDER_DISTANCE = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_render_distance"))
-            .overrideCategory(SCROLLING_CATEGORY)
-            .withDefault(InputBinding.key(InputConstants.KEY_U))
-            .build();
-
-    public static final ManagedKeyMapping CHANGE_ENTITY_DISTANCE = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_entity_distance"))
-            .overrideCategory(SCROLLING_CATEGORY)
-            .withDefault(InputBinding.key(InputConstants.KEY_H))
-            .build();
-
-    public static final ManagedKeyMapping CHANGE_BRIGHTNESS = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_brightness"))
-            .overrideCategory(SCROLLING_CATEGORY)
-            .withDefault(InputBinding.key(InputConstants.KEY_J))
-            .build();
-
-    public static final ManagedKeyMapping CHANGE_FOV = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_fov"))
+    public static final ManagedKeyMapping CHANGE_RENDER_DISTANCE = Kuma.createKeyMapping(simpleKeybindsIdentifier("render_distance"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_R))
+            .withContext(KeyConflictContext.WORLD)
             .build();
 
-    public static final ManagedKeyMapping CHANGE_GUI_SCALE = Kuma.createKeyMapping(simpleKeybindsIdentifier("change_gui_scale"))
+    public static final ManagedKeyMapping CHANGE_ENTITY_DISTANCE = Kuma.createKeyMapping(simpleKeybindsIdentifier("entity_distance"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
+            .build();
+
+    public static final ManagedKeyMapping CHANGE_BRIGHTNESS = Kuma.createKeyMapping(simpleKeybindsIdentifier("brightness"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withDefault(InputBinding.key(InputConstants.KEY_B))
+            .withContext(KeyConflictContext.WORLD)
+            .build();
+
+    public static final ManagedKeyMapping CHANGE_FOV = Kuma.createKeyMapping(simpleKeybindsIdentifier("fov"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
+            .build();
+
+    public static final ManagedKeyMapping CHANGE_DEBUG_GUI_SCALE = Kuma.createKeyMapping(simpleKeybindsIdentifier("debug_gui_scale"))
+            .overrideCategory(SCROLLING_CATEGORY)
+            .withContext(KeyConflictContext.WORLD)
+            .build();
+
+    public static final ManagedKeyMapping CHANGE_GUI_SCALE = Kuma.createKeyMapping(simpleKeybindsIdentifier("gui_scale"))
             .overrideCategory(SCROLLING_CATEGORY)
             .withDefault(InputBinding.key(InputConstants.KEY_G))
+            .withContext(KeyConflictContext.WORLD)
             .build();
 
     /**

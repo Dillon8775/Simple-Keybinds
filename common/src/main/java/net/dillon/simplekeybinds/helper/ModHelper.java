@@ -5,7 +5,6 @@ import net.dillon.dillonlib.platform.info.UpdatableSpriteButton;
 import net.dillon.dillonlib.task.ClientTasks;
 import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.dillon.simplekeybinds.screen.MainMenuScreen;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
@@ -20,6 +19,7 @@ import net.minecraft.world.level.material.FogType;
 
 import java.util.Map;
 
+import static net.dillon.dillonlib.task.ClientTasks.getMinecraft;
 import static net.dillon.dillonlib.task.ClientTasks.openScreen;
 import static net.dillon.simplekeybinds.helper.ModConstants.MOD_ID;
 import static net.dillon.simplekeybinds.option.OptionInstances.client;
@@ -107,6 +107,25 @@ public class ModHelper {
         muted = false;
     }
 
+    /**
+     * @return the maximum gui scale allowed.
+     */
+    public static int getMaxGuiScale() {
+        return !getMinecraft().isRunning()
+                ? 2147483646
+                : getMinecraft().getWindow().calculateScale(0, getMinecraft().isEnforceUnicode());
+    }
+
+    /**
+     * Calculates the maximum gui scale.
+     */
+    public static int calculateMaxGuiScale(float min, float max, int scale) {
+        return Math.max((int)min, Math.min((int)max, scale));
+    }
+
+    /**
+     * Handles fog rendering.
+     */
     public static void handleFog(Entity entity, FogType fogtype, FogData fogData) {
         if (entity instanceof LivingEntity livingEntity &&
                 !livingEntity.hasEffect(MobEffects.BLINDNESS) &&
@@ -118,13 +137,5 @@ public class ModHelper {
             fogData.renderDistanceEnd = Integer.MAX_VALUE;
             fogData.environmentalEnd = Integer.MAX_VALUE;
         }
-    }
-
-    public static Component toComponentString(Double gamma) {
-        return Component.translatable("options.gamma").append(": ").append(Component.literal(Math.round(gamma * 100) + "%"));
-    }
-
-    public static void onValueUpdate(Double brightness) {
-        Minecraft.getInstance().options.gamma().set(brightness);
     }
 }

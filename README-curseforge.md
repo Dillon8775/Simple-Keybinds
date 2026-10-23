@@ -7,47 +7,64 @@
 ---
 
 # KEYBINDS
-## Toggle Fog
-- Default Binding = **O**
-## Toggle  Fullbright
+## Toggle Fullbright
 - Default Binding = **V**
-## Reset Brightness
+
+- ## Reset Brightness
 - Default Binding = **ALT + V**
 - `Exclusive to version 1.4 and above.`
+
+## Toggle Fog
+- Default Binding = **ALT + F**
+
 ## Mute Game
 - Default Binding = **CTRL + M**
 - `Exclusive to version 1.2.8 and above.`
+
 ## Toggle Hitboxes
 - Default Binding = **X**
+
 ## Toggle Chunk Borders
-- Default Binding = **B**
+- Default Binding = **ALT + B**
+
 ## Reload Chunks
 - No default binding.
+
 ## Pause Without Menu
 - No default binding.
+
 ## Clear Chat
 - No default binding.
+
 ## Show Advanced Tooltips
 - No default binding.
 
 ---
 
-# SCROLLING KEYBINDS
-### To use these keybinds, use your scroll wheel, and the bounded key.
-## Change Render Distance
-- Default Binding = **U**
-## Change Entity Distance
-- Default Binding = **H**
-- `Exclusive to version 1.2 and above.`
+# SCROLL N' HOLD KEYBINDS
+### To use these keybinds, hold down the bounded key and scroll.
 ## Change Master Volume
-- Default Binding = **M**
+- Default Binding = **ALT + M**
 - `Exclusive to version 1.2.4 and above.`
-## Change FOV
+
+## Render Distance
 - Default Binding = **R**
-- `Exclusive to version 1.2.5 and above.`
-## Change GUI Scale
+
+## GUI Scale
 - Default Binding = **G**
 - `Exclusive to version 1.2.5 and above.`
+
+## FOV
+- No default bounding.
+- `Exclusive to version 1.2.5 and above.`
+
+## Entity Distance
+- No default bounding.
+- `Exclusive to version 1.2 and above.`
+
+## Debug GUI Scale
+- No debug bounding.
+- `Exclusive to version 1.4.9 and above.`
 
 ---
 
