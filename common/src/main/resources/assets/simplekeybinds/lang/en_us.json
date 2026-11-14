@@ -6,9 +6,9 @@
 
   "simplekeybinds.header.options": "§l§nOptions",
 
-  "simplekeybinds.menu.keybinds": "§nConfigure Simple Keybinds...",
+  "simplekeybinds.menu.keybinds": "Configure Keybinds...",
   "simplekeybinds.menu.keybinds.tooltip": "View and setup all simple keybinds...",
-  "simplekeybinds.menu.settings": "Settings...",
+  "simplekeybinds.menu.settings": "Mod Settings...",
   "simplekeybinds.menu.debug_huds": "Debug HUDs...",
 
   "simplekeybinds.options.title": "Simple Keybinds Settings",
@@ -20,8 +20,6 @@
   "simplekeybinds.options.messages.description": "Send keybind info messages as overlay or in chat.",
   "simplekeybinds.options.messages.overlay": "Overlay",
   "simplekeybinds.options.messages.chat": "Chat",
-  "simplekeybinds.options.menu_button": "Menu Button",
-  "simplekeybinds.options.menu_button.description": "Determines where the Simple Keybinds menu button should display.\n\nEverywhere → §7in the default position on the pause screen and title screen§r§f\n\nTitle Only → §7only on the title screen§r§f\n\nOFF → §7do not display the menu button at all. You should only disable this if you have another way of accessing the menu, via Mod Menu or (Neo)Forge's mod list.",
 
   "key.category.simplekeybinds.simplekeybinds": "Simple Keybinds",
   "key.simplekeybinds.clear_chat": "Clear Chat",

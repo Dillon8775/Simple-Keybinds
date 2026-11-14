@@ -7,7 +7,6 @@ public class ModClientOptions {
     public boolean fog = false;
     public boolean autoBrightness = false;
     public Messages messages = Messages.OVERLAY;
-    public MenuButton menuButton = MenuButton.TITLE_ONLY;
 
     public static class ModClientOptionsHandler extends BaseOptions<ModClientOptions> {
 

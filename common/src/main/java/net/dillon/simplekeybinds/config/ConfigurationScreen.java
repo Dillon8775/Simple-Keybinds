@@ -8,7 +8,6 @@ import dev.isxander.yacl3.api.controller.EnumControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import dev.isxander.yacl3.impl.controller.BooleanControllerBuilderImpl;
 import net.dillon.dillonlib.core.DillonLibModReferences;
-import net.dillon.simplekeybinds.option.MenuButton;
 import net.dillon.simplekeybinds.option.Messages;
 import net.dillon.simplekeybinds.option.ModClientOptions;
 import net.minecraft.network.chat.Component;
@@ -33,16 +32,6 @@ public class ConfigurationScreen {
                                                 .binding(Messages.OVERLAY, () -> client().messages, v -> client().messages = v)
                                                 .controller(o -> EnumControllerBuilder.create(o)
                                                         .enumClass(Messages.class)
-                                                        .formatValue(v -> Component.translatable(v.getSerializedName())))
-                                                .build()
-                                )
-                                .option(
-                                        Option.<MenuButton>createBuilder()
-                                                .name(Component.translatable("simplekeybinds.options.menu_button"))
-                                                .description(OptionDescription.of(Component.translatable("simplekeybinds.options.menu_button.description")))
-                                                .binding(MenuButton.TITLE_ONLY, () -> client().menuButton, v -> client().menuButton = v)
-                                                .controller(o -> EnumControllerBuilder.create(o)
-                                                        .enumClass(MenuButton.class)
                                                         .formatValue(v -> Component.translatable(v.getSerializedName())))
                                                 .build()
                                 )

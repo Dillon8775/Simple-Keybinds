@@ -1,8 +1,7 @@
 package net.dillon.simplekeybinds.helper;
 
 import net.blay09.mods.balm.Balm;
-import net.dillon.dillonlib.platform.info.UpdatableSpriteButton;
-import net.dillon.dillonlib.task.ClientTasks;
+import net.dillon.dillonlib.client.component.UpdatableSpriteButton;
 import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
 import net.dillon.simplekeybinds.screen.MainMenuScreen;
 import net.minecraft.client.Options;
@@ -17,11 +16,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.material.FogType;
 
-import java.util.Map;
-
 import static net.dillon.dillonlib.task.ClientTasks.getMinecraft;
 import static net.dillon.dillonlib.task.ClientTasks.openScreen;
 import static net.dillon.simplekeybinds.helper.ModConstants.MOD_ID;
+import static net.dillon.simplekeybinds.helper.ModConstants.MOD_INFO;
 import static net.dillon.simplekeybinds.option.OptionInstances.client;
 
 public class ModHelper {
@@ -45,16 +43,15 @@ public class ModHelper {
      * @return the menu button for Simple Keybinds.
      */
     public static UpdatableSpriteButton createMenuButton(Screen parent) {
-        return ClientTasks.createMenuButton(
+        return UpdatableSpriteButton.builder(
                 "Simple Keybinds Main Menu",
+                Component.translatable("simplekeybinds"),
                 ModConstants.LOGO,
-                (button) -> openScreen(new MainMenuScreen(parent)),
-                Map.of(
-                        ModConstants.HAS_UPDATE,
-                        Component.translatable("simplekeybinds.gui.update_available")
-                ),
-                Component.translatable("simplekeybinds.title"),
-                true);
+                b -> openScreen(new MainMenuScreen(parent))
+        )
+                .updateSupplier(MOD_INFO::hasUpdate)
+                .tooltip(Component.translatable("simplekeybinds.title"))
+                .build();
     }
 
     /**

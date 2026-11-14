@@ -1,7 +1,6 @@
 package net.dillon.simplekeybinds.helper;
 
-import net.dillon.dillonlib.util.UpdateChecker;
-import net.dillon.simplekeybinds.platform.SimpleKeybindsPlatforms;
+import net.dillon.dillonlib.platform.info.ModInfo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
@@ -14,11 +13,11 @@ import static net.dillon.simplekeybinds.helper.ModHelper.simpleKeybindsIdentifie
  */
 public class ModConstants {
     public static final String MOD_ID = "simplekeybinds";
-    public static final Component VERSION = Component.literal(SimpleKeybindsPlatforms.getPlatform().modVersion());
-    public static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
-    public static final boolean HAS_UPDATE = UpdateChecker.hasUpdate(UpdateChecker.checkForUpdate(
+    public static final ModInfo MOD_INFO = ModInfo.create(
+            MOD_ID,
             "simple-keybinds",
-            SimpleKeybindsPlatforms.getPlatform().modVersion()
-    ));
+            Component.translatable("simplekeybinds")
+    );
+    public static final Logger LOGGER = LoggerFactory.getLogger("Simple Keybinds");
     public static final Identifier LOGO = simpleKeybindsIdentifier("simplekeybinds");
 }

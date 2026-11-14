@@ -1,11 +1,10 @@
 package net.dillon.simplekeybinds.event;
 
 import net.dillon.dillonlib.task.CommonTasks;
-import net.dillon.simplekeybinds.helper.ModConstants;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.Connection;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextColor;
+
+import static net.dillon.simplekeybinds.helper.ModConstants.MOD_INFO;
 
 /**
  * Client events for Simple Keybinds.
@@ -13,11 +12,6 @@ import net.minecraft.network.chat.TextColor;
 public class ClientEvents {
 
     public static void onPlayerJoin(Connection connection, LocalPlayer player) {
-        if (ModConstants.HAS_UPDATE) {
-            CommonTasks.sendUpdateMessage(player,
-                    Component.translatable("simplekeybinds"),
-                    "https://modrinth.com/mod/simple-keybinds/versions",
-                    TextColor.WHITE.getValue());
-        }
+        CommonTasks.sendUpdateMessage(MOD_INFO, player);
     }
 }
