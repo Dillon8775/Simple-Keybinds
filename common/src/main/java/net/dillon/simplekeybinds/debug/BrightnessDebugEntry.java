@@ -9,7 +9,7 @@ import org.jspecify.annotations.Nullable;
 /**
  * Displays the player's brightness.
  */
-public class ModDebugEntryBrightness extends ModDebugEntry {
+public class BrightnessDebugEntry extends SimpleKeybindsDebugEntry {
 
     @Override
     public void display(DebugScreenDisplayer lines, @Nullable Level serverOrClientLevel, @Nullable LevelChunk clientChunk, @Nullable LevelChunk serverChunk) {
@@ -17,6 +17,10 @@ public class ModDebugEntryBrightness extends ModDebugEntry {
             return;
         }
 
-        lines.addLine("Brightness: " + (int)(Minecraft.getInstance().options.gamma().get() * 100) + "%");
+        lines.addFactToGroup(
+                ModDebugScreenEntries.SIMPLE_KEYBINDS,
+                "Brightness",
+                fact -> fact.value((int)(Minecraft.getInstance().options.gamma().get() * 100) + "%")
+        );
     }
 }

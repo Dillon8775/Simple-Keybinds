@@ -1,12 +1,10 @@
 package net.dillon.simplekeybinds.config;
 
-import dev.isxander.yacl3.api.ConfigCategory;
-import dev.isxander.yacl3.api.Option;
-import dev.isxander.yacl3.api.OptionDescription;
-import dev.isxander.yacl3.api.YetAnotherConfigLib;
+import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.EnumControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import dev.isxander.yacl3.impl.controller.BooleanControllerBuilderImpl;
+import net.dillon.dillonlib.client.util.DebugTextAlignment;
 import net.dillon.dillonlib.core.DillonLibModReferences;
 import net.dillon.simplekeybinds.option.Messages;
 import net.dillon.simplekeybinds.option.ModClientOptions;
@@ -50,6 +48,17 @@ public class ConfigurationScreen {
                                                 .description(OptionDescription.of(Component.translatable("simplekeybinds.options.auto_brightness.description")))
                                                 .binding(false, () -> client().autoBrightness, v -> client().autoBrightness = v)
                                                 .controller(BooleanControllerBuilderImpl::new)
+                                                .build()
+                                )
+                                .option(
+                                        Option.<DebugTextAlignment>createBuilder()
+                                                .name(Component.translatable("dillonlib.option.debug_text_alignment"))
+                                                .description(OptionDescription.of(Component.translatable("dillonlib.option.debug_text_alignment.description")))
+                                                .binding(DebugTextAlignment.AUTO, () -> client().debugTextAlignment, v -> client().debugTextAlignment = v)
+                                                .controller(o -> EnumControllerBuilder.create(o)
+                                                        .enumClass(DebugTextAlignment.class)
+                                                        .formatValue(v -> Component.translatable(v.getSerializedName())))
+                                                .flag(OptionFlag.GAME_RESTART)
                                                 .build()
                                 )
                                 .build()
