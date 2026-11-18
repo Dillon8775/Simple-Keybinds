@@ -17,12 +17,12 @@ import static net.dillon.simplekeybinds.option.OptionInstances.client;
 public class ModDebugScreenEntries {
     public static final ResourceKey<DebugScreenEntry> BRIGHTNESS = key("brightness");
 
-    public static final DebugGroup SIMPLE_KEYBINDS = DebugTextAlignmentBuilder
+    protected static final DebugGroup SIMPLE_KEYBINDS = DebugTextAlignmentBuilder
             .titled(Component.translatable("simplekeybinds"))
             .withAutoColumn(client().debugTextAlignment)
             .build();
 
-    public static final DebugEntryCategory MOD_ENTRY_CATEGORY = new DebugEntryCategory(Component.translatable("simplekeybinds"), 3.0F);
+    protected static final DebugEntryCategory MOD_CATEGORY = new DebugEntryCategory(Component.translatable("simplekeybinds"), 3.0F);
 
     /**
      * @return a debug entry key.
