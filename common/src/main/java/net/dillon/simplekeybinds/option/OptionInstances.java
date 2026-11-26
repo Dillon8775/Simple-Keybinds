@@ -2,6 +2,8 @@ package net.dillon.simplekeybinds.option;
 
 import java.util.function.Consumer;
 
+import static net.dillon.dillonlib.util.BaseOptions.guardedInstance;
+
 /**
  * Getters for all Simple Keybind's option instances.
  */
@@ -11,7 +13,7 @@ public class OptionInstances {
      * Returns the options.
      */
     public static ModClientOptions client() {
-        return ModClientOptions.INSTANCE.getInstance();
+        return guardedInstance(ModClientOptions.INSTANCE.get());
     }
 
     /**

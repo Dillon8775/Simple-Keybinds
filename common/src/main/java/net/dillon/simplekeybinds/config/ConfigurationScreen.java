@@ -63,9 +63,7 @@ public class ConfigurationScreen {
                                 )
                                 .build()
                 )
-                .save(() -> {
-                    ModClientOptions.INSTANCE.save();
-                })
+                .save(ModClientOptions.INSTANCE::save)
                 .build();
     }
 }

@@ -4,7 +4,7 @@ import net.dillon.dillonlib.client.util.DebugTextAlignment;
 import net.dillon.dillonlib.util.BaseOptions;
 
 public class ModClientOptions {
-    public static ModClientOptionsHandler INSTANCE = new ModClientOptionsHandler();
+    public static final ModClientOptionsHandler INSTANCE = new ModClientOptionsHandler();
     public boolean fog = false;
     public boolean autoBrightness = false;
     public DebugTextAlignment debugTextAlignment = DebugTextAlignment.AUTO;
