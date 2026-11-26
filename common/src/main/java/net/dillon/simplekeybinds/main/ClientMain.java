@@ -14,11 +14,12 @@ public class ClientMain {
 
     public static void cInitialize(BalmRegistrars registrars) {
         ModClientOptions.INSTANCE.load();
-        initializeSuccess();
 
         ReloadConfigCommand.createReloadable(
                 ModConstants.MOD_ID,
                 ModClientOptions.INSTANCE
         );
+
+        initializeSuccess();
     }
 }

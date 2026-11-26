@@ -7,9 +7,8 @@ public class ModClientOptions {
     public static final ModClientOptionsHandler INSTANCE = new ModClientOptionsHandler();
     public boolean fog = false;
     public boolean autoBrightness = false;
-    public DebugTextAlignment debugTextAlignment = DebugTextAlignment.AUTO;
-
     public Messages messages = Messages.OVERLAY;
+    public DebugTextAlignment debugTextAlignment = DebugTextAlignment.AUTO;
 
     public static class ModClientOptionsHandler extends BaseOptions<ModClientOptions> {
 
