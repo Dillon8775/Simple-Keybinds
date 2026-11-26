@@ -5,6 +5,4 @@ dependencies {
 
     implementation "net.dillon.dillonlib:dillonlib-neoforge-mc${project.minecraft_version}:unspecified"
     implementation "dev.isxander:yet-another-config-lib:${project.yacl_version}-neoforge"
-
-//    runtimeOnly "net.dillon.qualityofqueso:qualityofqueso-neoforge-mc${project.minecraft_version}:unspecified"
 }
