@@ -24,7 +24,7 @@ public class SimpleKeybindsMixinPlugin extends MixinPluginUtil {
     public List<PredicateEntry> entries() {
         return List.of(
                 PredicateEntry.ofWarn(
-                        PredicateEntry.single("FogRendererMixin"),
+                        PredicateEntry.fabricAndNeoForge("%sFogRendererMixin"),
                         DillonLibModReferences.isModLoaded(DillonLibModReferences.QUALITY_OF_QUESO) || DillonLibModReferences.isModLoaded(DillonLibModReferences.SPEEDRUNNER_MOD),
                         "Quality of Queso mod or Speedrunner Mod is loaded, and those mods already change fog functionality."
                 )

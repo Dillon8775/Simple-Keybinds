@@ -4,7 +4,7 @@
   "plugin": "net.dillon.simplekeybinds.mixin.ConditionalMixinPlugin",
   "compatibilityLevel": "JAVA_25",
   "client": [
-    "FogRendererMixin"
+    "NeoForgeFogRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

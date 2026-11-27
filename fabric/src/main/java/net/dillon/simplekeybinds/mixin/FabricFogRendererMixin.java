@@ -18,7 +18,7 @@ import static net.dillon.simplekeybinds.helper.ModHelper.handleFog;
 
 @Predicated
 @Mixin(FogRenderer.class)
-public class FogRendererMixin {
+public class FabricFogRendererMixin {
 
 	/**
 	 * Removes fog from the game when using the keybind.

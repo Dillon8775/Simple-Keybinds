@@ -19,7 +19,7 @@ import static net.dillon.simplekeybinds.helper.ModHelper.handleFog;
 
 @Predicated
 @Mixin(FogRenderer.class)
-public class FogRendererMixin {
+public class NeoForgeFogRendererMixin {
 
 	/**
 	 * Removes fog from the game when using the keybind.
