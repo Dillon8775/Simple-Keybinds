@@ -1,7 +1,9 @@
 <img alt = "Simple Keybinds Logo" src="https://cdn.modrinth.com/data/cached_images/0e1523120d447bbe5491641a20cd4c03a15acd1f_0.webp">
 
 ---
-<h1>Adds simplier keybinds to Minecraft!</h1>
+<h1>Adds simpler keybinds to Minecraft!</h1>
+<img alt = "Latest Version" width = 300 src="https://img.shields.io/badge/MC-Latest_Version-313E51?style=for-the-badge&logo=anycubic&labelColor=555555">
+<br><br>
 <img alt = "Client-side, server optional" width = 200 src="https://img.shields.io/badge/Side-Client-05A358?style=for-the-badge&logo=serverfault">
 
 ---
